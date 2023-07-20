@@ -1,0 +1,48 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{graphicx}
+%\usepackage[bf,tiny,compact]{titlesec}
+\usepackage{times}
+\usepackage{natbib}
+\usepackage{titlesec}
+\usepackage{etoolbox}
+\usepackage{hyperref}
+
+
+\makeatletter
+\def\@maketitle{%
+    {\centering\fontsize{12pt}{14pt}\selectfont\textbf{\@title}\par}
+}
+\patchcmd{\@footnotetext}{\footnotesize}{\fontsize{10pt}{12pt}\selectfont}{}{}
+\makeatother
+
+
+\renewcommand{\bibsection}{\noindent\textbf{References}\vspace{-6pt}}
+\setlength{\bibsep}{0pt} % or use whatever dimension you want
+\renewcommand{\bibfont}{\fontsize{10pt}{12pt}\selectfont} % or any other  appropriate font command
+
+
+\renewcommand{\section}[1]{\vspace{0.25\baselineskip}\noindent\textbf{#1.}}
+\renewcommand{\subsection}[1]{\vspace{0.25\baselineskip}\noindent\textit{#1.}}
+
+\title{Towards Computational Methods for Assisting in the Proactive Moderation of Online Communities}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+Research Statement --- Jonathan P. Chang
+\end{center}
+
+From their inception, online platforms have promised to make us more connected, acting as social spaces that could promote communication and collaboration. 
+As these platforms have grown, however, this optimistic vision has given way to the cold reality that they often instead play host to \emph{antisocial} behaviors, including incivility, bullying, harassment, and hate speech. 
+In response, platforms---and the communities they host---commonly engage in \emph{content moderation} practices designed to identify, remove, and/or prevent instances of antisocial behavior.
+These practices range from \emph{reactively} removing or otherwise correcting antisocial behavior after it occurs, to \emph{proactively} encouraging prosocial behavior and preventing incidents of antisocial behavior from occurring in the first place.
+While there has been growing interest in exploring how computational tools could aid content moderation, existing work has tended to cater purely towards reactive, centralized models of moderation---for instance, by developing algorithmic systems that can automatically detect possible instances of antisocial behavior so that they can be flagged for human review or even automatically removed altogether.
+
+My research, by contrast, seeks to fill a currently underexplored gap: exploring how computational tools could fit in to more community-driven, proactive moderation workflows.
+In pursuit of this goal, I devlop a combined social and technical research agenda, which seeks to work collaboratively with real online communities to identify their needs and the gaps in their computational toolkits, and apply those insights to guide the development of algorithmic methods that might address those needs.
+Executing this research plan has resulted both in new insights into how communities approach content moderation, and in novel algorithmic methods for identifying conversations that, while not yet exhibting outright antisocial behavior, are nonetheless at risk of derailing into such undesirable outcomes.
+In keeping with the overarching goal of meeting the needs of real communities, I have further developed these algorithmic methods into usable software tools, and collaborated with online communites to evaluate how well these tools address their needs.
+
+\end{document}
