@@ -18,6 +18,13 @@
   abstract = {Harassment, especially of marginalized individuals, on networked gaming and social media platforms has been identified as a significant issue, yet few HCI practitioners have attempted to create interventions tackling toxicity online. Aligning ourselves with the growing cohort of design activists, we present a case study of the GLHF pledge, an interactive public awareness campaign promoting positivity in video game live streaming. We discuss the design and deployment of a community-driven moderation intervention for GLHF, intended to empower the inclusive communities emerging on Twitch. After offering a preliminary report on the effects we have observed based on the more than 370,000 gamers who have participated to date, the paper concludes with a reflection on the challenges and opportunities of using design activism to positively intervene in large-scale media platforms.}
 }
 
+@book{brown_politeness:_1987,
+  title = {Politeness: {{Some Universals}} in {{Language Usage}}},
+  author = {Brown, Penelope and Levinson, Stephen C.},
+  year = {1987},
+  publisher = {{Cambridge University Press}}
+}
+
 @inproceedings{cai_what_2019,
   title = {What Are {{Effective Strategies}} of {{Handling Harassment}} on {{Twitch}}? {{Users}}' {{Perspectives}}},
   booktitle = {Proceedings of {{CSCW}}},
@@ -83,6 +90,28 @@
   year = {2019},
   urldate = {2019-09-25},
   abstract = {Online discussions often derail into toxic exchanges between participants. Recent efforts mostly focused on detecting antisocial behavior after the fact, by analyzing single comments in isolation. To provide more timely notice to human moderators, a system needs to preemptively detect that a conversation is heading towards derailment before it actually turns toxic. This means modeling derailment as an emerging property of a conversation rather than as an isolated utterance-level event. Forecasting emerging conversational properties, however, poses several inherent modeling challenges. First, since conversations are dynamic, a forecasting model needs to capture the flow of the discussion, rather than properties of individual comments. Second, real conversations have an unknown horizon: they can end or derail at any time; thus a practical forecasting model needs to assess the risk in an online fashion, as the conversation develops. In this work we introduce a conversational forecasting model that learns an unsupervised representation of conversational dynamics and exploits it to predict future derailment as the conversation develops. By applying this model to two new diverse datasets of online conversations with labels for antisocial events, we show that it outperforms state-of-the-art systems at forecasting derailment.}
+}
+
+@article{clark_polite_1980-1,
+  title = {Polite Responses to Polite Requests},
+  author = {Clark, Herbert H. and Schunk, Dale H.},
+  year = {1980},
+  month = jan,
+  journal = {Cognition},
+  volume = {8},
+  number = {2},
+  urldate = {2020-03-04},
+  abstract = {Indirect requests vary in politeness; for example, Can you tell me where Jordan Hall is? is more polite than Shouldn't you tell me where Jordan Hall is? By one theory, the more the literal meaning of a request implies personal benefits for the listener, within reason, the more polite is the request. This prediction was confirmed in Experiment 1. Responses to indirect requests also vary in politeness. For Can you tell me where Jordan Hall is?, the response Yes, I can \textemdash{} it's up the street is more polite than It's up the street. By an extension of that theory, the more attentive the responder is to all of the requester's meaning, the more polite is the response. This prediction was confirmed in Experiments 2, 3 and 4. From this evidence, we argued that people ordinarily compute both the literal and the indirect meanings of indirect requests. They must if they are to recognize when the speaker is and isn't being polite, and if they are to respond politely, impolitely, or even neutrally. R\'esum\'e Les demandes indirectes peuvent \^etre formul\'ees de fa\c{c}on plus ou moins polie. Par example ``Can you tell me where Jordan Hall is?'' (Pouvez-vous me dire o\'u se trouve Jordan Hall?) est plus poli que ``Shouldn't you tell me where Jordan Hall is?'' (Ne devriez-vous pas me dire o\'u se trouve Jordan Hall?). Une approche th\'eorique propose que plus le sens litt\'eral de la demande implique d'advantages personnels pour l'auditeur, dans les limites du raisonnable, plus polie est la demande. Cette pr\'ediction est confirm\'ee par l'Exp\'erience 1. Les r\'esponses aux demandes indirectes varient aussi en politesse. Pour ``Can you tell me where Jordan Hall is?'' (Pouvez-vous me dire o\'u se trouve Jordan Hall?) la r\'esponse ``Yes, I can \textemdash{} it's up the street'' (Oui, je peux vous le dire, il se trouve en haut de la rue) est plus polie que ``It's up the street'' (C'est en haut de la rue). Une extension de la th\'eorie permet de pr\'edire que plus celui qui r\'epond fait attention \`a tous les sens impliqu\'es par la requ\^ete, plus la r\'esponse est polie. Les Exp\'eriences 2, 3 et 4 confirment cette pr\'ediction. Avec ces preuves, nous proposons que les gens calculent les sens directs et indirects des demandes indirectes. Cela est n\'ecessaire pour reconna\^itre quand le locuteur est pol\^i ou ne l'est pas, et pour pouvoir r\'espondre poliment, impoliment ou de fa\c{c}on neutre.},
+  langid = {english}
+}
+
+@inproceedings{danescu-niculescu-mizil_computational_2013,
+  title = {A {{Computational Approach}} to {{Politeness}} with {{Application}} to {{Social Factors}}},
+  booktitle = {Proceedings of {{ACL}}},
+  author = {{Danescu-Niculescu-Mizil}, Cristian and Sudhof, Moritz and Jurafsky, Dan and Leskovec, Jure and Potts, Christopher},
+  year = {2013},
+  abstract = {We propose a computational framework for identifying linguistic aspects of politeness. Our starting point is a new corpus of requests annotated for politeness, which we use to evaluate aspects of politeness theory and to uncover new interactions between politeness markers and context. These findings guide our construction of a classifier with domain-independent lexical and syntactic features operationalizing key components of politeness theory, such as indirection, deference, impersonalization and modality. Our classifier achieves close to human performance and is effective across domains. We use our framework to study the relationship between politeness and social power, showing that polite Wikipedia editors are more likely to achieve high status through elections, but, once elevated, they become less polite. We see a similar negative correlation between politeness and power on Stack Exchange, where users at the top of the reputation scale are less polite than those at the bottom. Finally, we apply our classifier to a preliminary analysis of politeness variation by gender and community.},
+  langid = {english}
 }
 
 @inproceedings{gilbert_i_2020,
@@ -180,6 +209,23 @@
   year = {2017},
   urldate = {2018-10-02},
   abstract = {Online communities have the potential to be supportive, cruel, or anywhere in between. The development of positive norms for interaction can help users build bonds, grow, and learn. Using millions of messages sent in Twitch chatrooms, we explore the effectiveness of methods for encouraging and discouraging specific behaviors, including taking advantage of imitation effects through setting positive examples and using moderation tools to discourage antisocial behaviors. Consistent with aspects of imitation theory and deterrence theory, users imitated examples of behavior that they saw, and more so for behaviors from high status users. Proactive moderation tools, such as chat modes which restricted the ability to post certain content, proved effective at discouraging spam behaviors, while reactive bans were able to discourage a wider variety of behaviors. This work considers the intersection of tools, authority, and types of behaviors, offering a new frame through which to consider the development of moderation strategies.}
+}
+
+@incollection{tannen_indirectness_2000,
+  title = {Indirectness at {{Work}}},
+  booktitle = {Language in {{Action}}: {{New Studies}} of {{Language}} in {{Society}}, {{Festschrift}} for {{Roger Shuy}}},
+  author = {Tannen, Deborah},
+  year = {2000}
+}
+
+@inproceedings{zhang_asking_2017,
+  title = {Asking Too {{Much}}? {{The Rhetorical Role}} of {{Questions}} in {{Political Discourse}}},
+  booktitle = {Proceedings of  {{EMNLP}}},
+  author = {Zhang, Justine and Spirling, Arthur and {Danescu-Niculescu-Mizil}, Cristian},
+  year = {2017},
+  urldate = {2019-05-16},
+  abstract = {Questions play a prominent role in social interactions, performing rhetorical functions that go beyond that of simple informational exchange. The surface form of a question can signal the intention and background of the person asking it, as well as the nature of their relation with the interlocutor. While the informational nature of questions has been extensively examined in the context of question-answering applications, their rhetorical aspects have been largely understudied.},
+  langid = {english}
 }
 
 @inproceedings{zhang_conversations_2018,
