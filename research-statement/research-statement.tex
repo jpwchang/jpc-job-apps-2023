@@ -3,6 +3,7 @@
 \usepackage{graphicx}
 %\usepackage[bf,tiny,compact]{titlesec}
 \usepackage{times}
+\usepackage{cite}
 \usepackage{natbib}
 \usepackage{titlesec}
 \usepackage{etoolbox}
@@ -17,7 +18,7 @@
 \makeatother
 
 
-\renewcommand{\bibsection}{\noindent\textbf{References}\vspace{-6pt}}
+\renewcommand{\bibsection}{\noindent\textbf{References (works to which I contrubted have my name \underline{underlined})}\vspace{-6pt}}
 \setlength{\bibsep}{0pt} % or use whatever dimension you want
 \renewcommand{\bibfont}{\fontsize{10pt}{12pt}\selectfont} % or any other  appropriate font command
 
@@ -46,10 +47,35 @@ Executing this research plan has resulted both in new insights into how communit
 In keeping with the overarching goal of meeting the needs of real communities, I have further developed these algorithmic methods into usable software tools, and collaborated with online communites to evaluate how well these tools address their needs.
 
 \section{Identifying Community Moderation Practices and the Needs That Arise}
-The popular discourse around content moderation has tended to focus on the practices of large social media companies like Facebook and Twitter, which employ a centralized, platform-driven model of moderation: moderators employed or contracted by the company enforcing often-opaque rules from the top down.
+The popular discourse around content moderation has tended to focus on the practices of large social media companies like Facebook and Twitter, which employ a centralized, platform-driven model of moderation: moderators employed or contracted by the company enforcing often-opaque rules from the top down, most often by reactively removing content that is considered to be in violation of those rules.
 Yet as a growing body of scholarship within social science and human-computer interaction has shown, moderation actually encompasses a much richer body of practices which extend all the way down to the community level \cite{brewer_inclusion_2020,lampe_slashdot_2004,seering_reconsidering_2020}.
-On the opposite extreme from the platform-driven moderation of large social media platforms lies community-driven moderation, embraced by smaller, interest-specific communities such as Discord servers, Twitch livestream communities, topic-focused ``subreddits'' on Reddit, and the Wikipedia editor community \cite{chandrasekharan_internets_2018,halfaker_rise_2013,lampe_slashdot_2004}.
+
+On the opposite extreme from the platform-driven moderation of large social media platforms lies community-driven moderation, embraced by smaller, interest-specific communities such as the Wikipedia editor community and topic-focused ``subreddits'' on Reddit \cite{chandrasekharan_internets_2018,halfaker_rise_2013}.
 Under this paradigm, moderators are volunteers who are actual members of the communities they serve \cite{gilbert_i_2020,lo_when_2018}.
+These volunteer moderators do not just reactively remove antisocial behavior after it happens---they also regularly engage with their communities in order to proactively steer their communities towards a more prosocial atmosphere, for instance by educating community members about the rules and norms and intervening in situations that they deem to be getting out of hand \cite{seering_shaping_2017,cai_what_2019,billings_understanding_2010}.
+Much prior work on the role of computational assistance in content moderation has tended to cater towards moderators in the centralized, platform-driven model operating under a reactive paradigm, leaving the more proactive labor of community volunteer moderators unadressed \cite{jurgens_just_2019}.
+Filling this gap requires first examining the concrete steps volunteer moderators take in their proactie moderation, and from there identifying specific aspects that could benefit from algorithmic assistance---problems that my work has tackled from both a qualtiative and quantitative perspective.
+
+In work presented at the 2019 Web Conference (WWW 2019) \cite{chang_trajectories_2019}, I conducted a data-driven exploration of one dimension of volunteer moderators' work: their relationship with regular community members and how this factors into their moderation actions.
+For this exploration, I looked at conversations between Wikipedia editors, taking place on the platform's dedicated ``talk pages'' which serve as a pseudo-forum for discussing and coordinating edits, and which are governed by rules designed to facilitate collaboration and productivity, such as a prohibition against personal attacks.
+These rules are enforced by volunteer moderators known as administrators, who can take action both through informal steps such as written warnings, and more formal steps such as temporarily blocking the editor from making edits or commenting on talk pages.
+Due to Wikipedia's ethos of open access, nearly all such actions are publicly logged and accessible, and it is these moderation logs that constitute the data for my exploration.
+
+To better understand the relationship between volunteer moderators and other community members, I examined the interactions between moderators and the editors that they temporarily blocked.
+This analysis reveals that \emph{trust} is a key ingredient in community-driven moderation.
+Editors who explicitly signal their acceptance of the moderator's judgement---as measured by the use of apologetic language that suggests the editor acknowledges their wrongdoing---are 9\% less likely to get blocked again in the future; in other words, they become more willing to adhere to community norms.
+By contrast, editors who signaled their rejection of the moderator's judgement---as measured by the use of accusatory language such as direct questioning and claims of unfairness directed towards the moderator---are 5-6\% \emph{more} likely to get blocked again for a future offense.
+This trust-signaling can go both ways: Wikipedia moderators have the ability to shorten the duration of a block that they had previously given out, which can be interpreted as a form of clemency that signals a degree of trust in the blocked editor.
+My analysis reveals that editors who receive such clemency are 7\% less likely to get blocked again in the future.
+
+These results point to an important aspect of community-driven moderation: it is very much a \emph{collaborative} project, one in which regular community members are not merely passive observers but instead play a direct role.
+Regular community members actively choose to accept---or not---the authority of volunteer moderators and the norms they promote, and may directly communicate their (un)acceptance to the moderators themselves.
+Volunteer moderators, for their part, seek to bolster their relationship of mutual trust with the community; in doing so, they may make community members more willing to adhere to rules and norms, thereby proactively reducing the likelihood of antisocial behavior.
+But how is this concretely achieved?
+My preceding data-driven analysis only reveals one strategy, the granting of clemency, which is applicable only in specific circumstances.
+Gaining a more complete picture of proactive moderation work requires taking a more holistic approach to analyzing the work of volunteer moderators as seen directly from their own perspectives.
+
+To gain such a perspective, I conducted interviews with Wikipedia moderators, in work published at the 2022 ACM Conference on Computer-Supported Collaborative Work (CSCW 2022) \cite{schluger_proactive_2022}.
 
 \vspace{\baselineskip}
 \bibliographystyle{plain}
