@@ -37,11 +37,12 @@ Research Statement --- Jonathan P. Chang
 
 From their inception, online platforms have promised to make us more connected, acting as social spaces that could promote communication and collaboration. 
 As these platforms have grown, however, this optimistic vision has given way to the cold reality that they often instead play host to \emph{antisocial} behaviors, including incivility, bullying, harassment, and hate speech. 
-In response, platforms---and the communities they host---commonly engage in \emph{content moderation} practices designed to identify, remove, and/or prevent instances of antisocial behavior.
-These practices range from \emph{reactively} removing or otherwise correcting antisocial behavior after it occurs, to \emph{proactively} encouraging prosocial behavior and preventing incidents of antisocial behavior from occurring in the first place.
-While there has been growing interest in exploring how computational tools could aid content moderation, existing work has tended to cater purely towards reactive, centralized models of moderation---for instance, by developing algorithmic systems that can automatically detect possible instances of antisocial behavior so that they can be flagged for human review or even automatically removed altogether.
-
-My research, by contrast, seeks to fill a currently underexplored gap: exploring how computational tools could fit in to more community-driven, proactive moderation workflows.
+%In response, platforms---and the communities they host---commonly engage in \emph{content moderation} practices designed to identify, remove, and/or prevent instances of antisocial behavior.
+%These practices range from \emph{reactively} removing or otherwise correcting antisocial behavior after it occurs, to \emph{proactively} encouraging prosocial behavior and preventing incidents of antisocial behavior from occurring in the first place.
+%While there has been growing interest in exploring how computational tools could aid content moderation, existing work has tended to cater purely towards reactive, centralized models of moderation---for instance, by developing algorithmic systems that can automatically detect possible instances of antisocial behavior so that they can be flagged for human review or even automatically removed altogether.
+%
+%My research, by contrast, seeks to fill a currently underexplored gap: exploring how computational tools could fit in to more community-driven, proactive moderation workflows.
+My research focuses on characterizing the social and linguistic contexts that precipitate such antisocial behavior, with the end goal of designing computational tools to empower community-driven, proactive moderation workflows---standing in contrast to prior work which has tended to instead focus on top-down, reactive moderation.
 In pursuit of this goal, I devlop a combined social and technical research agenda, which involves engaging collaboratively with real online communities to identify their needs and the gaps in their computational toolkits, and applying those insights to guide the development of algorithmic methods that might address those needs.
 Executing this research plan has resulted both in new insights into how communities approach content moderation, and in novel algorithmic methods for identifying conversations that, while not yet exhibting outright antisocial behavior, are nonetheless at risk of derailing into such undesirable outcomes.
 In keeping with the overarching goal of meeting the needs of real communities, I have further developed these algorithmic methods into usable software tools, and collaborated with online communites to evaluate how well these tools address their needs.
@@ -69,19 +70,34 @@ By contrast, editors who signaled their rejection of the moderator's judgement--
 This trust-signaling can go both ways: Wikipedia moderators have the ability to shorten the duration of a block that they had previously given out, which can be interpreted as a form of clemency that signals a degree of trust in the blocked editor.
 My analysis reveals that editors who receive such clemency are 7\% less likely to get blocked again in the future.
 
-These results point to an important aspect of community-driven moderation: it is very much a \emph{collaborative} project, one in which regular community members are not merely passive observers but instead play a direct role.
-Regular community members actively choose to accept---or not---the authority of volunteer moderators and the norms they promote, and may directly communicate their (un)acceptance to the moderators themselves.
-Volunteer moderators, for their part, seek to bolster their relationship of mutual trust with the community; in doing so, they may make community members more willing to adhere to rules and norms, thereby proactively reducing the likelihood of antisocial behavior.
-But how is this concretely achieved?
-My preceding data-driven analysis only reveals one strategy, the granting of clemency, which is applicable only in specific circumstances.
-Gaining a more complete picture of proactive moderation work requires taking a more holistic approach to analyzing the work of volunteer moderators as seen directly from their own perspectives.
+%These results point to an important aspect of community-driven moderation: it is very much a \emph{collaborative} project, one in which regular community members are not merely passive observers but instead play a direct role.
+%Regular community members actively choose to accept---or not---the authority of volunteer moderators and the norms they promote, and may directly communicate their (un)acceptance to the moderators themselves.
+%Volunteer moderators, for their part, seek to bolster their relationship of mutual trust with the community; in doing so, they may make community members more willing to adhere to rules and norms, thereby proactively reducing the likelihood of antisocial behavior.
+%But how is this concretely achieved?
+%My preceding data-driven analysis only reveals one strategy, the granting of clemency, which is applicable only in specific circumstances.
+%Gaining a more complete picture of proactive moderation work requires taking a more holistic approach to analyzing the work of volunteer moderators as seen directly from their own perspectives.
 
-To gain such a perspective, I conducted interviews with Wikipedia moderators, in work published at the 2022 ACM Conference on Computer-Supported Collaborative Work (CSCW 2022) \cite{schluger_proactive_2022}.
-These interviews focused on the proactive side of volunteer moderators' work, asking questions about moderators reason about the likelihood of a stiuation deteriorating into antisocial behavior, and what kinds of proactive steps they take to prevent such outcomes.
+These results illuminate the collaborative nature of community-driven moderation: regular community members are a key contributor to the functioning of the system, as its success requires their buy-in and trust, which moderators in turn must foster.
+But besides grating clemency---which is a highly situational, niche strategy---how do volunteer moderators bolster their relationship with their community and proactively encourage prosocial behavior?
+To answer this question, I conducted interviews with Wikipedia moderators, in work published at the 2022 ACM Conference on Computer-Supported Collaborative Work (CSCW 2022) \cite{schluger_proactive_2022}.
+%These interviews focused on the proactive side of volunteer moderators' work, asking questions about moderators reason about the likelihood of a stiuation deteriorating into antisocial behavior, and what kinds of proactive steps they take to prevent such outcomes.
 From the responses, a clear picture emerges of how volunteer moderators can tell when conflicts between Wikipedia editors are at risk of veering away from healthy disagreement and towards antisocial behavior, and the strategies they employ to get things back on track.
 
 All moderators we interviewed agreed that they can at least sometimes foresee when a discussion is likely to derail into antisocial behavior.
 While exactly how they do this is more of an art than a science, moderators were able to point to some concrete indicators that they intuitively know to look for, such as the tone of the discussion and whether it has ``started off on the wrong foot''.
+According to the moderators, once they have judged that a discussion is at risk of derailing, they may choose to intervene in a soft, informal way, such as by offering to mediate the disagreement or simply posting a friendly reminder of the rules.
+Overall, moderators told us that they regard this strategy as being beneficial to the community, as it enables them to keep things civil without resorting to more heavy-handed tactics that may be received negatively and alienate some otherwise productive editors.
+
+Nonetheless, moderators also reported facing some key challenges in trying to proactively keep things civil.
+For one, their own intuition about whether a conversation is at risk is far from infallible, with all moderators reporting at least some degree of uncertainty in their judgments.
+This difficulty is compounded by the large volume of discussions taking place at any given time, making it impossible to keep an eye on every single discussion that could turn out to be at risk.
+Finally, even when a moderator decides a discussion is at risk and requires intervention, knowing exactly \emph{when} to intervene is a challenge of its own---due to the inherent uncertainty of predicting risk of derailment, moderators often hesitate to intervene too early, but if they wait too long the discussion may reach a point where it becomes too late to set things back on track; as one moderator poetically put it ``the hand grenade has gone off and I didn't even hear it because I've gone down the street''.
+
+I believe that these challenges represent an opening where computational tools could be of assistance to volunteer moderators.
+If an algorithm could capture some of the human intuition about when a discussion is at risk of derailing, it could supplement volunteer moderators' work in at least two ways.
+First, such an algorithm could form the basis of a moderator-facing tool that highlights, in real time, the discussions that are most at risk, taking over some of the burden of identifying where intervention is needed.
+Second, such an algorithm could also provide feedback to regular community members, providing an automated version of moderators' interventions within at-risk discussions in order to encourage the participants to stay on track and avoid violating community norms.
+Actually accomplishing this requires both developing this hypothetical derailment-forecasting algorithm, and doing design work to adapt it into a usable and useful tool---challenges which I have begun to address through my subsequent research.
 
 \vspace{\baselineskip}
 \bibliographystyle{plain}
