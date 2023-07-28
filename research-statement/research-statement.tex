@@ -57,7 +57,7 @@ Prior work on computational assistance for content moderation has tended to cate
 But a growing body of scholarship within social science and human-computer interaction has argued that this approach is ill-suited to the needs of smaller, more interest-driven online communities (such as the Wikipedia editor community and topic-focused ``subreddits'' on Reddit) \cite{jurgens_just_2019,seering_reconsidering_2020}.
 These communities tend to instead embrace a community-driven model of moderation, wherein moderators are volunteers who are actual members of the communities they serve \cite{lo_when_2018}.
 These volunteer moderators do not just reactively remove antisocial behavior after it happens---they also regularly engage with their communities to proactively foster a more prosocial atmosphere.
-Such proactive steps include publicly modeling good behavior, reminding community members about the rules, and mediating discussions that are getting out of hand \cite{seering_shaping_2017,cai_what_2019,billings_understanding_2010}.
+Such proactive steps include publicly modeling good behavior, reminding community members about the rules, and mediating discussions that are getting out of hand \cite{seering_shaping_2017,billings_understanding_2010}.
 
 
 %Leveraging these logs, I conducted a data-driven analysis of how moderators interact with the editors whom they temporarily block, presented at the 2019 Web Conference (WWW 2019) \cite{chang_trajectories_2019}.
@@ -98,7 +98,7 @@ Actually accomplishing this requires both developing this hypothetical derailmen
 The first step towards practical computational tools for proactive moderation is to show that it is feasible in the first place for an algorithm to pick up on signals of potential future derailment, like human moderators claim to be able to do.
 To establish the feasibility of this task, we must look back to some of my earlier work on analyzing conversations, which focused on finding experimental evidence to support sociolinguistic theories about how to mediate tense conversations.
 
-Classical literature in the field of pragmatics points to \emph{politeness} as a mediating factor that softens the perceived force of a message \cite{brown_politeness:_1987,clark_polite_1980-1}.
+Classical literature in the field of pragmatics points to \emph{politeness} as a mediating factor that softens the perceived force of a message \cite{brown_politeness:_1987}.
 In work presented at the 2018 Annual Meeting of the Association for Computational Linguistics (ACL 2018) \cite{zhang_conversations_2018}, my collaborators and I examined this theory computationally by building a software system that characterizes politeness by applying a combination of handwritten rules inspired by the classical theories \cite{danescu-niculescu-mizil_computational_2013} and an unsupervised method for estimating the rhetorical intent of an utterance \cite{zhang_asking_2017}.
 We ran this system on comments sampled from Wikipedia talk page discussion, and compared the system-detected politeness features to the eventual outcome of the discussion (as labeled by human annotators).
 Consistent with the classical theories, we confirmed that politness is correlated with reduced likelihood of antisocial outcomes.
@@ -136,12 +136,35 @@ More importantly, we found evidence that this extra time actually went towards t
 A linguistic analysis of the resulting comments showed that they tend to exhibit increased use of known conflict avoidance strategies such as asking questions and adopting more formal tone.
 Finally, study participants' subjective evaluation of ConvoWizard in the exit survey was also positive, with 77\% of participants rating its feedback at least somewhat helpful, 68\% reporting that its risk estimates were as good as or better than their own intuitions, and 54\% reporting that ConvoWizard made them rethink posting a comment they might have later regretted.
 
-ConvoWizard is a prototype for one way I have proposed that forecasting algorithms can help online communities: providing automated, at-scale interventions aimed at regular community members.
-But as I described earlier, I also see a second potential use case: these algorithms could form the basis of a moderator-facing assistive tool that takes over some of the burden of identifying at-risk discussions that might require attention.
-Though work in this direction is still in its early stages, I have already laid down some groundwork.
-In a second phase of my previously-described moderator interviews, moderators were shown a mockup of possible CRAFT-powered moderator tool, which provides a ranked list of discussions with the ones most at risk being placed at the top (though the mockup was not running live, it used real conversations from talk page archives, ranked according to the actual output of the CRAFT algorithm).
-Moderators then gave their high level thoughts on the mockup, which largely leaned positive: they reported that the rankings generally aligned with their own intuitions and that they could see the tool being useful for managing their workload.
-These very early but positive indicators should be followed up with a user study, which forms part of my future plans as I now discuss.
+A ConvoWizard-style tool, helping regular community members as they comment in online discussions, is only one half of my research agenda for proactive moderation tools.
+As I have previously described, a second proposal is to use forecasting algorithms to directly help moderators by taking over some of the burden of identifying discussions that might need intervention.
+I have already begun laying down the groundwork for this: part of my moderator interviews included a mockup interface for such a tool, involving a ranked list of discussions that are most at risk.
+Moderators overall reacted positively to the idea and many stated they would be willing to try such a tool.
+Building and evaluating a real implementation of such a tool is one part of my future plans, as I now discuss.
+
+\section{Next Steps}
+I am a firm believer in the principle that before new technologies can be broadly adopted, we must first try to understand as fully as possible its ramifications for society and its potential risks.
+This is especially vital for work relating to content moderation, which is quickly becoming a major societal issue with implications for online safety, free speech, and social justice.
+The social aspect of my work has been tailored towards understanding the impact of tools based on forecasting algorithms, and while I regard the findings from my interviews and the ConvoWizard user study as encouraging positive signs, we are still far from fully understanding the effects of these tools, and thus there is much work still to do.
+
+One area that I particularly want to focus on is improving the transparency of forecasting algorithms.
+My current approach, CRAFT, uses a neural network, a methodology whose decision processes are notoriously hard to explain.
+Indeed, lack of transparency was the biggest complaint we received in the ConvoWizard exit survey, with users reporting that a warning about risk of derailment, with no explanation, is difficult to act upon even if they agree with it.
+I regard this as the current biggest \emph{technical} hurdle to the usability of forecasting algorithms, and have already begun work on incorporating the latest research on explainable neural models to build a more transparent successor to CRAFT.
+But this is not just short-term work: as the field of ``explainable AI'' grows, it will undoubtedly produce more breakthroughs that we can draw from, and I remain committed to pursuing this goal because I believe that if forecasting-based tools are ever broadly adopted, they must be based on explainable algorithms.
+
+But the transparency issue is not just a technical problem: it also ties in to the larger \emph{social} problem of algorithmic bias.
+By now, it has become well known that data-driven approaches are vulnerable to capturing biases embedded within the data.
+The question, then, is not whether forecasting algorithms like CRAFT contain biases---the answer is surely yes---but rather what kinds of biases exist and what their impact would be in a broadly deployed forecasting-based tool.
+This is uncharted territory, since most prior work on computational tools for moderation---and by extension, the analyses of their biases---focused on the reactive paradigm, and it is not clear how those findings might apply to proactive moderation.
+Like the rest of my research agenda, my plan for addressing this question is to take a combined social and technical approach.
+Once an explainable successor to CRAFT has been developed, my plan is to analyze the model's decisions through the lens of recent work from computational social science on codifying the social and power implications found in natural language \cite{sap_social_2020}.
+Cross-referencing this work with the model's decision-making processes could reveal, for instance, whether the algorithm is less sensitive to attacks towards specific underrepresented groups.
+And once such biases are identified, the same insights from social science could be applied to design ways to counter them.
+
+It is also important once again to understand the impact of tools based on forecasting algorithms not just in the lab, but in the context of real communities.
+All the future plans I just described should therefore be accompanied by further collaborative studies with real communities, including much larger-scale studies aimed at understanding long-term impacts, not just immediate implications on individual discussion threads.
+As described earlier, these studies will also look into how forecasting algorithms might be used to directly support moderators, in additional to ConvoWizard-style tools aimed at regular community members.
 
 \vspace{\baselineskip}
 \bibliographystyle{plain}
