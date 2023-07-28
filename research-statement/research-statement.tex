@@ -44,8 +44,9 @@ As these platforms have grown, however, this optimistic vision has given way to 
 %My research, by contrast, seeks to fill a currently underexplored gap: exploring how computational tools could fit in to more community-driven, proactive moderation workflows.
 My research focuses on characterizing the social and linguistic contexts that precipitate such antisocial behavior, with the end goal of designing computational tools to empower community-driven, proactive moderation workflows---standing in contrast to prior work which has tended to instead focus on top-down, reactive moderation.
 In pursuit of this goal, I devlop a combined social and technical research agenda, which involves engaging collaboratively with real online communities to identify their needs and the gaps in their computational toolkits, and applying those insights to guide the development of algorithmic methods that might address those needs.
-Executing this research plan has resulted both in new insights into how communities approach content moderation, and in novel algorithmic methods for identifying conversations that, while not yet exhibting outright antisocial behavior, are nonetheless at risk of derailing into such undesirable outcomes.
-In keeping with the overarching goal of meeting the needs of real communities, I have further developed these algorithmic methods into usable software tools, and collaborated with online communites to evaluate how well these tools address their needs.
+%Executing this research plan has resulted both in new insights into how communities approach content moderation, and in novel algorithmic methods for identifying conversations that, while not yet exhibting outright antisocial behavior, are nonetheless at risk of derailing into such undesirable outcomes.
+%In keeping with the overarching goal of meeting the needs of real communities, I have further developed these algorithmic methods into usable software tools, and collaborated with online communites to evaluate how well these tools address their needs.
+This agenda has so far yielded new insights into proactive moderation practices, novel algorithmic approaches to characterizing when discussions are at risk of derailing into antisocial behavior, and user studies done in collaboration with real communities to evaluate the practical utility of these algorithmic methods.
 
 \section{Identifying Community Moderation Practices and the Needs That Arise}
 %The popular discourse around content moderation has tended to focus on the practices of large social media companies like Facebook and Twitter, which employ a centralized, platform-driven model of moderation: moderators employed or contracted by the company enforcing often-opaque rules from the top down, most often by reactively removing content that is considered to be in violation of those rules.
@@ -56,19 +57,16 @@ Prior work on the role of computational assistance in content moderation has ten
 But a growing body of scholarship within social science and human-computer interaction has argued that this approach is ill-suited to the needs of smaller, more interest-driven online communities (such as the Wikipedia editor community and topic-focused ``subreddits'' on Reddit) \cite{jurgens_just_2019,seering_reconsidering_2020}.
 These communities tend to instead embrace a community-driven model of moderation, wherein moderators are volunteers who are actual members of the communities they serve \cite{gilbert_i_2020,lo_when_2018}.
 These volunteer moderators do not just reactively remove antisocial behavior after it happens---they also regularly engage with their communities to proactively steer their communities towards a more prosocial atmosphere \cite{seering_shaping_2017,cai_what_2019,billings_understanding_2010}.
-To make computationally assisted moderation useful to these communities, we must first examine the concrete steps volunteer moderators take in their proactive moderation, and from there identify specific aspects that could benefit from algorithmic assistance---problems that my work has tackled from both a qualtiative and quantitative perspective.
+To make computationally assisted moderation useful to these communities, we must first examine the concrete steps volunteer moderators take in their proactive moderation, and from there identify specific aspects that could benefit from algorithmic assistance.
 
-In a first step towards understanding volunteer moderators' work, I conducted a data-driven exploration of the Wikipedia editor community's relationship with its volunteer moderators and how this relationship factors in to moderation actions, which I presented at the 2019 Web Conference (WWW 2019).
-This analysis focuses on Wikipedia's ``talk pages'', a pseudo-forum where Wikipedia editors discuss and coordinate edits.
-Wikipedia prohibits a number of antisocial behaviors, such as personal attacks, in talk page discussions, and this policy is enforced by volunteer moderators known as administrators.
-When an editor breaches this policy, a commonly used enforcement tool is to temporarily block them from editing Wikipedia and/or participating in talk page discussions.
-Due to Wikipedia's ethos of open access, nearly all such moderation actions are publicly logged, and I leveraged these logs to examine the interactions between moderators and the editors who they temporarily blocked.
+My work has explored these questions through both quantitative and qualitative analysis of moderation actions on Wikipedia's ``talk pages''---a pseudo-forum where Wikipedia editors discuss and coordinate edits.
+When editors violate talk page rules, such as a prohibition against personal attacks, volunteer moderators can take actions such as temporarily blocking them from editing Wikipedia and/or participating in talk page discussions.
+Due to Wikipedia's ethos of open access, nearly all such moderation actions are publicly logged.
 
-My analysis reveals that \emph{trust} is a key ingredient in community-driven moderation.
-Editors who explicitly signal their acceptance of the moderator's judgement---as measured by the use of apologetic language that suggests acknolwedgment of wrongdoing---are 9\% less likely to get blocked again in the future; in other words, they become more willing to adhere to community norms.
-By contrast, editors who signaled their rejection of the moderator's judgement---as measured by the use of accusatory language such as direct questioning and claims of unfairness directed towards the moderator---are 5-6\% \emph{more} likely to get blocked again for a future offense.
-This trust-signaling can go both ways: Wikipedia moderators have the ability to shorten the duration of a block that they had previously given out, which can be interpreted as a form of clemency that signals a degree of trust in the blocked editor.
-My analysis reveals that editors who receive such clemency are 7\% less likely to get blocked again in the future.
+Leveraging these logs, I conducted a data-driven analysis of how moderators interact with the editors whom they temporarily block, presented at the 2019 Web Conference (WWW 2019).
+A key finding was the importance of two-way trust in this relationship: blocked editors can signal trust in the moderator by acknowledging their wrongdoing (as measured through handwritten rules that detect actions such as apologies) while moderators can signal trust in the editor by granting requests for reduced block duration.
+Both such strategies are correlated with an increased likelihood of future rule-following by the blocked editor, showing how building trust may be a key factor in proactively fostering a prosocial, norm-adhering culture within an online community.
+
 
 %These results point to an important aspect of community-driven moderation: it is very much a \emph{collaborative} project, one in which regular community members are not merely passive observers but instead play a direct role.
 %Regular community members actively choose to accept---or not---the authority of volunteer moderators and the norms they promote, and may directly communicate their (un)acceptance to the moderators themselves.
@@ -77,16 +75,15 @@ My analysis reveals that editors who receive such clemency are 7\% less likely t
 %My preceding data-driven analysis only reveals one strategy, the granting of clemency, which is applicable only in specific circumstances.
 %Gaining a more complete picture of proactive moderation work requires taking a more holistic approach to analyzing the work of volunteer moderators as seen directly from their own perspectives.
 
-These results illuminate the collaborative nature of community-driven moderation: regular community members are a key contributor to the functioning of the system, as its success requires their buy-in and trust, which moderators in turn must foster.
-But besides grating clemency---which is a highly situational, niche strategy---how do volunteer moderators bolster their relationship with their community and proactively encourage prosocial behavior?
-To answer this question, I conducted interviews with Wikipedia moderators, in work published at the 2022 ACM Conference on Computer-Supported Collaborative Work (CSCW 2022) \cite{schluger_proactive_2022}.
+%These results illuminate the collaborative nature of community-driven moderation: regular community members are a key contributor to the functioning of the system, as its success requires their buy-in and trust, which moderators in turn must foster.
+%But besides grating clemency---which is a highly situational, niche strategy---how do volunteer moderators bolster their relationship with their community and proactively encourage prosocial behavior?
+%To answer this question, I conducted interviews with Wikipedia moderators, in work published at the 2022 ACM Conference on Computer-Supported Collaborative Work (CSCW 2022) \cite{schluger_proactive_2022}.
 %These interviews focused on the proactive side of volunteer moderators' work, asking questions about moderators reason about the likelihood of a stiuation deteriorating into antisocial behavior, and what kinds of proactive steps they take to prevent such outcomes.
-From the responses, a clear picture emerges of how volunteer moderators can tell when conflicts between Wikipedia editors are at risk of veering away from healthy disagreement and towards antisocial behavior, and the strategies they employ to get things back on track.
+%From the responses, a clear picture emerges of how volunteer moderators can tell when conflicts between Wikipedia editors are at risk of veering away from healthy disagreement and towards antisocial behavior, and the strategies they employ to get things back on track.
 
-All moderators we interviewed agreed that they can at least sometimes foresee when a discussion is likely to derail into antisocial behavior.
-While exactly how they do this is more of an art than a science, moderators were able to point to some concrete indicators that they intuitively know to look for, such as the tone of the discussion and whether it has ``started off on the wrong foot''.
-According to the moderators, once they have judged that a discussion is at risk of derailing, they may choose to intervene in a soft, informal way, such as by offering to mediate the disagreement or simply posting a friendly reminder of the rules.
-Overall, moderators told us that they regard this strategy as being beneficial to the community, as it enables them to keep things civil without resorting to more heavy-handed tactics that may be received negatively and alienate some otherwise productive editors.
+To gain a broader view of proactive moderation strategies, I turned to interviews with Wikipedia moderators, which formed the basis of work presented at the 2022 ACM Conference on Computer-Supported Collaborative Work (CSCW 2022).
+All moderators in the interviews reported that they have some intuition for when a discussion is at risk of derailing into personal attacks or other prohibited antisocial behaviors.
+Furthermore, they described how when they discover such at-risk discussions, they may intervene to gently steer the conversation back on track, through techniques such as offering to mediate the disagreement.
 
 Nonetheless, moderators also reported facing some key challenges in trying to proactively keep things civil.
 For one, their own intuition about whether a conversation is at risk is far from infallible, with all moderators reporting at least some degree of uncertainty in their judgments.
@@ -110,8 +107,7 @@ Applying our system to this data confirmed that politeness is predictive of disc
 
 A second theoretical indicator of derailment is \emph{misunderstanding}: prior work has posited that when there is a large gap between what a speaker \emph{intends} versus how they are \emph{perceived} by others in the conversation, this can hamper the discussion and result in negative outcomes \cite{tannen_indirectness_2000}.
 However, empirically testing this hypothesis is challenging because reliable ground truth data is hard to obtain: only the speaker themself knows their true intention.
-In groundbreaking work conducted during an internship at Facebook and presented at WWW 2020, my collaborators and I conducted the first large-scale empirical study of misperception in online conversations.
-To obtain reliable ground truth data, we first sampled comments and their replies from public group discussions on Facebook, then sent out a survey asking original comment authors whether they intended to share a fact or an opinion, and repliers what they perceived the original comment to be doing.
+In groundbreaking work conducted during an internship at Facebook and presented at WWW 2020, my collaborators and I conducted the first large-scale empirical study of misperception in online conversations, obtaining ground truth data through a survey that asked authors of comments whether they intended to share a fact or an opinion, and authors of replies what they perceived the original comment to be doing.
 Through a regression analysis, we confirmed that discussions containing a misperception between intentions and perceptions are, as predicted by theory, more likely to end in antisocial behavior (as measured by an in-house moderation tool).
 
 Together, these works represent an empirical validation of theories of communication, which support the idea that an algorithm for forecasting derailment in conversations is feasible.
