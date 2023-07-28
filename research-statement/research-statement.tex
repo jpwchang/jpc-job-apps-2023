@@ -53,10 +53,10 @@ This agenda has so far yielded new insights into proactive moderation practices,
 %Yet as a growing body of scholarship within social science and human-computer interaction has shown, moderation actually encompasses a much richer body of practices which extend all the way down to the community level \cite{brewer_inclusion_2020,lampe_slashdot_2004,seering_reconsidering_2020}.
 %On the opposite extreme from the platform-driven moderation of large social media platforms lies community-driven moderation, embraced by smaller, interest-specific communities such as the Wikipedia editor community and topic-focused ``subreddits'' on Reddit \cite{chandrasekharan_internets_2018,halfaker_rise_2013}.
 %Under this paradigm, moderators are volunteers who are actual members of the communities they serve \cite{gilbert_i_2020,lo_when_2018}.
-Prior work on the role of computational assistance in content moderation has tended to cater towards the moderation practices of large platforms, which employ a centralized, platform-driven model of moderation where company-employed moderators reactiely remove content that is deemed to be in violation of the platform's (often opaque) rules.
+Prior work on computational assistance for content moderation has tended to cater towards the moderation practices of large platforms, which employ a centralized, platform-driven model of moderation where company-employed moderators reactiely remove content that is deemed to be in violation of the platform's (often opaque) rules.
 But a growing body of scholarship within social science and human-computer interaction has argued that this approach is ill-suited to the needs of smaller, more interest-driven online communities (such as the Wikipedia editor community and topic-focused ``subreddits'' on Reddit) \cite{jurgens_just_2019,seering_reconsidering_2020}.
 These communities tend to instead embrace a community-driven model of moderation, wherein moderators are volunteers who are actual members of the communities they serve \cite{lo_when_2018}.
-These volunteer moderators do not just reactively remove antisocial behavior after it happens---they also regularly engage with their communities to proactively steer their communities towards a more prosocial atmosphere .
+These volunteer moderators do not just reactively remove antisocial behavior after it happens---they also regularly engage with their communities to proactively foster a more prosocial atmosphere.
 Such proactive steps include publicly modeling good behavior, reminding community members about the rules, and mediating discussions that are getting out of hand \cite{seering_shaping_2017,cai_what_2019,billings_understanding_2010}.
 
 
@@ -83,8 +83,8 @@ Such proactive steps include publicly modeling good behavior, reminding communit
 %Furthermore, they described how when they discover such at-risk discussions, they may intervene to gently steer the conversation back on track, through techniques such as offering to mediate the disagreement.
 
 To gain an understanding of the needs that volunteer moderators face when doing their proactive work, I conducted interviews with moderators on Wikipedia's ``talk pages'' (a pseudo-forum where Wikipedia editors discuss and coordinate edits), resulting in findings that were published at the 2022 ACM Conference on Computer-Supported Collaborative Work (CSCW 2022) \cite{schluger_proactive_2022}.
-These findings illuminate a key challenge in proactive moderation: deciding where and when action is needed.
-All moderators we interviewed told us they have some intuition about what makes a discussion at risk of derailing into future antisocial behavior, and that they use this intuition to determine when they might want to step in try to set the discussion back on track with soft, informal intervention strategies---for instance, reminding the discussion participants about talk page conduct policies, or offering to serve as a neutral third party mediator.
+These findings reveal a key challenge in proactive moderation: deciding where and when action is needed.
+All moderators we interviewed told us they have some intuition about what makes a discussion at risk of derailing into future antisocial behavior, and that they use this intuition to determine when they might want to step in try to set the discussion back on track---for instance, by reminding the discussion participants about talk page conduct policies, or offering to serve as a neutral third party mediator.
 But this intuition is far from perfect, with all moderators simultaneously indicating some degree of uncertainty about their intuitive judgements.
 This difficulty is compounded by the large volume of discussions taking place at any given time, making it impossible to keep an eye on every single discussion that could turn out to be at risk.
 Finally, even when a moderator decides a discussion is at risk and requires intervention, knowing exactly \emph{when} to intervene is a challenge of its own---due to the inherent uncertainty of predicting risk of derailment, moderators often hesitate to intervene too early, but if they wait too long the discussion may reach a point where it becomes too late to set things back on track.%; as one moderator poetically put it ``the hand grenade has gone off and I didn't even hear it because I've gone down the street''.
@@ -107,12 +107,9 @@ More recent theoretical work has posited that misalignment between what a speake
 Inspired by these theories, work conducted during an internship at Facebook and presented at the 2020 Web Conference (WWW 2020) \cite{chang_dont_2020}, my collaborators and I conducted a large-scale survey of Facebook users to obtain unprecedented ground-truth data about comment authors' intentions and readers' perceptions.
 Through a regression analysis, we confirmed that discussions containing a misalignment between intentions and perceptions are more likely to end in antisocial behavior (as measured by an in-house moderation tool).
 
-Together, these works represent an empirical validation of theories of communication, which support the idea that an algorithm for forecasting derailment in conversations is feasible.
-However, neither work actually represents a practically usable algorithm for such forecasting: both employ simplified, proof-of-concept models that examine only isolated comments rather than following entire conversations in real time.
-Achieving the latter introduces practical challenges that require a more sophisticated model, the focus of my subsequent work.
-
 \section{Practical Forecasting of Conversational Derailment}
-Going beyond the level of individual comments to algorithmically detect risk of derailment at the \emph{conversation} level introduces two key practical challenges.
+While my early work helps establish that an algorithm for forecasting derailment in conversations is feasible, it did not provide practically usable algorithms for such forecasting.
+Achieving the latter requires overcoming two key practical challenges that are inherent to working with conversations.
 First, conversations have \emph{unknown horizon}: rather than coming into existence fully-formed, online discussions grow and evolve over an extended period of time, which means a practical algorithm for forecasting derailment cannot just make a single prediction, but must instead follow a conversation as it develops in real time and update its predictions to reflect changes in the discussion.
 Second, conversations are \emph{dynamic}: utterances in a discussion cannot be treated as isolated objects, because the meaning of an utterance often depends on context provided by previous utterances; a practical algorithm needs to be able to model such dependencies.
 
@@ -121,6 +118,30 @@ Inspired by this insight, I adapted an existing neural network approach for dial
 The resulting model, which I have dubbed CRAFT, was presented at the ACL's 2019 Conference on Empirical Methods in Natural Language Processing (EMNLP 2019) \cite{chang_trouble_2019}.
 Tested on the same Wikipedia talk page dataset as my earlier ACL 2018 paper, I showed that in 77\% of discussions that actually derail are correctly detected by CRAFT (the metric of recall); and conversely, across all conversations where CRAFT predicts derailment, 64\% in fact go on to derail (the metric of precision).
 On average, CRAFT's first prediction of derailment in an actually-derailing conversation happens 3 comments before the outright antisocial comment (as identified by human annotators), giving a comfortable margin of advance warning.
+
+\section{Using Forecasting Algorithms to Support Online Communities}
+The introduction of CRAFT, a practical algorithm for forecasting derailment in conversations, made it possible to finally address a core question of my research agenda: how can such an algorithm, in its role as a rough proxy for human intuitions about risk, benefit real online communities?
+Answering this question has required bringing together the social and technical aspects of my work.
+On the technical side, I led a team of undergraduate and masters students to develop a prototype browser extension, ConvoWizard, that warns users when they are replying to a discussion thread that might be at risk of derailment (as estimated by CRAFT) and also gives them feedback as they draft their comment, warning them if the comment might make the situation even more tense.
+On the social side, I arranged a groundbreaking collaboration with a real online community, the Reddit debate forum ChangeMyView, to help test ConvoWizard.
+
+In setting up the collaboration with ChangeMyView, it was imporant to me to ensure that we were operating in accordance with the community's goals and needs, as opposed to imposing our own views of moderation on them.
+As such, we worked together with the volunteer moderators of ChangeMyView to carefully design a user study that would be to the mutual benefit of both us and the ChangeMyView community.
+We then jointly authored an announcement thread to inform the broader community of our goals and plans, also giving them a chance to weigh in with their own thoughts.
+Interested users could opt in to participating in the study, where they had the chance to test ConvoWizard and provide feedback through a survey.
+
+The results of the study, also published at CSCW 2022 \cite{chang_thread_2022}, offer promising indicators of a ConvoWizard-style tool's potential to improve online discussions.
+We observed that when replying to at-risk threads, ConvoWizard users put more thought into their replies, spending 9\% more time writing when compared to a control condition.
+More importantly, we found evidence that this extra time actually went towards trying to reduce tension in discussion: upon seeing warnings from ConvoWizard, users tended to make edits that decrease the risk of derailment (as estimated by CRAFT), unlike in the control condition where edits tended to increase the risk.
+A linguistic analysis of the resulting comments showed that they tend to exhibit increased use of known conflict avoidance strategies such as asking questions and adopting more formal tone.
+Finally, study participants' subjective evaluation of ConvoWizard in the exit survey was also positive, with 77\% of participants rating its feedback at least somewhat helpful, 68\% reporting that its risk estimates were as good as or better than their own intuitions, and 54\% reporting that ConvoWizard made them rethink posting a comment they might have later regretted.
+
+ConvoWizard is a prototype for one way I have proposed that forecasting algorithms can help online communities: providing automated, at-scale interventions aimed at regular community members.
+But as I described earlier, I also see a second potential use case: these algorithms could form the basis of a moderator-facing assistive tool that takes over some of the burden of identifying at-risk discussions that might require attention.
+Though work in this direction is still in its early stages, I have already laid down some groundwork.
+In a second phase of my previously-described moderator interviews, moderators were shown a mockup of possible CRAFT-powered moderator tool, which provides a ranked list of discussions with the ones most at risk being placed at the top (though the mockup was not running live, it used real conversations from talk page archives, ranked according to the actual output of the CRAFT algorithm).
+Moderators then gave their high level thoughts on the mockup, which largely leaned positive: they reported that the rankings generally aligned with their own intuitions and that they could see the tool being useful for managing their workload.
+These very early but positive indicators should be followed up with a user study, which forms part of my future plans as I now discuss.
 
 \vspace{\baselineskip}
 \bibliographystyle{plain}
