@@ -1,0 +1,49 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{graphicx}
+%\usepackage[bf,tiny,compact]{titlesec}
+\usepackage{times}
+\usepackage{cite}
+\usepackage{natbib}
+\usepackage{titlesec}
+\usepackage{etoolbox}
+\usepackage{hyperref}
+
+
+\makeatletter
+\def\@maketitle{%
+    {\centering\fontsize{12pt}{14pt}\selectfont\textbf{\@title}\par}
+}
+\patchcmd{\@footnotetext}{\footnotesize}{\fontsize{10pt}{12pt}\selectfont}{}{}
+\makeatother
+
+
+\renewcommand{\bibsection}{\noindent\textbf{References (works to which I contrubted have my name \underline{underlined})}\vspace{-6pt}}
+\setlength{\bibsep}{0pt} % or use whatever dimension you want
+\renewcommand{\bibfont}{\fontsize{10pt}{12pt}\selectfont} % or any other  appropriate font command
+
+
+\renewcommand{\section}[1]{\vspace{0.25\baselineskip}\noindent\textbf{#1.}}
+\renewcommand{\subsection}[1]{\vspace{0.25\baselineskip}\noindent\textit{#1.}}
+
+\title{SOME FANCY TITLE HERE}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+Teaching Statement --- Jonathan P. Chang
+\end{center}
+
+% TODO different opening paragraph for non liberal arts colleges
+Liberal arts education played a formative role in my approach to teaching---my love of teaching was first sparked at Harvey Mudd College, where I did my undergraduate degree.
+Specifically, Harvey Mudd was where I got my first small taste of what it is like to be an instructor, through my participation in the CS department's ``grutoring'' program---similar to the TA positions found at larger universities, but with a greater emphasis on direct interaction with students.
+Though I initially joined the program just out of curiosity (and admittedly also for the chance to get paid!), I quickly fell in love with both the challenge of finding the best way to explain a difficult concept to a student, and the satisfaction of seeing the ``aha'' moment where they finally get it.
+Since then, my later experiences as an actual instructor have been spent chasing those ``aha'' moments---and more concretely, developing and implementing a strategy to make those moments happen more often and reliably.
+
+Subsequently, I have developed the following guiding philosophy for my teaching: I aim to design learning environments where students can feel a sense of \emph{ownership} and \emph{accomplishment} over their learning.
+Students in my classroom should not feel like mere receivers of knowledge, but instead should feel like active participants working together with me and with each other to arrive at a shared understanding of the material.
+During my PhD, I have had the chance to implement this philosophy in two disparate settings: a more traditional classroom setting as co-instructor of CS4300 ``Information and Language'', and a more personal and ad-hoc setting as a designer and instructor of data science workshops for the Cornell Center for Social Sciences.
+These experiences serve to illustrate three concrete strategies that emerge from my teaching philosophy: \textbf{narrative-driven lesson plans}, \textbf{technological innovations for interactivity}, and \textbf{developing curricula with diverse student backgrounds in mind}.
+
+\end{document}
