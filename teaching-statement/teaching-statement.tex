@@ -3,6 +3,7 @@
 \usepackage{graphicx}
 %\usepackage[bf,tiny,compact]{titlesec}
 \usepackage{times}
+\usepackage{xcolor}
 \usepackage{cite}
 \usepackage{natbib}
 \usepackage{titlesec}
@@ -27,7 +28,7 @@
 \renewcommand{\subsection}[1]{\vspace{0.25\baselineskip}\noindent\textit{#1.}}
 
 %% LOGIC FOR CUSTOMIZING THE STATEMENT FOR INDIVIDUAL SCHOOLS
-\newcommand{\schoolname}{COLLEGE\_NAME}
+\newcommand{\schoolname}{\textcolor{red}{COLLEGE\_NAME}} % overwritten by individual school include
 %% END CUSTOMIZATION LOGIC
 
 \title{SOME FANCY TITLE HERE}
@@ -51,30 +52,35 @@ During my PhD, I have had the chance to implement this philosophy in two dispara
 These experiences serve to illustrate three concrete strategies that emerge from my teaching philosophy: \textbf{organizing lessons around narrative framings}, \textbf{leveraging technology for interactivity}, and \textbf{developing course content with diverse student backgrounds in mind}.
 
 \section{Organizing Lessons Around Narrative Framings}
-In the summer of 2022, I was designing a brand-new Introduction to Python workshop that I would teach for CCSS.
-Like most CCSS workshops, this 4-part bootcamp was designed for a target audience of social science researchers with little to no technical background, who may have never done any programming before.
-Explaining core programming concepts---like variables, functions, and logic---to first-time programmers is known to be a challenging problem.
-My approach for addressing this challenge was to ground those abstract concepts in a social science narrative: using a real dataset sourced from a social science researcher at CCSS, the workshop asked students to imagine that they were using this data for their own research, then framed the lessons in terms of steps a researcher would need to take in preparing and analyzing the data.
+In the summer of 2022, I was designing a brand-new Introduction to Python workshop that I would teach for CCSS, meant for a target audience of social science students and researchers who may have never programmed before.
+My approach for making the code concepts of programming accessible to this audience was ground those abstract concepts in a social science narrative: using a real dataset sourced from a social science researcher at CCSS, the workshop asked students to imagine that they were using this data for their own research, then framed the lessons in terms of steps a researcher would need to take in preparing and analyzing the data.
 For example, the need to store and represent datapoints motivates the concept of variables, and the need to repeatedly perform common operations across all the data motivates the concepts of loops and functions.
 
-My work on designing the Introduction to Python workshop serves as an illustrative example of one of my preferred teaching strategies: organizing lesson plans around a central narrative, with each lesson having a clearly defined purpose within that narrative.
+This offers an illustrative example of one of my preferred teaching strategies: organizing lesson plans around a central narrative, with each lesson having a clearly defined purpose within that narrative.
 This strategy arises directly from my core philosophy of having students feel ownership over their learning: I believe these narratives signal to students that the course is really designed \emph{for them}, in that they are gaining skills that directly connect to their own goals and needs as opposed to just rotely absorbing information with no rhyme or reason.
 Feedback from the workshop participants validates this belief, as several students told us that they learned much more from our workshop than in their previous attempts to learn Python or other programming skills.
 For instance, one student wrote in their feedback form ``I finally understood how to use Python; I have taken other classes at Cornell but none were so comprehensive as yours'', while another commented that ``This is one of the best tutorials I've been to. The instructors were knowledgeable, kind, and better at communicating/explaining code then most I've seen.''
 
 Admittedly, coming up with a central organizing narrative for a 4-part workshop is quite a different prospect from coming up with one for a semester-long course, which is much broader in scope.
-But it is still possible to find organizing narratives for individual topics within a course; for example, as an organizing narrative for the CS4300 lectures on unsupervised machine learning methods for information retrieval, I described an example final project for the course (as the students were working on their own final projects at the time), and motivated each unsupervised machine learning method by demonstrating what functionality it could add to the project.  
+But it is still possible to find organizing narratives for individual topics within a course; for example, in CS4300 my lectures on unsupervised machine learning methods for information retrieval were organized around a narrative based on the course project (which students were working on at that time).
 As I look forward to a future teaching career, I will continue to iterate on this strategy to develop novel ways of organizing and motivating content in courses at \schoolname.
 
 \section{Leveraging Technology for Interactivity}
 There has been growing interest in how new technologies for remote learning and collaboration could enable a transition away from the traditional paradigm of ``lectures in class, coursework outside of class''.
-One notable approach, of course, has been to go all the way to the opposite extreme: the ``flipped classroom'' model that has students watch lectures outside of class on their own time and do more homework-like interactive activities in class.
-But I believe that the most promising novel approaches for improving educational outcomes may actually be found somewhere in the vast underexplored space between these two extremes.
-That is to say: rather than viewing lectures and interactive coursework as separate entities that must always be kept apart, we should think about intermixing the two, creating a classroom environment that is neither lecture-style nor flipped-style but something altogether new.
-During my time as co-instructor for CS4300, I took preliminary steps towards implementing these ideas in collaboration with Cornell's Active Learning Institute.
+One notable approach, of course, has been to go all the way to the opposite extreme, the so-called ``flipped classroom'' model.
+But I believe there is potential in the space between these two extremes: rather than viewing lectures and interactive coursework as separate entities that must always be kept apart, we should consider intermixing the two, creating a classroom environment that is neither lecture-style nor flipped-style but something altogether new.
+During my time as co-instructor for CS4300, I took preliminary steps towards implementing these ideas in collaboration with Cornell's Active Learning Institute (ALI).
 
-One approach we experimented with was integrating live coding into lectures.
-Throughout our lectures, we would periodically turn away from the whiteboard or slides to a Python notebook environment to explain concepts through code.
-Importantly, live coding is designed to be interactive: rather than just having the instructor write and explain code (which would make the coding little more than a fancier version of a figure in a slideshow), we also periodically ask students to contribute pieces of code as well.
+One step in this implementation was integrating live interactive coding into lectures.
+Using Google Colaboratory allowed us to provide Python notebooks that students could experiment with during designated ``coding segments'' integrated within lectures.
+These coding segments are are designed around a model of dialog between instructors and students: while parts of the code are written and demonstrated by the instructor, in other parts we turn things over to the students to come up with their own ideas.
+Importantly, these student-led portions are not quizzes: there is often no one correct answer, and rather than being graded, they are used as conversation starters to have students discuss the different ways they approached the problem.
+We additionally implemented non-coding interactive activities in a similar style, using tools such as polling and forms to facilitate discussion of open-ended questions.
+
+Student feedback from a post-course survey conducted by ALI both show the promise of this approach and illuminate necessary next steps to develop it further.
+Overall, students indicated that they found the interactive activities (coding and non-coding alike) useful for improving their understanding of class concepts and staying more engaged.
+Some example comments along these lines are ``[live coding] helped me learn and be more engaged because I was actively seeing concepts play out in real time.'' and ``I thought they [interactive activities] were great to discuss my thoughts and tinker with our learning with classmates.''
+At the same time, other comments voiced criticisms of the format of the activities, especially when it comes to the live coding which could at times be unwieldy and hard to follow.
+I am actively working on ways to address these shortcomings---for instance, looking into the use of Binder\footnote{\url{https://mybinder.org/}} as a more frictionless interactive coding environment---and look forward to integrating them into my teaching at \schoolname.
 
 \end{document}
