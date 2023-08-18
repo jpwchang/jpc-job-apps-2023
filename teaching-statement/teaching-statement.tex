@@ -4,6 +4,7 @@
 %\usepackage[bf,tiny,compact]{titlesec}
 \usepackage{times}
 \usepackage{xcolor}
+\usepackage{xspace}
 \usepackage{cite}
 \usepackage{natbib}
 \usepackage{titlesec}
@@ -28,7 +29,11 @@
 \renewcommand{\subsection}[1]{\vspace{0.25\baselineskip}\noindent\textit{#1.}}
 
 %% LOGIC FOR CUSTOMIZING THE STATEMENT FOR INDIVIDUAL SCHOOLS
-\newcommand{\schoolname}{\textcolor{red}{COLLEGE\_NAME}} % overwritten by individual school include
+\newcommand{\schoolname}{\textcolor{red}{COLLEGE\_NAME}\xspace} % overwritten by individual school include
+\newif\iflongdei
+\longdeifalse % can be overwritten by individual school include
+\newif\ifappendix
+\appendixtrue % can be overwritten by individual school include
 %% END CUSTOMIZATION LOGIC
 
 \title{SOME FANCY TITLE HERE}
@@ -78,9 +83,40 @@ Importantly, these student-led portions are not quizzes: there is often no one c
 We additionally implemented non-coding interactive activities in a similar style, using tools such as polling and forms to facilitate discussion of open-ended questions.
 
 Student feedback from a post-course survey conducted by ALI both show the promise of this approach and illuminate necessary next steps to develop it further.
-Overall, students indicated that they found the interactive activities (coding and non-coding alike) useful for improving their understanding of class concepts and staying more engaged.
+Many students indicated that they found the interactive activities useful for improving their understanding of class concepts and staying more engaged.
 Some example comments along these lines are ``[live coding] helped me learn and be more engaged because I was actively seeing concepts play out in real time.'' and ``I thought they [interactive activities] were great to discuss my thoughts and tinker with our learning with classmates.''
 At the same time, other comments voiced criticisms of the format of the activities, especially when it comes to the live coding which could at times be unwieldy and hard to follow.
 I am actively working on ways to address these shortcomings---for instance, looking into the use of Binder\footnote{\url{https://mybinder.org/}} as a more frictionless interactive coding environment---and look forward to integrating them into my teaching at \schoolname.
+
+\section{Developing Course Content With Diverse Student Backgrounds in Mind}
+As I've discussed, my core philosophy holds that students should feel like they are actively working together in their learning.
+For this to work, every student must feel like they have a place and are able to contribute, regardless of their background.
+To this end, I seek to develop my course content in ways that account for the fact that not every student has had the same opportunities in the past, with support systems to ensure that everyone can compete on the same level.
+
+One major contribution I made in pursuit of this goal as co-instructor of CS4300 was my role in redeveloping the course project requirement.
+Historically, the final project has been meant as an opportunity for students to showcase what they have learned by developing a novel information retrieval app.
+% TODO check accuracy of this sentence with Cristian
+While students have consistently found this to be one of the most exciting aspects of the class, one downside is that students who have had the privilege of prior app development experience---e.g., through internships or coding bootcamps---may find themselves with a head start compared to those who have not, as the latter group would need to first acquaint themselves with the basics of building an app before they can even get to thinking about the information retrieval aspect, which is where the actual intended educational value lies.
+To address this, I oversaw the design and deployment of a new project server interface, which is designed to automatically handle the boilerplate aspects of app development/deployment (e.g., setting up a database connection) as well as a common starter template for all students to use, which automatically handles the work of laying out a user interface.
+
+While the deployment of this new platform did not go perfectly smoothly---as with any new software, there ended up being a number of bugs that sometimes caused inconveniences and outages---student feedback neverthless suggests that it did help achieve my goal of empowering students to succeed and thrive on the project regardless of background experience.
+One comment we received specifically called this out: ``I think this [project server] was really nice as it really leveled the playing field with regards to prior experience.''
+Other comments even suggested that with this system in place, the final project was even able to serve as an accessible introduction to app development; for instance, `` I feel that it added to my knowledge about front-end and back-end programming.''
+
+The project server goes hand in hand with other, less ambitious but still important, course design choices aimed at accounting for diverse student backgrounds and needs.
+\iflongdei
+I discuss these in more detail in my statement on diversity, equity, and inclusion.
+\else
+For instance, in recognition of the fact that not all students may be comfortable vocally contributing in class, I sought to develop alternative avenues of participation---such as the poll-based activities described previously.
+\fi
+Of course, I recognize that these constitute only small steps towards achieving a more equitable and inclusive classroom.
+I look forward to continuing to search for ways to design a learning environment where anyone can thrive, and I am excited for the chance to learn from other faculty and students at \schoolname so I can incorporate and build upon the work they have done in this direction.
+
+\section{Future Teaching Plans}
+I have only just gotten started on my teaching journey.
+As I look ahead to hopefully a new chapter at \schoolname, I am especially excited for the opportunity to teach some of the foundational courses, most notably \textcolor{red}{TODO school-specific course numbers will go here}.
+While I have taught at a variety of levels throughout my prior career, foundational CS courses are what excite me the most---it is deeply satisfying for me to be able to successfully convey the core concepts of computer science, and the fact that these concepts are still novel to the students always makes for interesting conversations that may even lead me to see old ideas in a new light.
+That said, I am still also passionate about teaching higher-level courses related to the research agenda I have laid out in my research statement, such as \textcolor{red}{TODO school-specific AI/ML/NLP course numbers}.
+Finally, I also look forward to the opportunity to expand \schoolname's course offerings; in particular, I would be interested in developing a new course on computational social science---lying at the intersection of STEM and the humanities, I believe such a course would be a perfect fit for a computer science department at a liberal arts institution.
 
 \end{document}
