@@ -5,6 +5,8 @@
 \usepackage{times}
 \usepackage{xcolor}
 \usepackage{xspace}
+\usepackage{enumerate}
+\usepackage{enumitem}
 \usepackage{cite}
 \usepackage{natbib}
 \usepackage{titlesec}
@@ -12,11 +14,13 @@
 \usepackage{hyperref}
 
 
+\setlist{nosep}
+
 \makeatletter
 \def\@maketitle{%
     {\centering\fontsize{12pt}{14pt}\selectfont\textbf{\@title}\par}
 }
-\patchcmd{\@footnotetext}{\footnotesize}{\fontsize{10pt}{12pt}\selectfont}{}{}
+%\patchcmd{\@footnotetext}{\footnotesize}{\fontsize{10pt}{12pt}\selectfont}{}{}
 \makeatother
 
 
@@ -118,5 +122,38 @@ As I look ahead to hopefully a new chapter at \schoolname, I am especially excit
 While I have taught at a variety of levels throughout my prior career, foundational CS courses are what excite me the most---it is deeply satisfying for me to be able to successfully convey the core concepts of computer science, and the fact that these concepts are still novel to the students always makes for interesting conversations that may even lead me to see old ideas in a new light.
 That said, I am still also passionate about teaching higher-level courses related to the research agenda I have laid out in my research statement, such as \textcolor{red}{TODO school-specific AI/ML/NLP course numbers}.
 Finally, I also look forward to the opportunity to expand \schoolname's course offerings; in particular, I would be interested in developing a new course on computational social science---lying at the intersection of STEM and the humanities, I believe such a course would be a perfect fit for a computer science department at a liberal arts institution.
+
+\ifappendix
+\vspace{\baselineskip}
+\section{Appendix: Selected Comments From Student Evaluations}
+Below are some selected comments from student evaluations and surveys which did not fit in any particular section above, but which I felt are otherwise indicative of my teaching philosophy and its outcomes.
+Comments are grouped by source.
+The source data---that is, the evaluations themselves in the raw format they were provided to me---is available in the supplementary materials attached to my submission.
+
+%\noindent\underline{CS4300 ALI survey}
+
+\noindent\underline{CS4300 midterm evaluations}
+\begin{itemize}
+    \item I really enjoy Jonathan's teaching, he's very passionate when he speaks which keeps me engaged.
+    \item Great at engaging with the audience and working to keep attention
+\end{itemize}
+
+\noindent\underline{CS4300 end-of-semester evaluations}
+\begin{itemize}
+    \item Made concepts much easier to understand and was engaging during the lectures, and was super helpful during his office hours
+    \item Very engaging and well-spoken. Learned the most from Professor Chang's lectures. I thought the use of the active note taking assisted in keeping me engaged and taking useful notes.
+    \item Genuinely. Prof. Chang was great at teaching, so his lectures were pretty helpful
+\end{itemize}
+
+\noindent\underline{CCSS workshops}\\
+\emph{[Note: comments are taken from a survey question about my Introduction to Python workshop; references to ``this'' and ``it'' are referring to that workshop.]}
+\begin{itemize}
+    \item It was a great introduction, friendly, and overall positive environment. It also was taught extremely well, at the perfect pace and everything was explained very clearly. It also gave students the opportunity to get to know instructors and each other. The basics were taught very well.
+    \item This workshop was fantastic. I've been a grad student for several years and decided to learn python to gain another skill. (My field uses Stata and R). This is one of the best tutorials I've been to. The instructors were knowledgeable, kind, and better at communicating/explaining code then most I've seen. I'm really glad I attended.
+\end{itemize}
+
+\else
+%
+\fi
 
 \end{document}
