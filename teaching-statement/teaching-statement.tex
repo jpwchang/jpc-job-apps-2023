@@ -33,11 +33,14 @@
 \renewcommand{\subsection}[1]{\vspace{0.25\baselineskip}\noindent\textit{#1.}}
 
 %% LOGIC FOR CUSTOMIZING THE STATEMENT FOR INDIVIDUAL SCHOOLS
-\newcommand{\schoolname}{\textcolor{red}{COLLEGE\_NAME}\xspace} % overwritten by individual school include
+\newcommand{\schoolname}{\textcolor{red}{COLLEGE\_NAME}\xspace} % overwritten by individual school header
 \newif\iflongdei
-\longdeifalse % can be overwritten by individual school include
+\longdeifalse % can be overwritten by individual school header
 \newif\ifappendix
-\appendixtrue % can be overwritten by individual school include
+\appendixtrue % can be overwritten by individual school header
+
+% import the school-specific header to make the magic happen!
+\input{schoolheader.tex}
 %% END CUSTOMIZATION LOGIC
 
 \title{SOME FANCY TITLE HERE}
