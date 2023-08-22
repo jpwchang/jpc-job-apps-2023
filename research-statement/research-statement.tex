@@ -23,8 +23,18 @@
 \renewcommand{\bibfont}{\fontsize{10pt}{12pt}\selectfont} % or any other  appropriate font command
 
 
-\renewcommand{\section}[1]{\vspace{0.25\baselineskip}\noindent\textbf{#1.}}
-\renewcommand{\subsection}[1]{\vspace{0.25\baselineskip}\noindent\textit{#1.}}
+\titleformat{\section}{\normalfont\large\bfseries\scshape}{}{0em}{}
+\titlespacing*{\section}{0em}{0.5\baselineskip}{0em}
+\titleformat{\subsection}[runin]{\normalfont\normalsize\bfseries}{}{0em}{}[.]
+\titlespacing*{\subsection}{0em}{0.25\baselineskip}{0.5em}
+
+
+%% LOGIC FOR CUSTOMIZING THE STATEMENT FOR INDIVIDUAL SCHOOLS
+% set up common defines (commands and boolean flags)
+\input{../defines.tex}
+% import the school-specific header to make the magic happen!
+\input{schoolheader.tex}
+%% END CUSTOMIZATION LOGIC
 
 \title{Towards Computational Methods for Assisting in the Proactive Moderation of Online Communities}
 
@@ -35,20 +45,15 @@
 Research Statement --- Jonathan P. Chang
 \end{center}
 
-From their inception, online platforms have promised to make us more connected, acting as social spaces that could promote communication and collaboration. 
-As these platforms have grown, however, this optimistic vision has given way to the cold reality that they often instead play host to \emph{antisocial} behaviors, including incivility, bullying, harassment, and hate speech. 
-%In response, platforms---and the communities they host---commonly engage in \emph{content moderation} practices designed to identify, remove, and/or prevent instances of antisocial behavior.
-%These practices range from \emph{reactively} removing or otherwise correcting antisocial behavior after it occurs, to \emph{proactively} encouraging prosocial behavior and preventing incidents of antisocial behavior from occurring in the first place.
-%While there has been growing interest in exploring how computational tools could aid content moderation, existing work has tended to cater purely towards reactive, centralized models of moderation---for instance, by developing algorithmic systems that can automatically detect possible instances of antisocial behavior so that they can be flagged for human review or even automatically removed altogether.
-%
-%My research, by contrast, seeks to fill a currently underexplored gap: exploring how computational tools could fit in to more community-driven, proactive moderation workflows.
-My research focuses on characterizing the social and linguistic contexts that precipitate such antisocial behavior, with the end goal of designing computational tools to empower community-driven, proactive moderation workflows---standing in contrast to prior work which has tended to instead focus on top-down, reactive moderation.
-In pursuit of this goal, I devlop a combined social and technical research agenda, which involves engaging collaboratively with real online communities to identify their needs and the gaps in their computational toolkits, and applying those insights to guide the development of algorithmic methods that might address those needs.
-%Executing this research plan has resulted both in new insights into how communities approach content moderation, and in novel algorithmic methods for identifying conversations that, while not yet exhibting outright antisocial behavior, are nonetheless at risk of derailing into such undesirable outcomes.
-%In keeping with the overarching goal of meeting the needs of real communities, I have further developed these algorithmic methods into usable software tools, and collaborated with online communites to evaluate how well these tools address their needs.
-This agenda has so far yielded new insights into proactive moderation practices, novel algorithmic approaches to characterizing when discussions are at risk of derailing into antisocial behavior, and user studies done in collaboration with real online communities to evaluate the practical utility of these algorithmic methods.
+One of the biggest problems facing online communities today is the prevalence of incivility, harassment, hate speech, and other similar behaviors---collectively referred to in social science as \emph{antisocial} behavior.
+Many popular online platforms try to address this problem by employing moderators to review content that gets posted and remove any content they judge to be antisocial behavior; consequently, a lot of Computer Science research on antisocial behavior tends to cater to this centralized moderation process.
+But I believe that in developing computational tools from the perspective of large platform operators, we fail to center an even more important perspective: that of the \emph{communities} of ordinary people that interact on these platforms.
+Therefore, my research focuses on the following question: how can technology help online communities to build consensus, maintain norms, and negotiate disputes---in other words, to \emph{proactively} prevent antisocial behavior from taking root?
+I tackle this question through a combined social and technical research agenda, which involves engaging collaboratively with real online communities to identify their needs and the gaps in their computational toolkits, applying those insights to guide the development of algorithmic methods that might address those needs, and finally going back to the communities to collaboratively evaluate these new methods and identify future directions for research.
 
-\section{Identifying Community Moderation Practices and the Needs That Arise}
+\section{Research Contributions}
+
+\subsection{Identifying Community Moderation Practices and the Needs That Arise}
 %The popular discourse around content moderation has tended to focus on the practices of large social media companies like Facebook and Twitter, which employ a centralized, platform-driven model of moderation: moderators employed or contracted by the company enforcing often-opaque rules from the top down, most often by reactively removing content that is considered to be in violation of those rules.
 %Yet as a growing body of scholarship within social science and human-computer interaction has shown, moderation actually encompasses a much richer body of practices which extend all the way down to the community level \cite{brewer_inclusion_2020,lampe_slashdot_2004,seering_reconsidering_2020}.
 %On the opposite extreme from the platform-driven moderation of large social media platforms lies community-driven moderation, embraced by smaller, interest-specific communities such as the Wikipedia editor community and topic-focused ``subreddits'' on Reddit \cite{chandrasekharan_internets_2018,halfaker_rise_2013}.
@@ -94,7 +99,7 @@ If an algorithm could capture some of the human intuition about when a discussio
 Additionally, such an algorithm could benefit regular community members by offering guidance on how their comments might affect the discussion and helping them avoid escalating at-risk situations, much like moderators' own soft interventions do.
 Actually accomplishing this requires both developing this hypothetical derailment-forecasting algorithm, and doing design work to adapt it into a practical tool that is useful and, more importantly, safe---challenges which I have already begun to address.
 
-\section{Evaluating the Feasibility of Algorithmically Forecasting Derailment}
+\subsection{Evaluating the Feasibility of Algorithmically Forecasting Derailment}
 The first step towards practical computational tools for proactive moderation is to show that it is feasible in the first place for an algorithm to pick up on signals of potential future derailment, like human moderators claim to be able to do.
 To establish the feasibility of this task, we must look back to some of my earlier work on analyzing conversations, which focused on finding experimental evidence to support sociolinguistic theories about how to mediate tense conversations.
 
@@ -107,7 +112,7 @@ More recent theoretical work has posited that misalignment between what a speake
 Inspired by these theories, work conducted during an internship at Facebook and presented at the 2020 Web Conference (WWW 2020) \cite{chang_dont_2020}, my collaborators and I conducted a large-scale survey of Facebook users to obtain unprecedented ground-truth data about comment authors' intentions and readers' perceptions.
 Through a regression analysis, we confirmed that discussions containing a misalignment between intentions and perceptions are more likely to end in antisocial behavior (as measured by an in-house moderation tool).
 
-\section{Practical Forecasting of Conversational Derailment}
+\subsection{Practical Forecasting of Conversational Derailment}
 While my early work helps establish that an algorithm for forecasting derailment in conversations is feasible, it did not provide practically usable algorithms for such forecasting.
 Achieving the latter requires overcoming two key practical challenges that are inherent to working with conversations.
 First, conversations have \emph{unknown horizon}: rather than coming into existence fully-formed, online discussions grow and evolve over an extended period of time, which means a practical algorithm for forecasting derailment cannot just make a single prediction, but must instead follow a conversation as it develops in real time and update its predictions to reflect changes in the discussion.
@@ -119,7 +124,7 @@ The resulting model, which I have dubbed CRAFT, was presented at the ACL's 2019 
 Tested on the same Wikipedia talk page dataset as my earlier ACL 2018 paper, I showed that in 77\% of discussions that actually derail are correctly detected by CRAFT (the metric of recall); and conversely, across all conversations where CRAFT predicts derailment, 64\% in fact go on to derail (the metric of precision).
 On average, CRAFT's first prediction of derailment in an actually-derailing conversation happens 3 comments before the outright antisocial comment (as identified by human annotators), giving a comfortable margin of advance warning.
 
-\section{Using Forecasting Algorithms to Support Online Communities}
+\subsection{Using Forecasting Algorithms to Support Online Communities}
 The introduction of CRAFT, a practical algorithm for forecasting derailment in conversations, made it possible to finally address a core question of my research agenda: how can such an algorithm, in its role as a rough proxy for human intuitions about risk, benefit real online communities?
 Answering this question has required bringing together the social and technical aspects of my work.
 On the technical side, I led a team of undergraduate and masters students to develop a prototype browser extension, ConvoWizard, that warns users when they are replying to a discussion thread that might be at risk of derailment (as estimated by CRAFT) and also gives them feedback as they draft their comment, warning them if the comment might make the situation even more tense.
