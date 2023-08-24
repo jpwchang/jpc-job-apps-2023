@@ -45,7 +45,7 @@
 Research Statement --- Jonathan P. Chang
 \end{center}
 
-One of the biggest problems facing online communities today is the prevalence of incivility, harassment, hate speech, and other similar behaviors---collectively referred to in social science as \emph{antisocial} behavior.
+One of the biggest problems facing online communities today is the prevalence of incivility, harassment, hate speech, and other similar behaviors---collectively referred to in social science as ``antisocial behavior''.
 Many popular online platforms try to address this problem by employing moderators to review content that gets posted and remove any content they judge to be antisocial behavior; consequently, a lot of Computer Science research on antisocial behavior tends to cater to this centralized moderation process.
 But I believe that in developing computational tools from the perspective of large platform operators, we fail to center an even more important perspective: that of the \emph{communities} of ordinary people that interact on these platforms.
 Therefore, my research focuses on the following question: how can technology help online communities to build consensus, maintain norms, and negotiate disputes---in other words, to \emph{proactively} prevent antisocial behavior from taking root?
@@ -59,6 +59,10 @@ Community-driven moderation practices most often involve volunteer moderators, w
 Volunteer moderators are actual members of the communities they serve, and play a role akin to a community leader.
 To this end, rather than relying solely on punitive steps like content removal, they also employ ``soft strategies'' like publicly modeling good behavior, educating community members about the rules, and mediating discussions that are getting out of hand \cite{seering_shaping_2017,billings_understanding_2010}.
 Such steps can be seen as \emph{proactive} moderation aimed at discouraging antisocial behavior from occurring at all---standing in contrast to platform-employed moderators' practice of \emph{reactive} moderation, which acts in response to antisocial behavior after it occurs \cite{lo_when_2018}.
+
+There has been a great deal of interest within the field of Computer Science in developing algorithmic methods to assist in content moderation.
+However, prior work has largely catered to the needs to platform-driven moderation, resulting in tools that fit into a reactive moderation workflow---for example, algorithms to automatically detect content that may be antisocial and therefore in need of removal.
+By contrast, computational methods for assisting community-driven proactive moderation are a relatively understudied area, and my research aims to fill this gap.
 
 
 %Leveraging these logs, I conducted a data-driven analysis of how moderators interact with the editors whom they temporarily block, presented at the 2019 Web Conference (WWW 2019) \cite{chang_trajectories_2019}.
@@ -85,43 +89,28 @@ Such steps can be seen as \emph{proactive} moderation aimed at discouraging anti
 
 \section{My Research Contributions}
 
-\subsection{Identifying Community Moderation Practices and the Needs That Arise}
-To gain an understanding of the needs that volunteer moderators face when doing their proactive work, I conducted interviews with moderators on Wikipedia's ``talk pages'' (a pseudo-forum where Wikipedia editors discuss and coordinate edits), resulting in findings that were published at the 2022 ACM Conference on Computer-Supported Collaborative Work (CSCW 2022) \cite{schluger_proactive_2022}.
-These findings reveal a key challenge in proactive moderation: deciding where and when action is needed.
-All moderators we interviewed told us they have some intuition about what makes a discussion at risk of derailing into future antisocial behavior, and that they use this intuition to determine when they might want to step in try to set the discussion back on track---for instance, by reminding the discussion participants about talk page conduct policies, or offering to serve as a neutral third party mediator.
-But this intuition is far from perfect, with all moderators simultaneously indicating some degree of uncertainty about their intuitive judgements.
-This difficulty is compounded by the large volume of discussions taking place at any given time, making it impossible to keep an eye on every single discussion that could turn out to be at risk.
-Finally, even when a moderator decides a discussion is at risk and requires intervention, knowing exactly \emph{when} to intervene is a challenge of its own---due to the inherent uncertainty of predicting risk of derailment, moderators often hesitate to intervene too early, but if they wait too long the discussion may reach a point where it becomes too late to set things back on track.%; as one moderator poetically put it ``the hand grenade has gone off and I didn't even hear it because I've gone down the street''.
+\subsection{Identifying Community Moderators' Needs}
+When developing technology meant to help a particular group or population, it is good practice to hear the perspective of people from that group and let them explain their needs in their own words.
+Following this practice, I conducted interviews with community moderators---work that was done in collaboration with undergraduate student Charlotte Schluger and presented at the 2022 ACM Conference on Computer-Supported Collaborative Work (CSCW 2022; a top venue for research on online communities) \cite{schluger_proactive_2022}.
+These interviews revealed that volunteer moderators rely on their intuition to tell when a discussion is at risk of later derailing into antisocial behavior---that is, to \emph{forecast} derailment---and will intervene in such discussions to mediate the dispute and keep the conversation on track.
+However, they feel challenged by the sheer scale of their communities: they often miss out on opportunities to intervene because there are too many discussions to keep track of; consequently, they express a desire for effective computational tools to aid in this process.
+Based on this, we argue that if there existed an algorithm that could forecast derailment much like volunteer moderators do, such an algorithm could ease the burden on volunteer moderators by notifying them of at-risk discussions they may have otherwise missed, or even going further and partly automating the intervention process, e.g., by automatically serving reminders of the rules (much like human moderators currently do) when an at-risk discussion is detected.
 
-I believe that these challenges represent an opening where computational tools could be of assistance to volunteer moderators.
-If an algorithm could capture some of the human intuition about when a discussion is at risk of future derailment, it could be used to automatically identify conversations that might require intervention, taking over some of the burden of manually finding such cases.
-Additionally, such an algorithm could benefit regular community members by offering guidance on how their comments might affect the discussion and helping them avoid escalating at-risk situations, much like moderators' own soft interventions do.
-Actually accomplishing this requires both developing this hypothetical derailment-forecasting algorithm, and doing design work to adapt it into a practical tool that is useful and, more importantly, safe---challenges which I have already begun to address.
 
-\subsection{Evaluating the Feasibility of Algorithmically Forecasting Derailment}
-The first step towards practical computational tools for proactive moderation is to show that it is feasible in the first place for an algorithm to pick up on signals of potential future derailment, like human moderators claim to be able to do.
-To establish the feasibility of this task, we must look back to some of my earlier work on analyzing conversations, which focused on finding experimental evidence to support sociolinguistic theories about how to mediate tense conversations.
-
-Classical literature in the field of pragmatics points to \emph{politeness} as a mediating factor that softens the perceived force of a message \cite{brown_politeness:_1987}.
-In work presented at the 2018 Annual Meeting of the Association for Computational Linguistics (ACL 2018) \cite{zhang_conversations_2018}, my collaborators and I examined this theory computationally by building a software system that characterizes politeness by applying a combination of handwritten rules inspired by the classical theories \cite{danescu-niculescu-mizil_computational_2013} and an unsupervised method for estimating the rhetorical intent of an utterance \cite{zhang_asking_2017}.
-We ran this system on comments sampled from Wikipedia talk page discussion, and compared the system-detected politeness features to the eventual outcome of the discussion (as labeled by human annotators).
-Consistent with the classical theories, we confirmed that politness is correlated with reduced likelihood of antisocial outcomes.
-
-More recent theoretical work has posited that misalignment between what a speaker \emph{intends} to communicate and how a listener \emph{perceives} them can spark conflict leading to negative outcomes \cite{tannen_indirectness_2000}.
-Inspired by these theories, work conducted during an internship at Facebook and presented at the 2020 Web Conference (WWW 2020) \cite{chang_dont_2020}, my collaborators and I conducted a large-scale survey of Facebook users to obtain unprecedented ground-truth data about comment authors' intentions and readers' perceptions.
-Through a regression analysis, we confirmed that discussions containing a misalignment between intentions and perceptions are more likely to end in antisocial behavior (as measured by an in-house moderation tool).
+\subsection{Demonstrating the Feasibility of Algorithmically Forecasting Derailment}
+As discussed above, an algorithm capable of forecasting future derailment in online discussions could form the basis of a computational tool to assist volunteer moderators.
+To demonstrate that such forecasting is a feasible task for computers, I conducted two experiments in collaboration with industry partners, both of which start from socio-linguistic theories about what factors within discussions might be associated with tension and conflict, then aim to experimentally evaluate whether algorithmic estimates of these factors are correlated with future derailment.
+The first of these works, conducted together with researchers from Google and the Wikimedia Foundation, examines the role of impoliteness.
+The second, conducted as an internship project at Facebook, examines the role of misperceptions of a speaker's intent.
+In both cases we found that when the factor being studied (impoliteness or misperception) was present early in a discussion, as measured by machine learning approaches, the discussion was at statistically significantly higher risk of future derailment into antisocial behavior.
+These results were respectively presented at the 2018 Annual Meeting of the Association for Computational Linguistics (ACL 2018) \cite{zhang_conversations_2018} and the 2020 Web Conference (WWW 2020) \cite{chang_dont_2020}, both of which are top venues for research on natural language processing and computational social science.
 
 \subsection{Practical Forecasting of Conversational Derailment}
-While my early work helps establish that an algorithm for forecasting derailment in conversations is feasible, it did not provide practically usable algorithms for such forecasting.
-Achieving the latter requires overcoming two key practical challenges that are inherent to working with conversations.
-First, conversations have \emph{unknown horizon}: rather than coming into existence fully-formed, online discussions grow and evolve over an extended period of time, which means a practical algorithm for forecasting derailment cannot just make a single prediction, but must instead follow a conversation as it develops in real time and update its predictions to reflect changes in the discussion.
-Second, conversations are \emph{dynamic}: utterances in a discussion cannot be treated as isolated objects, because the meaning of an utterance often depends on context provided by previous utterances; a practical algorithm needs to be able to model such dependencies.
-
-To address both challenges, I started with a key insight that these same challenges are faced by developers of dialog models (a.k.a. ``chatbots'')---like a forecasting algorithm, a dialog model also needs to follow a conversation in real time so that it can generate new replies on demand, and it needs to understand the relationships between utterances so it can generate situationally appropriate responses (e.g., knowing that some types of questions should be followed by an answer while other types are rhetorical).
-Inspired by this insight, I adapted an existing neural network approach for dialog modeling \cite{serban_building_2016}: I first trained the network on the original dialog modeling task so it could learn conversational dynamics, then trained a classifier layer on top of the dialog model, which is used to produce a forecast (likelihood of derailment) after each new utterance.
-The resulting model, which I have dubbed CRAFT, was presented at the ACL's 2019 Conference on Empirical Methods in Natural Language Processing (EMNLP 2019) \cite{chang_trouble_2019}.
-Tested on the same Wikipedia talk page dataset as my earlier ACL 2018 paper, I showed that in 77\% of discussions that actually derail are correctly detected by CRAFT (the metric of recall); and conversely, across all conversations where CRAFT predicts derailment, 64\% in fact go on to derail (the metric of precision).
-On average, CRAFT's first prediction of derailment in an actually-derailing conversation happens 3 comments before the outright antisocial comment (as identified by human annotators), giving a comfortable margin of advance warning.
+Classical machine learning approaches to natural language processing (like those used in my earlier proof-of-concept work) typically operate on a fixed snapshot of a discussion, assuming it will never change.
+But such an approach is impractical for forecasting derailment in real moderation settings, because online discussions actually evolve over time, and new comments that are posted might increase or decrease the risk of derailment.
+Thus, a practically useful algorithm would need to follow a conversation in real time, and at each new comment update its belief about whether the conversation is at risk of derailment.
+In work presented at the ACL's 2019 Conference on Empirical Methods in Natural Language Processing (EMNLP 2019; a venue commonly used to debut novel natural language models) \cite{chang_trouble_2019}, I was able to develop such an algorithm, a neural network known as CRAFT, by adapting techniques from the domain of dialog modeling (aka ``chatbots'') \cite{serban_building_2016}, where similar practical challenges are present.
+Experiments on conversations sampled from real online communities show that 77\% of discussions that actually derail are correctly detected by CRAFT (this is a standard machine learning evaluation metric known as recall); conversely, across all conversations where CRAFT predicts derailment, 64\% in fact go on to derail (a standard metric known as precision).
 
 \subsection{Using Forecasting Algorithms to Support Online Communities}
 The introduction of CRAFT, a practical algorithm for forecasting derailment in conversations, made it possible to finally address a core question of my research agenda: how can such an algorithm, in its role as a rough proxy for human intuitions about risk, benefit real online communities?
