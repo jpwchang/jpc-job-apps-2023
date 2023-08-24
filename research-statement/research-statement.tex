@@ -46,19 +46,17 @@ Research Statement --- Jonathan P. Chang
 \end{center}
 
 One of the biggest problems facing online communities today is the prevalence of incivility, harassment, hate speech, and other similar behaviors---collectively referred to in social science as ``antisocial behavior''.
-Many popular online platforms try to address this problem by employing moderators to review content that gets posted and remove any content they judge to be antisocial behavior; consequently, a lot of Computer Science research on antisocial behavior tends to cater to this centralized moderation process.
-But I believe that in developing computational tools from the perspective of large platform operators, we fail to center an even more important perspective: that of the \emph{communities} of ordinary people that interact on these platforms.
-Therefore, my research focuses on the following question: how can technology help online communities to build consensus, maintain norms, and negotiate disputes---in other words, to \emph{proactively} prevent antisocial behavior from taking root?
-I tackle this question through a combined social and technical research agenda, which involves engaging collaboratively with real online communities to identify their needs and the gaps in their computational toolkits, applying those insights to guide the development of algorithmic methods that might address those needs, and finally going back to the communities to collaboratively evaluate these new methods and identify future directions for research.
+While a lot of Computer Science research has responded to this problem by developing algorithms to detect antisocial behavior, I believe that this approach implicitly centers the perspective of platform owners, who would be in a position to employ these algorithms for moderation, and fails to center an equally important perspective: that of the \emph{communities} of ordinary people who interact on these platforms.
+Therefore, my research focuses on the following question: how can technology help online communities to maintain norms and negotiate disputes---in other words, to \emph{proactively} prevent antisocial behavior from taking root?
+I tackle this question through a combined social and technical research agenda, which involves engaging collaboratively with real online communities to identify their needs, pioneering new algorithmic methods to address those needs, and finally going back to the communities to collaboratively evaluate these new methods and identify future directions for research.
 
 \section{Background: The Landscape of Moderation}
 
-Popular discourse around content moderation has tended to focus on the practices of large social media companies like Facebook and Twitter, which employ a centralized, platform-driven model of moderation where company-employed moderators remove content deemed to be in violation of the platform's (often opaque) rules.
-Yet a growing body of scholarship within social science and human-computer interaction argues that moderation actually encompasses a much richer body of practices which extend all the way down to the community level \cite{brewer_inclusion_2020,lampe_slashdot_2004,seering_reconsidering_2020}.
-Community-driven moderation practices most often involve volunteer moderators, who differ from platform-employed moderators in several key ways.
-Volunteer moderators are actual members of the communities they serve, and play a role akin to a community leader.
-To this end, rather than relying solely on punitive steps like content removal, they also employ ``soft strategies'' like publicly modeling good behavior, educating community members about the rules, and mediating discussions that are getting out of hand \cite{seering_shaping_2017,billings_understanding_2010}.
-Such steps can be seen as \emph{proactive} moderation aimed at discouraging antisocial behavior from occurring at all---standing in contrast to platform-employed moderators' practice of \emph{reactive} moderation, which acts in response to antisocial behavior after it occurs \cite{lo_when_2018}.
+Popular discourse on content moderation tends to focus on the practices of social media companies like Facebook and Twitter, which adopt a centralized model of moderation where company-employed moderators remove content deemed to be in violation of the platform's (often opaque) rules.
+Yet a growing body of scholarship within social science and human-computer interaction argues that moderation actually encompasses a much richer body of practices extending all the way down to the community level \cite{brewer_inclusion_2020,lampe_slashdot_2004,seering_reconsidering_2020}.
+Community-driven moderation practices usually involve volunteer moderators who, unlike company-employed moderators, are actual members of the communities they serve, and play a role akin to a community leader.
+To this end, rather than relying solely on punitive steps like content removal, they also engage in community-building steps like publicly modeling good behavior, educating community members about the rules, and mediating discussions that are getting out of hand \cite{seering_shaping_2017,billings_understanding_2010}.
+Such steps can be seen as \emph{proactive} moderation aimed at discouraging antisocial behavior from occurring at all---in contrast to company-employed moderators' \emph{reactive} practices which acts in response to antisocial behavior after it occurs \cite{lo_when_2018}.
 
 There has been a great deal of interest within the field of Computer Science in developing algorithmic methods to assist in content moderation.
 However, prior work has largely catered to the needs to platform-driven moderation, resulting in tools that fit into a reactive moderation workflow---for example, algorithms to automatically detect content that may be antisocial and therefore in need of removal.
@@ -102,7 +100,7 @@ As discussed above, an algorithm capable of forecasting future derailment in onl
 To demonstrate that such forecasting is a feasible task for computers, I conducted two experiments in collaboration with industry partners, both of which start from socio-linguistic theories about what factors within discussions might be associated with tension and conflict, then aim to experimentally evaluate whether algorithmic estimates of these factors are correlated with future derailment.
 The first of these works, conducted together with researchers from Google and the Wikimedia Foundation, examines the role of impoliteness.
 The second, conducted as an internship project at Facebook, examines the role of misperceptions of a speaker's intent.
-In both cases we found that when the factor being studied (impoliteness or misperception) was present early in a discussion, as measured by machine learning approaches, the discussion was at statistically significantly higher risk of future derailment into antisocial behavior.
+In both cases we found that when the factor being studied (impoliteness or misperception) was present early in a discussion, as measured by machine learning models, the discussion was at statistically significantly higher risk of future derailment into antisocial behavior.
 These results were respectively presented at the 2018 Annual Meeting of the Association for Computational Linguistics (ACL 2018) \cite{zhang_conversations_2018} and the 2020 Web Conference (WWW 2020) \cite{chang_dont_2020}, both of which are top venues for research on natural language processing and computational social science.
 
 \subsection{Practical Forecasting of Conversational Derailment}
@@ -113,27 +111,16 @@ In work presented at the ACL's 2019 Conference on Empirical Methods in Natural L
 Experiments on conversations sampled from real online communities show that 77\% of discussions that actually derail are correctly detected by CRAFT (this is a standard machine learning evaluation metric known as recall); conversely, across all conversations where CRAFT predicts derailment, 64\% in fact go on to derail (a standard metric known as precision).
 
 \subsection{Using Forecasting Algorithms to Support Online Communities}
-The introduction of CRAFT, a practical algorithm for forecasting derailment in conversations, made it possible to finally address a core question of my research agenda: how can such an algorithm, in its role as a rough proxy for human intuitions about risk, benefit real online communities?
-Answering this question has required bringing together the social and technical aspects of my work.
-On the technical side, I led a team of undergraduate and masters students to develop a prototype browser extension, ConvoWizard, that warns users when they are replying to a discussion thread that might be at risk of derailment (as estimated by CRAFT) and also gives them feedback as they draft their comment, warning them if the comment might make the situation even more tense.
-On the social side, I arranged a groundbreaking collaboration with a real online community, the Reddit debate forum ChangeMyView, to help test ConvoWizard.
+While CRAFT scores highly on standard machine learning metrics, these metrics do not necessarily translate into actual usefulness for humans.
+Evaluating whether a forecasting algorithm like CRAFT can actually benefit real online communities required bringing together the social and technical aspects of my work.
+On the techical side, I led a team of undergraduate and masters students to develop a prototype browser extension, ConvoWizard, that uses CRAFT to warn users when a discussion thread they are replying to may be at risk of derailment, and also give gives them feedback as they draft their reply, warning them if their reply might make the situation even more tense.
+On the social side, I arranged a groundbreaking collaboration with a real online community, in which we worked together with the moderators to conduct a real-world test run of ConvoWizard in a way that was respectful of the community's norms.
 
-In setting up the collaboration with ChangeMyView, it was imporant to me to ensure that we were operating in accordance with the community's goals and needs, as opposed to imposing our own views of moderation on them.
-As such, we worked together with the volunteer moderators of ChangeMyView to carefully design a user study that would be to the mutual benefit of both us and the ChangeMyView community.
-We then jointly authored an announcement thread to inform the broader community of our goals and plans, also giving them a chance to weigh in with their own thoughts.
-Interested users could opt in to participating in the study, where they had the chance to test ConvoWizard and provide feedback through a survey.
-
-The results of the study, also published at CSCW 2022 \cite{chang_thread_2022}, offer promising indicators of a ConvoWizard-style tool's potential to improve online discussions.
-We observed that when replying to at-risk threads, ConvoWizard users put more thought into their replies, spending 9\% more time writing when compared to a control condition.
-More importantly, we found evidence that this extra time actually went towards trying to reduce tension in discussion: upon seeing warnings from ConvoWizard, users tended to make edits that decrease the risk of derailment (as estimated by CRAFT), unlike in the control condition where edits tended to increase the risk.
+This test run produced a number of promising findings that suggest ConvoWizard is useful to humans and can improve the quality of online discussions.
+Upon seeing warnings from ConvoWizard, users tended to make edits that decrease the risk of derailment (as estimated by CRAFT), unlike in the control condition where edits tended to increase the risk.
 A linguistic analysis of the resulting comments showed that they tend to exhibit increased use of known conflict avoidance strategies such as asking questions and adopting more formal tone.
-Finally, study participants' subjective evaluation of ConvoWizard in the exit survey was also positive, with 77\% of participants rating its feedback at least somewhat helpful, 68\% reporting that its risk estimates were as good as or better than their own intuitions, and 54\% reporting that ConvoWizard made them rethink posting a comment they might have later regretted.
-
-A ConvoWizard-style tool, helping regular community members as they comment in online discussions, is only one half of my research agenda for proactive moderation tools.
-As I have previously described, a second proposal is to use forecasting algorithms to directly help moderators by taking over some of the burden of identifying discussions that might need intervention.
-I have already begun laying down the groundwork for this: part of my moderator interviews included a mockup interface for such a tool, involving a ranked list of discussions that are most at risk.
-Moderators overall reacted positively to the idea and many stated they would be willing to try such a tool.
-Building and evaluating a real implementation of such a tool is one part of my future plans, as I now discuss.
+Finally, in an exit survey conducted after the test run, ConvoWizard users left largely positive evaluations of the tool: most notably, 54\% reporting that ConvoWizard made them rethink posting a comment they might have later regretted, and 63.8\% felt that if ConvoWizard were deployed at scale, the net effect would be an improvement in discussion quality.
+These and other findings from the ConvoWizard test run were presented at CSCW 2022 \cite{chang_thread_2022}.
 
 \section{Next Steps}
 I am a firm believer in the principle that before new technologies can be broadly adopted, we must first try to understand as fully as possible its ramifications for society and its potential risks.
