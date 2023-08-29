@@ -5,8 +5,10 @@
 \usepackage{times}
 \usepackage{xcolor}
 \usepackage{xspace}
-\usepackage{cite}
-\usepackage{natbib}
+\usepackage{xstring}
+%\usepackage{cite}
+%\usepackage{natbib}
+\usepackage[style=numeric,maxnames=10]{biblatex}
 \usepackage{titlesec}
 \usepackage{etoolbox}
 \usepackage{hyperref}
@@ -19,11 +21,14 @@
 \patchcmd{\@footnotetext}{\footnotesize}{\fontsize{10pt}{12pt}\selectfont}{}{}
 \makeatother
 
+\addbibresource{refs.bib}
 
-\renewcommand{\bibsection}{\noindent\textbf{References (works to which I contributed have my name \underline{underlined})}\vspace{-6pt}}
-\setlength{\bibsep}{0pt} % or use whatever dimension you want
 \renewcommand{\bibfont}{\fontsize{10pt}{12pt}\selectfont} % or any other  appropriate font command
-
+\setlength\bibitemsep{0pt}
+\defbibheading{bibliography}[\refname]{\noindent\textbf{#1}}
+\DefineBibliographyStrings{english}{%
+  references = {References (works to which I contributed have my name bolded)},
+}
 
 \titleformat{\section}{\normalfont\large\bfseries\scshape}{}{0em}{}
 \titlespacing*{\section}{0em}{0.25\baselineskip}{0em}
@@ -43,10 +48,9 @@
 \begin{document}
 \maketitle
 
-\begin{center}
-Research Statement --- Jonathan P. Chang
-\end{center}
+{\centering Research Statement --- Jonathan P. Chang \par}
 
+\vspace{\baselineskip}
 One of the biggest problems facing online platforms today is the prevalence of incivility, harassment, hate speech, and other similar behaviors---collectively referred to in social science as ``antisocial behavior''.
 While a lot of Computer Science research has responded to this problem by developing algorithms to detect antisocial behavior, I argue that this approach implicitly centers the perspective of platform owners, who would be in a position to employ these algorithms for moderation, and fails to center an equally important perspective: that of the \emph{communities} of ordinary people who interact on these platforms.
 Therefore, my research focuses on the following question: how can technology help online communities to maintain norms and negotiate disputes---in other words, to \emph{proactively} prevent antisocial behavior from taking root?
@@ -63,8 +67,8 @@ This research agenda is particularly well suited to a liberal arts institution l
 %Yet a growing body of scholarship in social science and human-computer interaction argues that moderation actually encompasses a much richer body of practices extending all the way down to the community level \cite{brewer_inclusion_2020,seering_reconsidering_2020}.
 While moderation is commonly thought of as the purview of social media companies, who often employ moderators to remove content deemed to be in violation of their rules, social and political scientists have long recognized that many online communities also self-organize some less formal moderation practices \cite{grimmelmann_virtues_2015}.
 This community-driven moderation is often organized by volunteers, who play a role akin to a community leader \cite{seering_reconsidering_2020}.
-But these volunteer moderators do not act alone: they also involve ordinary community members in the moderation process, by engaging with the community to promote rule-following behavior through steps like publicly modeling good behavior, educating community members about the rules, and mediating discussions that are getting out of hand \cite{seering_shaping_2017,billings_understanding_2010}.
-These practices can be seen as \emph{proactive} moderation aimed at discouraging antisocial behavior from occurring at all---in contrast to \emph{reactive} moderation practices like content removal which respond to antisocial behavior after it occurs \cite{lo_when_2018}.
+But these volunteer moderators do not act alone: they also involve ordinary community members in the moderation process, by engaging with the community to promote rule-following behavior through steps like publicly modeling good behavior, educating community members about the rules, and mediating discussions that are getting out of hand \cite{billings_understanding_2010,seering_shaping_2017}.
+These practices can be seen as \emph{proactive} moderation aimed at discouraging antisocial behavior from occurring at all---in contrast to \emph{reactive} moderation practices like content removal which respond to antisocial behavior after it occurs.
 
 
 
@@ -166,23 +170,35 @@ Answering these questions will require larger-scale, longer-term user studies, o
 \section{Involving Undergraduates in my Research Agenda}
 Throughout my research, I have had the pleasure and privilege of collaborating with several undergraduate students, who have contributed to my research agenda in a number of ways.
 Most notably, two of my papers---the two CSCW papers---were co-authored with undergraduate student Charlotte Schluger, who is in fact first author on one of them.
-She had the distinction of contributing through the entire research pipeline: she was part of the larger student team that implemented the ConvoWizard research tool, was responsible for both designing and conducting the moderator interviews, and finally contributed large portions of the paper writing.
-To me, Charlotte's experience illustrates the broad potential of my research agenda for undergraduates: it presents opportunities for both scientific contributions and software engineering contributions, thus catering to undergraduate students on any career path; indeed, other members of the ConvoWizard development team, knowing they wanted an industry job, chose to focus solely on the software engineering aspects.
+She had the distinction of contributing through the entire research pipeline: she was part of the larger student team that implemented ConvoWizard, was responsible for both designing and conducting the moderator interviews, and finally contributed large portions of the paper writing.
+To me, Charlotte's experience illustrates the broad potential of my research agenda for undergraduates: it presents opportunities for both scientific contributions and software engineering contributions, thus catering to undergraduate students on any career path.
+%Moreover, I do not view these aspects as mutually exclusive: I believe that students interested in research can benefit from having to implement research ideas as usable software, and that students interested in going into industry can benefit from exposure to cutting-edge research ideas.
 
-My research agenda also opens up other paths for undergraduates to contribute beyond just work directly aimed at publications.
-I have a strong commitment to open source and open science, and in this spirit I have been a core contributor to ConvoKit (\url{https://convokit.cornell.edu}), an open source Python package designed to empower research on conversational data.
-As part of my work on ConvoKit I have mentored a number of undergraduate contributors, who again have gone onto a variety of career paths.
-In fact, I met my first undergraduate mentee, Andrew Wang, through his work on ConvoKit, which he used as a launching point to get into research; he would later go on to receive a MS degree at Stanford followed by returning to Cornell to pursue a PhD.
-On a different type of career path is Caleb Chiam, who over his 3 years working with us as an undergraduate became one of the biggest contributors to ConvoKit---experience which now serves him well at his current software engineering career.
+Indeed, I have found through experience that the most effective way to help undergraduates get started on working with me, regardless of whether their goal is industry or academia, is by assigning them concrete software development tasks---either through projects like ConvoWizard, or through my efforts on developing ConvoKit (\url{https://convokit.cornell.edu}), an open source Python package designed to empower research on conversational data.
+I find that such concrete software tasks serve as an accessible gateway to working in my research group, with a number of benefits for 
+\ifliberalarts
+a primarily-undergraduate program.
+\else
+an undergraduate program.
+\fi
+First, they constitute clear deliverables through which progress can be tracked, which is a more familiar environment for undergraduates compared to the often abstract and shifting goals of research.
+Second, these tasks often connect to concepts that undergraduates are exposed to in their CS coursework, such as class interface design, proper use of data structures, and reasoning about efficiency.
 
-Overall, I believe that my research agenda is a perfect fit for an undergraduate teaching institution.
-Because of my focus on practical use cases, my research involves a heavy software engineering focus alongside the typical scientific aspects.
-As my prior experiences with undergraduate students have shown, this means that my research has something to offer for everyone---a particularly important feature at an undergraduate institution, where students may be pursuing a variety of different post-graduation trajectories, or in fact trying to decide on one.
-My continued commitment to open source and the ConvoKit project also offers a unique opportunity for students to have an impact on a real tool that is used by researchers and software engineers while simultaneously getting exposure to research.
-In light of all of this, I feel that I can strongly contribute to the education of students at UNIVERSITY\_NAME.
+At the same time, as students work on these software tasks, they gain exposure to the novel research ideas underlying the software.
+For some students, this sparks a curiosity that leads them to dive deeper into the research aspects, hence why I regard such tasks as a gateway to research.
+For example, my first undergraduate mentee, Andrew Wang, used his early work on ConvoKit as a launching point to get into research; he would later go on to receive an MS degree at Stanford followed by returning to Cornell to pursue a PhD.
+Meanwhile, students who do not end up going into academia can still find value in working on my projects; for instance, another mentee of mine, Caleb Chiam, gained a great deal of software engineering expertise as one of the largest contributors to ConvoKit during his time working with me.
+My prior work has also involved a number of industry collaborations, and I intend to continue maintaining these connections in my future work; this can offer further value to students on the industry track.
+
+Overall, I believe that my research agenda's unique mix of research and engineering components makes it
+\ifliberalarts
+a perfect fit for a primarily-undergraduate institution like \schoolname,
+\else
+ideally suited as a learning experience for undergraduate students regardless of their post-graduation goals,
+\fi
+and I am excited for the opportunity to continue working with talented undergraduates to pursue this groundbreaking and socially impactful research.
 
 \vspace{0.5\baselineskip}
-\bibliographystyle{plain}
-\bibliography{refs}
+\printbibliography
 
 \end{document}
