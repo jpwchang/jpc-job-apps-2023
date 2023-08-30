@@ -8,7 +8,7 @@
 \usepackage{xstring}
 %\usepackage{cite}
 %\usepackage{natbib}
-\usepackage[style=numeric,maxnames=10]{biblatex}
+\usepackage[style=numeric,maxnames=5,minnames=3]{biblatex}
 \usepackage{titlesec}
 \usepackage{etoolbox}
 \usepackage{hyperref}
@@ -25,7 +25,7 @@
 
 \renewcommand{\bibfont}{\fontsize{10pt}{12pt}\selectfont} % or any other  appropriate font command
 \setlength\bibitemsep{0pt}
-\defbibheading{bibliography}[\refname]{\noindent\textbf{#1}}
+\defbibheading{bibliography}[\refname]{\noindent\textbf{#1}\vspace{-4pt}}
 \DefineBibliographyStrings{english}{%
   references = {References (works to which I contributed have my name bolded)},
 }
@@ -50,7 +50,7 @@
 
 {\centering Research Statement --- Jonathan P. Chang \par}
 
-\vspace{\baselineskip}
+\vspace{0.5\baselineskip}
 One of the biggest problems facing online platforms today is the prevalence of incivility, harassment, hate speech, and other similar behaviors---collectively referred to in social science as ``antisocial behavior''.
 While a lot of Computer Science research has responded to this problem by developing algorithms to detect antisocial behavior, I argue that this approach implicitly centers the perspective of platform owners, who would be in a position to employ these algorithms for moderation, and fails to center an equally important perspective: that of the \emph{communities} of ordinary people who interact on these platforms.
 Therefore, my research focuses on the following question: how can technology help online communities to maintain norms and negotiate disputes---in other words, to \emph{proactively} prevent antisocial behavior from taking root?
@@ -132,9 +132,9 @@ Finally, in a feedback survey ConvoWizard users left largely positive evaluation
 
 \section{Future Directions}
 I am a firm believer in the principle that before new technologies can be broadly adopted, we must first try to understand as fully as possible its ramifications for society and its potential risks.
-This is especially vital for work relating to content moderation, which is quickly becoming a major societal issue with implications for online safety, free speech, and social justice.
+%This is especially vital for work relating to content moderation, which is quickly becoming a major societal issue with implications for online safety, free speech, and social justice.
 In line with this principle, the social aspect of my prior and ongoing work has been tailored towards understanding the impact of tools based on forecasting algorithms, so that any future large-scale deployment of such technology can be done in a responsible and ethical manner.
-While the findings thus far have offered positive signs about the potential of this technology to improve online discussions, they also raise important new questions about the limitations of the technology and what can be done to improve it, which constitute the focus of my future plans.
+While the findings thus far have offered positive signs about the potential of this technology to improve online discussions, they also raise new questions about its limitations and possible improvements, which are the focus of my future plans.
 
 \subsection{Improving the Transparency of Forecasting Algorithms}
 The most common complaint we received in the ConvoWizard exit survey was that the tool lacked \emph{transparency}: when the tool reports that a discussion might be at risk of derailment, it does not explain why this might be the case.
@@ -157,7 +157,8 @@ The models I have developed thus far look only at the linguistic content of the 
 In practice, however, the trajectory of a conversation often depends on factors beyond what is directly said in the comments; for example, prior work has shown that a community member's willingness to adhere to community norms is influenced by how long they have been part of the community \cite{danescu-niculescu-mizil_no_2013}.
 I am interested in investigating how recent breakthroughs in so-called multimodal models---that is, models capable of combining language data with other modes of input---could be adapted to enable forecasting algorithms to incorporate this non-linguistic context.
 This is particularly important because antisocial behavior is highly dependent on social context, and phenomena such as microaggressions and dogwhistles can alienate members of marginalized groups from a community despite not being overtly ``toxic''.
-Building on recent efforts to computationally model the social and power implications found in natural language \cite{sap_social_2020} could make forecasting algorithms more sensitive to social context, and thereby allow them to better serve marginalized groups, reducing bias and improving equity in community-driven moderation.
+Building on recent efforts to computationally model the social and power implications found in natural language \cite{sap_social_2020} could make forecasting algorithms more sensitive to social context, and thereby allow them to better serve marginalized groups.
+%, reducing bias and improving equity in community-driven moderation.
 
 
 \subsection{Measuring Longer-term Impacts of Proactive Moderation Tools}
@@ -171,25 +172,22 @@ Answering these questions will require larger-scale, longer-term user studies, o
 Throughout my research, I have had the pleasure and privilege of collaborating with several undergraduate students, who have contributed to my research agenda in a number of ways.
 Most notably, two of my papers---the two CSCW papers---were co-authored with undergraduate student Charlotte Schluger, who is in fact first author on one of them.
 She had the distinction of contributing through the entire research pipeline: she was part of the larger student team that implemented ConvoWizard, was responsible for both designing and conducting the moderator interviews, and finally contributed large portions of the paper writing.
-To me, Charlotte's experience illustrates the broad potential of my research agenda for undergraduates: it presents opportunities for both scientific contributions and software engineering contributions, thus catering to undergraduate students on any career path.
+To me, Charlotte's experience illustrates the broad potential of my research agenda for undergraduates: it presents opportunities for both scientific contributions and software engineering contributions, offering valuable experience that is relevant to both academic and industry career paths.
 %Moreover, I do not view these aspects as mutually exclusive: I believe that students interested in research can benefit from having to implement research ideas as usable software, and that students interested in going into industry can benefit from exposure to cutting-edge research ideas.
 
-Indeed, I have found through experience that the most effective way to help undergraduates get started on working with me, regardless of whether their goal is industry or academia, is by assigning them concrete software development tasks---either through projects like ConvoWizard, or through my efforts on developing ConvoKit (\url{https://convokit.cornell.edu}), an open source Python package designed to empower research on conversational data.
-I find that such concrete software tasks serve as an accessible gateway to working in my research group, with a number of benefits for 
-\ifliberalarts
-a primarily-undergraduate program.
-\else
-an undergraduate program.
-\fi
-First, they constitute clear deliverables through which progress can be tracked, which is a more familiar environment for undergraduates compared to the often abstract and shifting goals of research.
-Second, these tasks often connect to concepts that undergraduates are exposed to in their CS coursework, such as class interface design, proper use of data structures, and reasoning about efficiency.
+In fact, I have found through my past work with undergraduate students that the software development components of my research agenda offer a solution to one of the biggest challenges in mentoring undergraduates: how to ease them into the world of research in an approachable way.
+For many undergraduates starting research for the first time, research can seem intimidating because it is so different from what they have experienced before.
+Unlike coursework and internship projects, which involve concrete tasks and clear deliverables, research is often very abstract and lacks clearly defined goals, which can make it hard for even experienced researchers to gauge their progress.
+By having new students in my research group start off with concrete software development tasks in projects like ConvoWizard, I am able to provide them a more familiar environment with clear deliverables through which progress can be tracked.
+At the same time, as students work on these tasks, they gain exposure to the novel research ideas underlying the software, and hence these tasks serve as an accessible gateway to research.
+This is well-illustrated by the experience of my first undergraduate mentee, Andrew Wang, who took an interest in social networks research that he was exposed to in his early work with me, and has since gone on to pursue research in this direction through the MS program at Stanford followed by the PhD program back here at Cornell.
 
-At the same time, as students work on these software tasks, they gain exposure to the novel research ideas underlying the software.
-For some students, this sparks a curiosity that leads them to dive deeper into the research aspects, hence why I regard such tasks as a gateway to research.
-For example, my first undergraduate mentee, Andrew Wang, used his early work on ConvoKit as a launching point to get into research; he would later go on to receive an MS degree at Stanford followed by returning to Cornell to pursue a PhD.
-Meanwhile, students who do not end up going into academia can still find value in working on my projects; for instance, another mentee of mine, Caleb Chiam, gained a great deal of software engineering expertise as one of the largest contributors to ConvoKit during his time working with me.
-My prior work has also involved a number of industry collaborations, and I intend to continue maintaining these connections in my future work; this can offer further value to students on the industry track.
-
+My future research plans offer ample opportunities for me to carry out this mentoring strategy.
+In addition to the ongoing ConvoWizard project, my plans for studying longer-term impacts of proactive moderation tools may involve the development of new forecasting-based tools catering to different needs and audiences.
+Furthermore, I co-lead the development of ConvoKit (\url{https://convokit.cornell.edu}), an open-source Python package for working with conversational data, which offers additional opportunities for starter projects.
+I also believe such projects offer educational value even beyond research.
+For one, they often involve concepts that undergraduates are exposed to in their CS coursework---such as class interface design, proper use of data structures, and reasoning about efficiency---and therefore provide a valuable supplement to their classroom learning.
+And of course, students interested in industry careers can use these projects to gain valuable software engineering experience, as was the case for my mentee Caleb Chiam, who has become the largest contributor to ConvoKit.
 Overall, I believe that my research agenda's unique mix of research and engineering components makes it
 \ifliberalarts
 a perfect fit for a primarily-undergraduate institution like \schoolname,
