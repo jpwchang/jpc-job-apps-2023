@@ -50,15 +50,6 @@ During my PhD, I have had the chance to implement this philosophy in two dispara
 These experiences serve to illustrate three concrete strategies that emerge from my teaching philosophy: \textbf{teaching with narratives}, \textbf{leveraging technology for interactivity}, and \textbf{building inclusive learning environments}.
 
 \section{Teaching With Narratives}
-%In the summer of 2022, I was designing a brand-new Introduction to Python workshop that I would teach for CCSS, meant for a target audience of social science students and researchers who may have never programmed before.
-%My approach for making the code concepts of programming accessible to this audience was ground those abstract concepts in a social science narrative: using a real dataset sourced from a social science researcher at CCSS, the workshop asked students to imagine that they were using this data for their own research, then framed the lessons in terms of steps a researcher would need to take in preparing and analyzing the data.
-%For example, the need to store and represent datapoints motivates the concept of variables, and the need to repeatedly perform common operations across all the data motivates the concepts of loops and functions.
-
-%This offers an illustrative example of one of my preferred teaching strategies: organizing lesson plans around a central narrative, with each lesson having a clearly defined purpose within that narrative.
-%This strategy arises directly from my core philosophy of having students feel ownership over their learning: I believe these narratives signal to students that the course is really designed \emph{for them}, in that they are gaining skills that directly connect to their own goals and needs as opposed to just rotely absorbing information with no rhyme or reason.
-%Feedback from the workshop participants validates this belief, as several students told us that they learned much more from our workshop than in their previous attempts to learn Python or other programming skills.
-%For instance, one student wrote in their feedback form ``I finally understood how to use Python; I have taken other classes at Cornell but none were so comprehensive as yours'', while another commented that ``This is one of the best tutorials I've been to. The instructors were knowledgeable, kind, and better at communicating/explaining code then most I've seen.''
-
 One way I help students feel like a course is made \emph{for them} is to ground course content in \emph{narratives} that are relevant to their interests.
 This is particularly helpful for reaching students whose backgrounds and interests are outside of Computer Science---for example, when I was developing an Introduction to Python workshop for CCSS, which was meant for a target audience of social science students who may have never programmed before, my approach was to construct a narrative around analyzing a real social science dataset from CCSS, grounding the core concepts of programming in steps a researcher would need to take in preparing and analyzing the data for social science research.
 For example, the need to store and represent datapoints motivates the concept of variables, and the need to repeatedly perform common operations across all the data motivates the concepts of loops and functions.
@@ -67,26 +58,37 @@ Student feedback indicates that this approach was an effective and approachable 
     This is one of the best tutorials I've been to. The instructors were knowledgeable, kind, and better at communicating/explaining code then most I've seen.
 \end{quote}
 
-Looking ahead, I believe this strategy will be very applicable for teaching undergraduate intro-level CS courses, which similarly need to cater to students with little to no prior programming experience.
+I also leveraged this narrative-based approach in my CS4300 teaching, for instance by drawing connections between lecture topics and recent advances in language technology that students may have heard about in the news.
+Students seemed to recognize my efforts: on the course evaluation question ``Did the lecturer motivate the course content
+and place it in the context of your major or your overall engineering
+education?'' students rated me an average 4.12 out of 5.
+Looking ahead, I believe this strategy will be also very applicable for teaching undergraduate intro-level CS courses.
 \narrativeendsent
 
 \section{Leveraging Technology for Interactivity}
-There has been growing interest in how new technologies for remote learning and collaboration could enable a transition away from the traditional paradigm of ``lectures in class, coursework outside of class''.
-One notable approach, of course, has been to go all the way to the opposite extreme, the so-called ``flipped classroom'' model.
-But I believe there is potential in the space between these two extremes: rather than viewing lectures and interactive coursework as separate entities that must always be kept apart, we should consider intermixing the two, creating a classroom environment that is neither lecture-style nor flipped-style but something altogether new.
-During my time as co-instructor for CS4300, I took preliminary steps towards implementing these ideas in collaboration with Cornell's Active Learning Institute (ALI).
+While collaboration technology is often associated with remote learning and flipped classrooms, I believe it also has great potential to enrich traditional classroom environments, making lectures more interactive so students can feel actively engaged in their learning.
+In collaboration with Cornell's Active Learning Institute (ALI), my teaching in CS4300 made heavy use of Google Colaboratory as a shared interactive coding environment.
+Using this tool, I integrated live coding into my lectures under a ``copiloting'' paradigm in which I would write parts of the code and ask for student contributions on other parts, resulting in a jointly authored final result that students could feel they concretely contributed to.
+I also leveraged online forms and polling alongside old-fashioned pen-and-paper handouts to implement similar collaborative activites in non-coding parts of the lectures as well.
+Comments from an ALI-administered survey show how students perceived the benefits of these activities:
 
-One step in this implementation was integrating live interactive coding into lectures.
-Using Google Colaboratory allowed us to provide Python notebooks that students could experiment with during designated ``coding segments'' integrated within lectures.
-These coding segments are are designed around a model of dialog between instructors and students: while parts of the code are written and demonstrated by the instructor, in other parts we turn things over to the students to come up with their own ideas.
-Importantly, these student-led portions are not quizzes: there is often no one correct answer, and rather than being graded, they are used as conversation starters to have students discuss the different ways they approached the problem.
-We additionally implemented non-coding interactive activities in a similar style, using tools such as polling and forms to facilitate discussion of open-ended questions.
+\begin{quote}
+    [Live coding] helped me learn and be more engaged because I was actively seeing concepts play out in real time.
+\end{quote}
+\begin{quote}
+    I thought they [interactive activities] were great to discuss my thoughts and tinker with our learning with classmates.
+\end{quote}
 
-Student feedback from a post-course survey conducted by ALI both show the promise of this approach and illuminate necessary next steps to develop it further.
-Many students indicated that they found the interactive activities useful for improving their understanding of class concepts and staying more engaged.
-Some example comments along these lines are ``[live coding] helped me learn and be more engaged because I was actively seeing concepts play out in real time.'' and ``I thought they [interactive activities] were great to discuss my thoughts and tinker with our learning with classmates.''
-At the same time, other comments voiced criticisms of the format of the activities, especially when it comes to the live coding which could at times be unwieldy and hard to follow.
-I am actively working on ways to address these shortcomings---for instance, looking into the use of Binder\footnote{\url{https://mybinder.org/}} as a more frictionless interactive coding environment---and look forward to integrating them into my teaching at \schoolname.
+At the same time, other comments point to shortcomings in this approach that I have concrete plans to address in my future teaching.
+In particular, some students remarked that live coding could get hard to follow, since falling behind early on would leave them out-of-sync throughout the rest of the live coding session.
+To address this, I plan to adapt techniques from my CCSS workshop teaching, such as having designated ``checkpoints'' throughout live coding sessions to give students a chance to catch up, during which an instructor
+\ifliberalarts
+%
+\else
+or TA
+\fi
+could reach out to individual students who may be particularly stuck on some part.
+\interactionimprove
 
 \section{Developing Course Content With Diverse Student Backgrounds in Mind}
 As I've discussed, my core philosophy holds that students should feel like they are actively working together in their learning.
