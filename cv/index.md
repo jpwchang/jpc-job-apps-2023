@@ -37,23 +37,28 @@ __Harvey Mudd College__
 
 ## Teaching Experience
 
+<div id="dummy_space" style="height:0.5em;"></div>
 
-### Courses Taught (Instructor of Record)
+### Courses Taught
 
 `Spring 2023`
 **CS4300 - Information and Language**, Cornell University.
+- This was a 200-person course open to both computer science and information science students, covering selected topics in information retrieval, machine learning, and natural language processing. As co-instructor of record, I updated and taught the lectures on the machine learning topics, reorganized some assignments to better spread out the workload, designed exam questions, and oversaw the development of new infrastructure for the course project to make it more approachable for students with less technical background.
 
 
-### Workshops
+### Workshops Taught
 
 `Summer 2022`
 **Introduction to Python Bootcamp**, Cornell Center for Social Sciences.
+- I co-developed and co-instructed this brand-new workshop designed to introduce Python to social science researchers with little to no prior programming experience. It covers the basics of the Python language, explains key debugging skills, and introduces core data science packages.
 
 `Spring 2022`
-**Using APIs for Social Science Data**, Cornell Center for Social Sciences.
+**Using APIs for Social Science Research**, Cornell Center for Social Sciences.
+- I co-developed this brand-new workshop that explains what APIs are and demos how to use an API to fetch different kinds of social media data.
 
 `Fall 2021`
 **Introduction to Git and GitHub**, Cornell Center for Social Sciences.
+- This workshop covers the basics of version control and how it can both help researchers keep their code organized and promote reproducibility in research. I updated it with new visual explanations of key Git concepts to make it more approachable for first-time Git users.
 
 
 ### Courses TA'd
