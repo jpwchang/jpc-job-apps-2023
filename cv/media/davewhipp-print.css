@@ -147,8 +147,9 @@ h2 {
 	font-size: 1.1em;
 	color: #a00;
 	margin-top: 1em;
+	margin-bottom: -1.1em;
 	position: relative;
-	top: 1.2em;
+	/*top: 1.2em;*/
 	text-align: right;
 	width: 20%;
 }
@@ -158,8 +159,8 @@ h3 {
 	font-size: 1em;
 	/*line-height: 2em;*/
 	color: #2d4e5e;
+	margin-bottom: -1.2em;
 	position: relative;
-	top: 1.4em;
 	text-align: right;
 	width: 20%;
 }
@@ -200,9 +201,12 @@ strong {
 	visibility: hidden;
 }
 
-#publications {
-    page-break-before: always;
+div.manualpagebreak {
+	page-break-before: always;
 }
 
+div.dummy_space {
+	height: 1.5em;
+}
 
 
