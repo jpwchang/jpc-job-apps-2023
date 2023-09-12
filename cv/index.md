@@ -157,7 +157,7 @@ __Departmental Honors in Humanities, Social Sciences, and the Arts__
 - Awarded for academic performance in courses in humanities, social sciences, and the arts.
 
 
-## Mentorship and Service
+## Leadership
 
 <div class="dummy_space"></div>
 
