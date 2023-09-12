@@ -11,3 +11,10 @@
 *.bcf
 *.run.xml
 */_site
+build
+cover-letter/BowersCIS.png
+cover-letter/bowersletterhead.sty
+cover-letter/CornellLogoRed.eps
+cover-letter/CS2lineRed.png
+cover-letter/IS.png
+cover-letter/SDS.png

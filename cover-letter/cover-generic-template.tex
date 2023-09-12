@@ -1,0 +1,47 @@
+\documentclass[12pt]{letter}
+
+% Change bracketd option in brackets for alternate letterhead
+\usepackage[cis]{bowersletterhead}
+\usepackage{xcolor}
+\usepackage{xspace}
+\usepackage{hyperref}
+%\usepackage[cs]{bowersletterhead}
+%\usepackage[cornell]{bowersletterhead}
+%\usepackage[is]{bowersletterhead}
+%\usepackage[sds]{bowersletterhead}
+
+%% LOGIC FOR CUSTOMIZING THE STATEMENT FOR INDIVIDUAL SCHOOLS
+% set up common defines (commands and boolean flags)
+\input{../defines.tex}
+% import the school-specific header to make the magic happen!
+\input{schoolheader.tex}
+%% END CUSTOMIZATION LOGIC
+
+\myname{Jonathan P. Chang}
+\mytitle{PhD Candidate}
+\myemail{jpc362@cornell.edu}
+\mywebsite{\href{https://cs.cornell.edu/~jpchang}{cs.cornell.edu/\char`~jpchang}}
+\myroomnumber{214 Gates Hall}
+\myphonenumber{+1 (408) 717-1539}
+
+\begin{document}
+
+\signature{Jonathan P. Chang}
+\begin{letter}{
+\chairname \\
+\chairtitle \\
+\department \\
+\schoolnamelong \\
+\schooladdress
+}
+
+\opening{Dear \chairlastname,}
+
+I am writing to apply for the position of \position.
+
+
+
+\closing{Sincerely,}
+
+\end{letter}
+\end{document}

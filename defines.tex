@@ -1,9 +1,19 @@
 % Sets up custom commands and flags for school-specific behaviors
-% Also assigns default values, but school-specific values are meant to be
-% assigned in the appropriate header files.
+% Also assigns default values, but these can be overwritten with school-specific
+% values in the corresponding header file.
+% Some default values are placeholders (marked in red) and these MUST be 
+% overwritten in the school-specific headers!
 \newcommand{\schoolname}{\textcolor{red}{COLLEGE\_NAME}\xspace} 
+\newcommand{\schoolnamelong}{\textcolor{red}{COLLEGE\_NAME\_LONG}\xspace}
+\newcommand{\schooladdress}{\textcolor{red}{47 Generic St., City, ST 99999}\xspace}
 \newcommand{\schoolintrocourses}{\textcolor{red}{[school-specific intro course numbers]}\xspace}
 \newcommand{\schooladvcourses}{\textcolor{red}{[school-specific AI/ML/NLP course numbers]}\xspace}
+\newcommand{\chairname}{\textcolor{red}{Prof. Search Chair}\xspace}
+\newcommand{\chairlastname}{\textcolor{red}{Prof. Chair}\xspace}
+\newcommand{\chairtitle}{\textcolor{red}{Chair, Faculty Search Committee}\xspace}
+\newcommand{\department}{Department of Computer Science\xspace}
+\newcommand{\position}{\textcolor{red}{POSITION\_NAME (POSITION\_ID)}\xspace}
+
 \newif\iflongdei
 \longdeitrue 
 \newif\ifappendix
@@ -11,6 +21,7 @@
 \newif\ifliberalarts
 \liberalartstrue
 \ifliberalarts
+
 \newcommand{\narrativeendsent}{In this setting, narratives could be designed around concepts students would be simultaneously seeing in their other core classes, emphasizing the interdisciplinary nature of their liberal arts education.}
 \newcommand{\interactionimprove}{I believe this solution is particularly well suited to the small-class environment of a liberal arts college.}
 \else
