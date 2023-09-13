@@ -1,3 +1,6 @@
+setup:
+	mkdir -p build
+
 teaching:
 	cp "school-headers/${school}.tex" teaching-statement/schoolheader.tex
 	cd teaching-statement && latexmk -pdf teaching-statement.tex && cd ..
@@ -18,5 +21,5 @@ coverlettergeneric:
 
 generic: school := generic
 hmc: school := hmc
-generic hmc: teaching research coverlettergeneric
+generic hmc: setup teaching research coverlettergeneric
 	echo ${school} > build/SCHOOL
