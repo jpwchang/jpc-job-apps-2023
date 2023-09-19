@@ -21,5 +21,6 @@ coverlettergeneric:
 
 generic: school := generic
 hmc: school := hmc
-generic hmc: setup teaching research coverlettergeneric
+skidmore: school := skidmore
+generic hmc skidmore: setup teaching research coverlettergeneric
 	echo ${school} > build/SCHOOL
