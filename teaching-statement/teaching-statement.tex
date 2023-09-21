@@ -39,31 +39,40 @@
 {\centering Teaching Statement --- Jonathan P. Chang \par}
 
 \vspace{0.5\baselineskip}
-% TODO different opening paragraph for non liberal arts colleges
-Liberal arts education played a formative role in my approach to teaching---my love of teaching was first sparked during my undergraduate studies at Harvey Mudd College.
-That was where I got my first (small) taste of what it is like to be an instructor, through my participation in the CS department's ``grutoring'' program---similar to TA positions found at larger universities, but with more emphasis on direct interaction with students.
-I quickly fell in love with the rewarding experience of working with students to help them understand challenging concepts, which eventually led my interest in a teaching career.
+\ifliberalarts
+\lateachingintro
+\else
+\genteachingintro
+\fi
+%I quickly fell in love with the rewarding experience of working with students to help them understand challenging concepts, which eventually led my interest in a teaching career.
+%
+%Through my subsequent teaching experiences, I have developed a guiding philosophy for my teaching: I aim for learning environments where students can feel a sense of \emph{ownership} and \emph{accomplishment} over their learning.
+%Students in my classroom should not feel like mere receivers of knowledge, but instead should feel like active participants working together with me and each other to arrive at a shared understanding of the material.
+%During my PhD, I have had the chance to implement this philosophy in two disparate settings: a more traditional classroom setting as co-instructor of record for CS4300 ``Information and Language'',\footnote{\url{https://classes.cornell.edu/browse/roster/SP23/class/CS/4300}} and a more ad-hoc setting as a designer and instructor of data science workshops for the Cornell Center for Social Sciences (CCSS).\footnote{\url{https://socialsciences.cornell.edu/computing-and-data/workshops-and-training}}
+%These experiences serve to illustrate three concrete strategies that emerge from my teaching philosophy: \textbf{teaching with narratives}, \textbf{leveraging technology for interactivity}, and \textbf{building inclusive learning environments}.
 
-Through my subsequent teaching experiences, I have developed a guiding philosophy for my teaching: I aim for learning environments where students can feel a sense of \emph{ownership} and \emph{accomplishment} over their learning.
-Students in my classroom should not feel like mere receivers of knowledge, but instead should feel like active participants working together with me and each other to arrive at a shared understanding of the material.
-During my PhD, I have had the chance to implement this philosophy in two disparate settings: a more traditional classroom setting as co-instructor of record for CS4300 ``Information and Language'',\footnote{\url{https://classes.cornell.edu/browse/roster/SP23/class/CS/4300}} and a more ad-hoc setting as a designer and instructor of data science workshops for the Cornell Center for Social Sciences (CCSS).\footnote{\url{https://socialsciences.cornell.edu/computing-and-data/workshops-and-training}}
-These experiences serve to illustrate three concrete strategies that emerge from my teaching philosophy: \textbf{teaching with narratives}, \textbf{leveraging technology for interactivity}, and \textbf{building inclusive learning environments}.
 
 \section{Teaching With Narratives}
-One way I help students feel like a course is made \emph{for them} is to ground course content in \emph{narratives} that are relevant to their interests.
-This is particularly helpful for reaching students whose backgrounds and interests are outside of Computer Science---for example, when I was developing an Introduction to Python workshop for CCSS, which was meant for a target audience of social science students who may have never programmed before, my approach was to construct a narrative around analyzing a real social science dataset from CCSS, grounding the core concepts of programming in steps a researcher would need to take in preparing and analyzing the data for social science research.
-For example, the need to store and represent datapoints motivates the concept of variables, and the need to repeatedly perform common operations across all the data motivates the concepts of loops and functions.
-Student feedback indicates that this approach was an effective and approachable way to communicate key concepts in programming:
+One fundamental challenge in CS education that I became aware of early on, which is particularly relevant in intro CS settings, is that key CS concepts can often feel abstract and ungrounded to a newcomer.
+I have found through experience that one effective way to address this challenge is by grounding those abstract concepts in \emph{narratives} that students can relate to.
+
+One of the clearest examples of this strategy is an Introduction to Python workshop that I developed as part of my work as a Data Science Fellow at the Cornell Center for Social Sciences (CCSS).\footnote{\url{https://socialsciences.cornell.edu/computing-and-data/workshops-and-training}}
+This workshop was meant for a target audience of social science students who may have never programmed before.
+As such, my approach was to construct a narrative around analyzing a real social science dataset from CCSS, grounding the core concepts of programming in steps a researcher would need to take in preparing and analyzing the data for social science research.
+For example, the concept of variables is motivated by the need to store and represent datapoints, while loops and functions are motivated by the need to repeatedly perform common operations across all the data.
+Student feedback indicates that this was an effective and approachable way to communicate key concepts in programming, as best illustrated by the following comment from a student who had previously found little success trying to learn Python until they came to this workshop:\footnote{``Sam'' in the quote refers to my fantastic co-instructor for the workshop, Samantha De Leon Sautu!}
 \begin{quote}
-    This is one of the best tutorials I've been to. The instructors were knowledgeable, kind, and better at communicating/explaining code then most I've seen.
+    Thank you, Sam and Jonathan - I finally understood how to use Python.
 \end{quote}
 
-I also leveraged this narrative-based approach in my CS4300 teaching, for instance by drawing connections between lecture topics and recent advances in language technology that students may have heard about in the news.
+As I have noted, I developed this strategy mainly with intro-level teaching in mind.
+\narrativeendsent
+
+That being said, I have also found this strategy applicable in higher level courses.
+For instance, as co-instructor of record for CS4300 ``Information and Language'',\footnote{\url{https://classes.cornell.edu/browse/roster/SP23/class/CS/4300}} I grounded some key machine learning concepts by drawing connections to recent advances in language technology that students may have heard about in the news.
 Students seemed to recognize my efforts: on the course evaluation question ``Did the lecturer motivate the course content
 and place it in the context of your major or your overall engineering
 education?'' students rated me an average 4.12 out of 5.
-Looking ahead, I believe this strategy will be also very applicable for teaching undergraduate intro-level CS courses.
-\narrativeendsent
 
 \section{Leveraging Technology for Interactivity}
 While collaboration technology is often associated with remote learning and flipped classrooms, I believe it also has great potential to enrich traditional classroom environments, making lectures more interactive so students can feel actively engaged in their learning.
