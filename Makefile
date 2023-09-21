@@ -1,5 +1,8 @@
 setup:
 	mkdir -p build
+	rm -f build/teaching-statement.pdf
+	rm -f build/research-statement.pdf
+	rm -f build/cover-letter.pdf
 
 teaching:
 	cp "school-headers/${school}.tex" teaching-statement/schoolheader.tex
