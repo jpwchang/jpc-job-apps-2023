@@ -29,21 +29,27 @@
 \input{../defines.tex}
 % import the school-specific header to make the magic happen!
 \input{schoolheader.tex}
+% link paragraph commands to the appropriate concrete implementation
+\ifliberalarts
+\newcommand\intropar\lateachingintro
+\newcommand\narrativeendsent\lanarrativeend
+\newcommand\interactionimprove\lainteractionend
+\else
+\newcommand\intropar\genteachingintro
+\newcommand\narrativeendsent\gennarrativeend
+\newcommand\interactionimprove\geninteractionend
+\fi
 %% END CUSTOMIZATION LOGIC
 
-\title{SOME FANCY TITLE HERE}
+\title{Teaching Statement}
 
 \begin{document}
 \maketitle
 
-{\centering Teaching Statement --- Jonathan P. Chang \par}
+{\centering Jonathan P. Chang \par}
 
 \vspace{0.5\baselineskip}
-\ifliberalarts
-\lateachingintro
-\else
-\genteachingintro
-\fi
+\intropar
 %I quickly fell in love with the rewarding experience of working with students to help them understand challenging concepts, which eventually led my interest in a teaching career.
 %
 %Through my subsequent teaching experiences, I have developed a guiding philosophy for my teaching: I aim for learning environments where students can feel a sense of \emph{ownership} and \emph{accomplishment} over their learning.
@@ -56,23 +62,24 @@
 One fundamental challenge in CS education that I became aware of early on, which is particularly relevant in intro CS settings, is that key CS concepts can often feel abstract and ungrounded to a newcomer.
 I have found through experience that one effective way to address this challenge is by grounding those abstract concepts in \emph{narratives} that students can relate to.
 
-One of the clearest examples of this strategy is an Introduction to Python workshop that I developed as part of my work as a Data Science Fellow at the Cornell Center for Social Sciences (CCSS).\footnote{\url{https://socialsciences.cornell.edu/computing-and-data/workshops-and-training}}
+One of the clearest examples of this strategy is an Introduction to Python workshop that I developed for the Cornell Center for Social Sciences (CCSS)\footnote{\url{https://socialsciences.cornell.edu/computing-and-data/workshops-and-training}} as one of their Data Science Fellows.
 This workshop was meant for a target audience of social science students who may have never programmed before.
-As such, my approach was to construct a narrative around analyzing a real social science dataset from CCSS, grounding the core concepts of programming in steps a researcher would need to take in preparing and analyzing the data for social science research.
+I therefore centered the workshop on a narrative about analyzing a real social science dataset from CCSS, grounding core programming concepts in concrete steps a researcher would need to take in preparing and analyzing the data for social science research.
 For example, the concept of variables is motivated by the need to store and represent datapoints, while loops and functions are motivated by the need to repeatedly perform common operations across all the data.
-Student feedback indicates that this was an effective and approachable way to communicate key concepts in programming, as best illustrated by the following comment from a student who had previously found little success trying to learn Python until they came to this workshop:\footnote{``Sam'' in the quote refers to my fantastic co-instructor for the workshop, Samantha De Leon Sautu!}
+Student feedback indicates that this was an effective and approachable way to communicate key concepts in programming, as best illustrated by this comment from a student who had previously found little success trying to learn Python until they came to this workshop:\footnote{``Sam'' in the quote refers to my fantastic co-instructor for the workshop, Samantha De Leon Sautu!}
 \begin{quote}
     Thank you, Sam and Jonathan - I finally understood how to use Python.
 \end{quote}
 
-As I have noted, I developed this strategy mainly with intro-level teaching in mind.
-\narrativeendsent
-
-That being said, I have also found this strategy applicable in higher level courses.
-For instance, as co-instructor of record for CS4300 ``Information and Language'',\footnote{\url{https://classes.cornell.edu/browse/roster/SP23/class/CS/4300}} I grounded some key machine learning concepts by drawing connections to recent advances in language technology that students may have heard about in the news.
+Of course, what counts as a relatable narrative will depend greatly on context.
+For instance, a upper-level CS course will require a very different kind of narrative compared to intro-level courses like my Python workshop.
+As an example of how I approach this strategy for more advanced courses, during my role as co-instructor of record for CS4300 ``Information and Language'',\footnote{\url{https://classes.cornell.edu/browse/roster/SP23/class/CS/4300}} I grounded some key machine learning concepts by drawing connections to recent advances in language technology that students may have heard about in the news.
 Students seemed to recognize my efforts: on the course evaluation question ``Did the lecturer motivate the course content
 and place it in the context of your major or your overall engineering
 education?'' students rated me an average 4.12 out of 5.
+
+These examples show the flexibility of this strategy for helping students at all levels connect the material in their coursework to the bigger picture.
+\narrativeendsent
 
 \section{Leveraging Technology for Interactivity}
 While collaboration technology is often associated with remote learning and flipped classrooms, I believe it also has great potential to enrich traditional classroom environments, making lectures more interactive so students can feel actively engaged in their learning.
@@ -153,7 +160,7 @@ The source data---that is, the evaluations themselves in the raw format they wer
 \noindent\underline{CCSS workshops}\\
 \emph{[Note: comments are taken from a survey question about my Introduction to Python workshop; references to ``this'' and ``it'' are referring to that workshop.]}
 \begin{itemize}
-    \item Thank you...I finally understood how to use Python. I have taken other classes at Cornell before but none were so comprehensive as yours.
+    \item I've been a grad student for several years and decided to learn python to gain another skill. (My field uses Stata and R). This is one of the best tutorials I've been to. The instructors were knowledgeable, kind, and better at communicating/explaining code then most I've seen. 
     \item It was a great introduction, friendly, and overall positive environment. It also was taught extremely well, at the perfect pace and everything was explained very clearly. It also gave students the opportunity to get to know instructors and each other. The basics were taught very well.
 \end{itemize}
 
