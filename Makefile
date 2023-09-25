@@ -2,6 +2,7 @@ setup:
 	mkdir -p build
 	rm -f build/teaching-statement.pdf
 	rm -f build/research-statement.pdf
+	rm -f build/dei-statement.pdf
 	rm -f build/cover-letter.pdf
 
 teaching:
@@ -16,6 +17,12 @@ research:
 	cp "school-headers/generic.tex" research-statement/schoolheader.tex
 	cp research-statement/research-statement.pdf build/
 
+dei:
+	cp "school-headers/${school}.tex" dei-statement/schoolheader.tex
+	cd dei-statement && latexmk -pdf dei-statement.tex && cd ..
+	cp "school-headers/generic.tex" dei-statement/schoolheader.tex
+	cp dei-statement/dei-statement.pdf build/
+
 coverlettergeneric:
 	cp "school-headers/${school}.tex" cover-letter/schoolheader.tex
 	cd cover-letter && latexmk -pdf cover-generic-template.tex && cd ..
@@ -25,5 +32,5 @@ coverlettergeneric:
 generic: school := generic
 hmc: school := hmc
 skidmore: school := skidmore
-generic hmc skidmore: setup teaching research coverlettergeneric
+generic hmc skidmore: setup teaching research dei coverlettergeneric
 	echo ${school} > build/SCHOOL

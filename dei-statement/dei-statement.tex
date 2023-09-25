@@ -1,0 +1,48 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{graphicx}
+%\usepackage[bf,tiny,compact]{titlesec}
+\usepackage{times}
+\usepackage{xcolor}
+\usepackage{xspace}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{etoolbox}
+\usepackage{hyperref}
+
+
+\setlist{nosep}
+
+\makeatletter
+\def\@maketitle{%
+    {\centering\fontsize{12pt}{14pt}\selectfont\textbf{\@title}\par}
+}
+\patchcmd{\@footnotetext}{\footnotesize}{\fontsize{10pt}{12pt}\selectfont}{}{}
+\makeatother
+
+\titleformat{\section}[runin]{\normalfont\normalsize\bfseries}{}{0em}{}[.]
+\titlespacing*{\section}{0em}{0.25\baselineskip}{0.5em}
+
+%% LOGIC FOR CUSTOMIZING THE STATEMENT FOR INDIVIDUAL SCHOOLS
+% set up common defines (commands and boolean flags)
+\input{../defines.tex}
+% import the school-specific header to make the magic happen!
+\input{schoolheader.tex}
+%% END CUSTOMIZATION LOGIC
+
+\title{Statement on Diversity, Equity, and Inclusion}
+
+\begin{document}
+\maketitle
+
+{\centering Jonathan P. Chang \par}
+
+\vspace{0.5\baselineskip}
+
+My approach to teaching, as I have laid out in my teaching statement, is to start by thinking about the course and the material from a student's perspective.
+It is important to me that when I do this, I truly account for \emph{all} of my students---which inherently requires that I consider perspectives that may be wildly different from my own (cis-gendered, male, middle-class, able-bodied) perspective.
+Consequently, a central tenet of my teaching is addressing the challenges in diversity, equity, and inclusion that CS as a field continues to face.
+I think about this not only through the lens of building a more inclusive classroom, but also at a higher level: promoting equity and inclusion in the community I belong to (whether that be my undergraduate institution Harvey Mudd, my graduate institution Cornell, or, looking ahead, \schoolname), and training students who will broadly advance this cause in their future careers.
+
+\end{document}
