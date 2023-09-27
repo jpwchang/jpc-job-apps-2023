@@ -41,6 +41,14 @@
 \input{../defines.tex}
 % import the school-specific header to make the magic happen!
 \input{schoolheader.tex}
+% link paragraph commands to the appropriate concrete implementation
+\ifliberalarts
+\newcommand\introclosing\laresearchintro
+\newcommand\ugradclosing\laresearchclosing
+\else
+\newcommand\introclosing\genresearchintro
+\newcommand\ugradclosing\genresearchclosing
+\fi
 %% END CUSTOMIZATION LOGIC
 
 \title{Towards Computational Methods for Assisting in the Proactive Moderation of Online Communities}
@@ -55,11 +63,7 @@ One of the biggest problems facing online platforms today is the prevalence of i
 While a lot of Computer Science research has responded to this problem by developing algorithms to detect antisocial behavior, I argue that this approach implicitly centers the perspective of platform owners, who would be in a position to employ these algorithms for moderation, and fails to center an equally important perspective: that of the \emph{communities} of ordinary people who interact on these platforms.
 Therefore, my research focuses on the following question: how can technology help online communities to maintain norms and negotiate disputes---in other words, to \emph{proactively} prevent antisocial behavior from taking root?
 I tackle this question through a combined social and technical research agenda, in which I have engaged with real online communities to gain novel insights about their needs, pioneered new algorithmic methods to address those needs, and followed up with those communities to collaboratively evaluate my new algorithmic methods and identify future directions for research.
-\ifliberalarts
-This research agenda is particularly well suited to a liberal arts institution like \schoolname, giving undergraduate students an opportunity to work with cutting-edge technology and simultaneously study the impact of this technology on society.
-\else
-%
-\fi
+\introclosing
 
 \section{Background: The Landscape of Moderation}
 
@@ -188,13 +192,7 @@ Furthermore, I co-lead the development of ConvoKit (\url{https://convokit.cornel
 I also believe such projects offer educational value even beyond research.
 For one, they often involve concepts that undergraduates are exposed to in their CS coursework---such as class interface design, proper use of data structures, and reasoning about efficiency---and therefore provide a valuable supplement to their classroom learning.
 And of course, students interested in industry careers can use these projects to gain valuable software engineering experience, as was the case for my mentee Caleb Chiam, who has become the largest contributor to ConvoKit.
-Overall, I believe that my research agenda's unique mix of research and engineering components makes it
-\ifliberalarts
-a perfect fit for a primarily-undergraduate institution like \schoolname,
-\else
-ideally suited as a learning experience for undergraduate students regardless of their post-graduation goals,
-\fi
-and I am excited for the opportunity to continue working with talented undergraduates to pursue this groundbreaking and socially impactful research.
+\ugradclosing
 
 \vspace{0.5\baselineskip}
 \printbibliography
