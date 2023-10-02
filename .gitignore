@@ -4,7 +4,8 @@
 *.fls
 *.log
 *.out
-*.pdf
+*-statement/*.pdf
+cover-letter/*.pdf
 *.synctex.gz
 *.bbl
 *.blg
