@@ -93,33 +93,32 @@ One study examining the Wikipedia editor community found evidence that users' at
 Another study, done as part of an internship at Facebook, showed that discussions in which a user was misperceived (i.e., the publicly perceived purpose of their message was different from what they intended) are more likely to turn toxic.
 These results were published at the 2019 \cite{chang_trajectories_2019} and 2020 \cite{chang_dont_2020} meetings of The Web Conference (WWW '19 and '20), a top venue for social computing research.
 
-Qualitative follow-up work sheds more insight on the process by which interactions involving well-intentioned users turn toxic.
-In interviews I conducted alongside undergraduate student Charlotte Schluger, Wikipedia administrators reported that they can often intuitively tell if a currently-civil discussion is at risk of turning toxic.
-This suggests that toxicity rarely appears out of nowhere, and instead discussions \emph{derail} into toxicity over time.
-We subsequently posit that this represents a possible opening for computational assistance: if an algorithm could capture that intuition of whether a discussion is at risk of derailment, it could be used to warn the users in the discussion ahead of time, reminding them of the community rules and encouraging them to keep things civil.
-These findings were published at the 2022 ACM Conference on Computer-Supported Collaborative Work (CSCW '22), a top venue for research on online communities and human-computer interaction, with Charlotte as first author.
+To gain more qualitative insights about this phenomenon, I worked with undergraduate student Charlotte Schluger to interview Wikipedia administrators---the results of which were published at the 2022 ACM Conference on Computer-Supported Collaborative Work (CSCW '22) \cite{schluger_proactive_2022}, a top venue for research on online communities and human-computer interaction, with Charlotte as first author.
+One key finding was that administrators reported that they can often intuitively tell when a currently-civil discussion is at risk of \emph{derailing} into toxicity---that is, they are able to pick up on early warning signs to \emph{forecast} derailment.
+We subsequently posit that this represents a possible opening for computational assistance: if an algorithm could capture this same intuition to forecast derailment, it could be used to power just-in-time interventions warning users of the risk and encouraging them to keep the discussion on track.
 
 \subsection{Demonstrating the Feasibility of Algorithmically Forecasting Derailment}
-To demonstrate that forecasting conversational derailment is a feasible task for computers, I developed two experiments which respectively studied algorithmic estimates of impoliteness and misperception, both of which are factors theorized by socio-linguistics literature to be associated with tension and conflict.
-The experiments, conducted in collaboration with industry partners, found that when these factors were present early in a discussion, as measured by machine learning models, the discussion was at statistically significantly higher risk of future derailment.
-These results were respectively presented at 2018 Annual Meeting of the Association for Computational Linguistics (ACL 2018) \cite{zhang_conversations_2018} and the 2020 Web Conference (WWW 2020) \cite{chang_dont_2020}, both top venues for research applying natural language processing to computational social science.
+To test whether algorithmically forecasting derailment is feasible, I worked with industry partners
+%at Alphabet and the Wikimedia Foundation 
+to design an experiment studying algorithmic estimates of politeness, which has been theorized by socio-linguistics literature to be a mediating factor for avoiding conflict. We found that when polite language, as measured by machine learning models, was present early in a discussion, the discussion was at statistically significantly lower risk of derailment.
+This work, presented at 2018 Annual Meeting of the Association for Computational Linguistics (ACL 2018; a leading venue for NLP research) \cite{zhang_conversations_2018}, established conversational forecasting as a new NLP task and established its feasibility, sparking follow-up work from other researchers attempting this task.
 
 \subsection{Practical Forecasting of Conversational Derailment}
 Classical machine learning approaches to natural language processing 
 (like those in my earlier proof-of-concept work) 
 typically operate on a fixed snapshot of a discussion, assuming it will never change.
-But this is impractical for forecasting derailment in real moderation settings, because online discussions actually evolve over time, and each new comment may increase or decrease the risk of derailment.
+But this is impractical for forecasting derailment in real moderation settings, because discussions evolve in real time: it is impossible to know in advance how many comments a discussion will get, and each new comment may increase or decrease the risk of derailment.
 Thus, a practically useful algorithm would need to follow a conversation in real time, continuously updating its belief about whether the conversation is at risk of derailment.
-In work presented at the ACL's 2019 Conference on Empirical Methods in Natural Language Processing (EMNLP 2019; a hub for debuting novel natural language models) \cite{chang_trouble_2019}, I was able to develop such an algorithm, a neural network known as CRAFT, by adapting techniques from the domain of dialog modeling (aka ``chatbots'') \cite{serban_building_2016}, where similar practical challenges are present.
-Experiments on conversations from real online communities show that 77\% of discussions that actually derail are correctly detected by CRAFT (a standard machine learning evaluation metric known as recall); conversely, across all conversations where CRAFT predicts derailment, 64\% in fact go on to derail (a metric known as precision).
+In work presented at the ACL's 2019 Conference on Empirical Methods in Natural Language Processing (EMNLP 2019; a hub for debuting novel natural language models) \cite{chang_trouble_2019}, I developed such an algorithm, a neural network known as CRAFT, by adapting techniques from the domain of dialog modeling (aka ``chatbots''), where similar practical challenges are present.
+Experiments on archived conversations from real online communities show that 77\% of discussions that actually derail are correctly detected by CRAFT (a standard machine learning evaluation metric known as recall); conversely, across all conversations where CRAFT predicts derailment, 64\% in fact go on to derail (a standard metric known as precision).
 
-\subsection{Using Forecasting Algorithms to Support Online Communities}
+\subsection{Using Forecasting Algorithms to Support Users}
 While CRAFT scores highly on standard machine learning metrics, these metrics do not necessarily translate into actual usefulness for humans.
 To evaluate how forecasting algorithms like CRAFT can concretely benefit real online communities, I led a team of undergraduate and masters students to develop a prototype tool, ConvoWizard, that uses CRAFT to automatically warn users when a discussion they are replying to may be at risk of derailing into antisocial behavior.
 ConvoWizard is now being tested in a series of user studies that were set up in collaboration with real online communities, ensuring that testing is done in a way that is respectful of community norms.
 
 Though this work is still in progress, preliminary results published in CSCW 2022 \cite{chang_thread_2022} already offer promising signs of ConvoWizard's potential to improve online discussions.
-Upon seeing warnings from ConvoWizard, users in the study tended to edit their comments in ways that decrease the risk of derailment (as estimated by CRAFT), unlike in a control condition where edits tended to increase the risk.
+Upon seeing warnings from ConvoWizard, users in the study tended to edit their comments in ways that decrease the (algorithmically-estimated) risk of derailment, unlike in a control condition where edits tended to increase the risk.
 A linguistic analysis of the resulting comments showed that they exhibit increased use of known conflict avoidance strategies, such as adopting a more formal tone and asking questions.
 Finally, in a feedback survey ConvoWizard users left largely positive evaluations of the tool: most notably, 54\% reported that ConvoWizard made them rethink posting a comment they might have later regretted, and 83\% expressed interest in long-term use of a ConvoWizard-style tool if it became publicly available.
 %, and 64\% felt that if ConvoWizard were deployed at scale, the net effect would be an improvement in discussion quality.
@@ -131,8 +130,9 @@ In line with this principle, the social aspect of my prior and ongoing work has 
 While the findings thus far have offered positive signs about the potential of this technology to improve online discussions, they also raise new questions about its limitations and possible improvements, which are the focus of my future plans.
 
 \subsection{Improving the Transparency of Forecasting Algorithms}
-The most common complaint we received in the ConvoWizard exit survey was that the tool lacked \emph{transparency}: when the tool reports that a discussion might be at risk of derailment, it does not explain why this might be the case.
-Users reported that this sometimes made it difficult to decide how they should respond, especially in cases where they disagreed with ConvoWizard's judgment.
+The most common suggestion we received in the ConvoWizard exit survey was to improve the tool's \emph{transparency}.
+Currently, when the tool reports that a discussion might be at risk of derailment, it does not explain why this might be the case.
+Users reported that this sometimes made it difficult to decide how they should respond, especially when they disagreed with ConvoWizard's judgment.
 Solving this problem will likely form the central focus of my research in the immediate future, and to this end I have already begun preliminary work to explore possible directions.
 During Summer 2023, I worked with two undergraduate students to design new studies that will investigate how humans tend to judge the risk of derailment and what they would find helpful in an explanation of this risk.
 I plan to use the insights from these studies, in combination with the latest technical innovations in explainable AI and text generation, to guide the development of next-generation conversational forecasting algorithms that can automatically generate human-readable explanations of their forecasts.
@@ -150,17 +150,17 @@ I plan to use the insights from these studies, in combination with the latest te
 The models I have developed thus far look only at the linguistic content of the conversation itself to forecast whether the conversation will derail.
 In practice, however, the trajectory of a conversation often depends on factors beyond what is directly said in the comments; for example, prior work has shown that a community member's willingness to adhere to community norms is influenced by how long they have been part of the community \cite{danescu-niculescu-mizil_no_2013}.
 I am interested in investigating how recent breakthroughs in so-called multimodal models---that is, models capable of combining language data with other modes of input---could be adapted to enable forecasting algorithms to incorporate this non-linguistic context.
-This is particularly important because antisocial behavior is highly dependent on social context, and phenomena such as microaggressions and dogwhistles can alienate members of marginalized groups from a community despite not being overtly ``toxic''.
+This is particularly important because toxicity is highly dependent on social context, and phenomena such as microaggressions and dogwhistles can alienate members of marginalized groups from a community despite not being overtly toxic.
 Building on recent efforts to computationally model the social and power implications found in natural language \cite{sap_social_2020} could make forecasting algorithms more sensitive to social context, and thereby allow them to better serve marginalized groups.
 %, reducing bias and improving equity in community-driven moderation.
 
 
-\subsection{Measuring Longer-term Impacts of Proactive Moderation Tools}
+\subsection{Measuring Longer-term Impacts}
 Evaluations of ConvoWizard thus far have focused on the tool's immediate impact: that is, how seeing a warning when replying to an at-risk discussion impacts the user's behavior while writing the reply.
 Looking forward, I also wish to understand what longer-term impacts such tools might have.
-At a whole-conversation level, we might ask whether a reply that was written with the help of ConvoWizard might lead to more pro-social behavior throughout the rest of the conversation, even among participants who don't have ConvoWizard.
-At a community level, we might investigate how forecasting algorithms can be adapted into tools that serve volunteer moderators and aid them in their community leadership practices (alongside, or as alternatives to, ConvoWizard-style tools that serve ordinary community members).
-Answering these questions will require larger-scale, longer-term user studies, offering a prime opportunity for students to gain extended exposure to both computational social science research and the underlying software development challenges.
+At a conversation level, we might ask whether a reply that was written with the help of ConvoWizard might lead to more pro-social behavior throughout the rest of the conversation, even among participants who don't have ConvoWizard.
+At a community level, we must explore whether broad adoption of a tool like ConvoWizard improves the overall quality of discussions in the community (as 64\% of users in our exit survey felt it would), or instead leads to unintended negative side effects such as users becoming less willing to express any disagreement at all.
+Answering these questions will require larger-scale, longer-term user studies, offering a chance for students to gain extended exposure to both computational social science research and the underlying software development challenges.
 
 \section{Involving Undergraduates in my Research Agenda}
 Throughout my research, I have had the pleasure and privilege of collaborating with several undergraduate students, who have contributed to my research agenda in a number of ways.
@@ -178,7 +178,7 @@ This is well-illustrated by the experience of my first undergraduate mentee, And
 
 My future research plans offer ample opportunities for me to carry out this mentoring strategy.
 In addition to the ongoing ConvoWizard project, my plans for studying longer-term impacts of proactive moderation tools may involve the development of new forecasting-based tools catering to different needs and audiences.
-Furthermore, I co-lead the development of ConvoKit (\url{https://convokit.cornell.edu}), an open-source Python package for working with conversational data, which offers additional opportunities for starter projects.
+Furthermore, I co-lead the development of ConvoKit \cite{chang_convokit_2020}, an open-source Python package for working with conversational data, which offers additional opportunities for starter projects.
 I also believe such projects offer educational value even beyond research.
 For one, they often involve concepts that undergraduates are exposed to in their CS coursework---such as class interface design, proper use of data structures, and reasoning about efficiency---and therefore provide a valuable supplement to their classroom learning.
 And of course, students interested in industry careers can use these projects to gain valuable software engineering experience, as was the case for my mentee Caleb Chiam, who has become the largest contributor to ConvoKit.
