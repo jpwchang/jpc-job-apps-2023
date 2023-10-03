@@ -33,5 +33,6 @@ generic: school := generic
 hmc: school := hmc
 skidmore: school := skidmore
 rosehulman: school := rosehulman
-generic hmc skidmore rosehulman: setup teaching research dei coverlettergeneric
+haverford: school := haverford
+generic hmc skidmore rosehulman haverford: setup teaching research dei coverlettergeneric
 	echo ${school} > build/SCHOOL
