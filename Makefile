@@ -29,11 +29,20 @@ coverlettergeneric:
 	cp "school-headers/generic.tex" cover-letter/schoolheader.tex
 	cp cover-letter/cover-generic-template.pdf build/cover-letter.pdf
 
+coverlettercustom:
+	cp "school-headers/${school}.tex" cover-letter/schoolheader.tex
+	cd cover-letter && latexmk -pdf cover-custom-${school}.tex && cd ..
+	cp "school-headers/generic.tex" cover-letter/schoolheader.tex
+	cp cover-letter/cover-custom-${school}.pdf build/cover-letter.pdf
+
 generic: school := generic
 hmc: school := hmc
 skidmore: school := skidmore
 rosehulman: school := rosehulman
 haverford: school := haverford
+pomona: school := pomona
 lafayette: school := lafayette
 generic hmc skidmore rosehulman haverford lafayette: setup teaching research dei coverlettergeneric
+	echo ${school} > build/SCHOOL
+pomona: setup teaching research dei coverlettercustom
 	echo ${school} > build/SCHOOL

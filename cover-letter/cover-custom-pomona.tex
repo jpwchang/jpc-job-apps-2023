@@ -1,0 +1,70 @@
+\documentclass[12pt]{letter}
+
+% Change bracketd option in brackets for alternate letterhead
+\usepackage[cis]{bowersletterhead}
+\usepackage{xcolor}
+\usepackage{xspace}
+\usepackage{etoolbox}
+\usepackage{hyperref}
+%\usepackage[cs]{bowersletterhead}
+%\usepackage[cornell]{bowersletterhead}
+%\usepackage[is]{bowersletterhead}
+%\usepackage[sds]{bowersletterhead}
+
+%% LOGIC FOR CUSTOMIZING THE STATEMENT FOR INDIVIDUAL SCHOOLS
+% set up common defines (commands and boolean flags)
+\input{../defines.tex}
+% import the school-specific header to make the magic happen!
+\input{schoolheader.tex}
+%% END CUSTOMIZATION LOGIC
+
+\myname{Jonathan P. Chang}
+\mytitle{Ph.D. Candidate}
+\myemail{jpc362@cornell.edu}
+\mywebsite{\href{https://cs.cornell.edu/~jpchang}{cs.cornell.edu/\char`~jpchang}}
+\myroomnumber{214 Gates Hall}
+\myphonenumber{+1 (408) 717-1539}
+
+\begin{document}
+
+\signature{Jonathan P. Chang}
+\begin{letter}{
+\ifundef{\chairname}{Faculty Search Committee\\}{\chairname\\\chairtitle\\}
+\department \\
+\schoolnamelong \\
+\schooladdress
+}
+
+\opening{
+    Dear \ifundef{\chairlastname}{Members of the Search Committee}{\chairlastname and Members of the Search Committee},
+}
+
+I am writing to apply for the position of \position.
+I am currently a Ph.D. candidate in Computer Science at Cornell University, with an expected graduation date of May 2024.
+Advised by Prof. Cristian Danescu-Niculescu-Mizil, I work at the intersection of Natural Language Processing and Computational Social Science.
+The Claremont Colleges play a special role in my academic journey, as an alumnus of Harvey Mudd College, and I feel uniquely positioned to contribute back to Claremont by bringing to Pomona my interdisciplinary research agenda and passion for teaching.
+
+% teaching paragraph
+For me to teach at Pomona would be to bring my journey as an educator full circle: my overall teaching philosophy is directly inspired by my Claremont education, which included a number of courses at Pomona.
+It is therefore no surprise that the concrete teaching strategies I use (see Teaching Statement) directly mirror aspects of Pomona's CS curriculum.
+For example, consider my use of narratives to ground abstract CS concepts in concrete examples that connect to real-world applications.
+This strategy parallels the design of Pomona's intro CS courses (CSCI 051x), which similarly motivate core CS concepts via real-world applications, both through hands-on laboratory exercises and connections to topics in AI (051A).
+As someone who is particularly excited about teaching intro-level CS, I would look forward to the opportunity to teach any of the CSCI 051x courses, alongside other intro-sequence courses like CSCI 062.
+Of course, I would also be interested in teaching higher-level courses connected to my research agenda, such as \schooladvcourses.
+Finally, I am prepared to develop a new course on Computational Social Science, a growing interdisciplinary field of research that fits well with the Liberal Arts mission of Pomona and Claremont.
+
+% research paragraph
+My research also embodies the interdisciplinary spirit of the Claremont Colleges and Liberal Arts more broadly: I study online community governance and content moderation from a combined technical and social perspective.
+On the technical side, I develop novel computational models of online interaction that can help identify situations at risk of escalating into toxic or offensive behavior.
+On the social side, I collaborate with real online communities to evaluate how this technology could help their users have healthier online interactions.
+This focus on real-world applications opens up opportunities for undergraduate students to contribute in both software development and research design, as shown by the experiences of the six undergraduate and five masters students I have mentored---one of whom led a major user study and was first author on the resulting peer-reviewed academic conference paper.
+This cutting-edge research agenda, which has led not only to various peer-reviewed publications in top-tier venues but also spawned a completely new NLP task (detailed in my Research Statement), is a strong fit for an institution like Pomona that prides itself on high-quality research.
+
+Included in my application are the following materials: \materials
+For references, you may contact Profs. Cristian Danescu-Niculescu-Mizil, Karen Levy, and Peter Enns from Cornell University.
+Thank you for your consideration, and I look forward to hearing back from you.
+
+\closing{Sincerely,}
+
+\end{letter}
+\end{document}
