@@ -1,0 +1,68 @@
+\documentclass[12pt]{letter}
+
+% Change bracketd option in brackets for alternate letterhead
+\usepackage[cis]{bowersletterhead}
+\usepackage{xcolor}
+\usepackage{xspace}
+\usepackage{etoolbox}
+\usepackage{hyperref}
+%\usepackage[cs]{bowersletterhead}
+%\usepackage[cornell]{bowersletterhead}
+%\usepackage[is]{bowersletterhead}
+%\usepackage[sds]{bowersletterhead}
+
+%% LOGIC FOR CUSTOMIZING THE STATEMENT FOR INDIVIDUAL SCHOOLS
+% set up common defines (commands and boolean flags)
+\input{../defines.tex}
+% import the school-specific header to make the magic happen!
+\input{schoolheader.tex}
+%% END CUSTOMIZATION LOGIC
+
+\myname{Jonathan P. Chang}
+\mytitle{Ph.D. Candidate}
+\myemail{jpc362@cornell.edu}
+\mywebsite{\href{https://cs.cornell.edu/~jpchang}{cs.cornell.edu/\char`~jpchang}}
+\myroomnumber{214 Gates Hall}
+\myphonenumber{+1 (408) 717-1539}
+
+\begin{document}
+
+\signature{Jonathan P. Chang}
+\begin{letter}{
+\ifundef{\chairname}{Faculty Search Committee\\}{\chairname\\\chairtitle\\}
+\department \\
+\schoolnamelong \\
+\schooladdress
+}
+
+\opening{
+    Dear \ifundef{\chairlastname}{Members of the Search Committee}{\chairlastname and Members of the Search Committee},
+}
+
+I am writing to apply for the position of \position.
+I am currently a Ph.D. candidate in Computer Science at Cornell University, with an expected graduation date of May 2024.
+Advised by Prof. Cristian Danescu-Niculescu-Mizil, I work at the intersection of Natural Language Processing and Computational Social Science.
+With my successful track record of \textbf{interdisciplinary research} that unites \textbf{cutting-edge Machine Learning techniques} with insights from \textbf{Sociology and Linguistics}, combined with my passion for teaching and mentorship, I believe I fit Vassar's image of an ideal candidate as described on the job posting.
+
+% research paragraph
+My research agenda perfectly fits Vassar's search for a candidate with expertise in Machine Learning and multidisciplinary research: I study online community governance and content moderation from a combined technical and social perspective.
+Informed by socio-linguistic theories, I design novel computational models of online interaction that can help identify situations at risk of escalating into toxic or offensive behavior.
+In collaboration with real online communities, I then develop and run mixed-methods user studies to evaluate how this technology can help users have healthier online interactions.
+This focus on real-world applications opens up opportunities for undergraduate students to contribute in both software development and research design, as shown by the experiences of the six undergraduate students I have mentored---one of whom led a major user study and was first author on the resulting peer-reviewed academic conference paper.
+This cutting-edge research agenda, which has led not only to various peer-reviewed publications in top-tier venues but also spawned a completely new NLP task (detailed in my Research Statement), is a strong fit for an institution like Vassar that prides itself on high-quality research.
+
+% teaching paragraph
+My views on teaching have been shaped by my Liberal Arts background: my undergraduate experience at Harvey Mudd College showed me firsthand the value of an education that focuses on students as individuals.
+I am drawn to Vassar in part because I know that as a leading Liberal Arts institution, it shares this core principle.
+When it comes to teaching, I am most passionate about foundational CS courses (like \schoolintrocourses).
+Of course, I would also be interested in teaching higher-level courses connected to my research agenda, such as \schooladvcourses.
+Finally, I would be excited to teach Computational Social Science, either as a new course or a section of the Advanced Special Topics course CMPU 395---this growing interdisciplinary field is highly relevant to Vassar's own cross-disciplinary approach to CS.%
+
+Included in my application are the following materials: \materials
+For references, you may contact Profs. Cristian Danescu-Niculescu-Mizil, Karen Levy, and Peter Enns from Cornell University.
+Thank you for your consideration, and I look forward to hearing back from you.
+
+\closing{Sincerely,}
+
+\end{letter}
+\end{document}

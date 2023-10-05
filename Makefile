@@ -45,7 +45,8 @@ lafayette: school := lafayette
 union: school := union
 reed: school := reed
 bard: school := bard
+vassar: school := vassar
 generic hmc skidmore rosehulman haverford lafayette union reed bard: setup teaching research dei coverlettergeneric
 	echo ${school} > build/SCHOOL
-pomona: setup teaching research dei coverlettercustom
+pomona vassar: setup teaching research dei coverlettercustom
 	echo ${school} > build/SCHOOL
