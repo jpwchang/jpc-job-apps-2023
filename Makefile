@@ -44,7 +44,8 @@ pomona: school := pomona
 lafayette: school := lafayette
 union: school := union
 reed: school := reed
-generic hmc skidmore rosehulman haverford lafayette union reed: setup teaching research dei coverlettergeneric
+bard: school := bard
+generic hmc skidmore rosehulman haverford lafayette union reed bard: setup teaching research dei coverlettergeneric
 	echo ${school} > build/SCHOOL
 pomona: setup teaching research dei coverlettercustom
 	echo ${school} > build/SCHOOL
