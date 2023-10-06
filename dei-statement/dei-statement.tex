@@ -21,8 +21,10 @@
 \patchcmd{\@footnotetext}{\footnotesize}{\fontsize{10pt}{12pt}\selectfont}{}{}
 \makeatother
 
-\titleformat{\section}[runin]{\normalfont\normalsize\bfseries}{}{0em}{}[.]
-\titlespacing*{\section}{0em}{0.25\baselineskip}{0.5em}
+\titleformat{\section}{\normalfont\large\bfseries\scshape}{}{0em}{}
+\titlespacing*{\section}{0em}{0.25\baselineskip}{0em}
+\titleformat{\subsection}[runin]{\normalfont\normalsize\bfseries}{}{0em}{}[.]
+\titlespacing*{\subsection}{0em}{0.25\baselineskip}{0.5em}
 
 %% LOGIC FOR CUSTOMIZING THE STATEMENT FOR INDIVIDUAL SCHOOLS
 % set up common defines (commands and boolean flags)
@@ -42,18 +44,23 @@
 
 My approach to teaching, as I have laid out in my teaching statement, is to start by thinking about the course and the material from a student's perspective.
 It is important to me that when I do this, I truly account for \emph{all} of my students---which inherently requires that I consider perspectives that may be wildly different from my own (cis-gendered, male, middle-class, able-bodied) perspective.
-Consequently, a central tenet of my teaching is addressing the challenges in diversity, equity, and inclusion that CS as a field continues to face.
-I think about this not only through the lens of building a more inclusive classroom, but also at a higher level: promoting equity and inclusion in the community I belong to (whether that be my undergraduate institution Harvey Mudd, my graduate institution Cornell, or, looking ahead, \schoolname), and training students who will broadly advance this cause in their future careers.
+For women, racial and ethnic minorities, the economically disadvantaged, and other underrepresented groups in CS, \emph{systemic barriers} continue to stand in the way of both entry to and success in our field.
+Such barriers---including lack of role models and mentors, inability to financially afford tools and resources, and the unconscious biases and microaggressions that drive impostor syndrome and stereotype threat---can affect a student's life trajectory long before they even set foot on campus.
+I therefore work to create learning environments that account for these existing inequities and empower all students to succeed, which requires efforts at multiple levels: the \textbf{classroom level} where I work to design more inclusive courses, the \textbf{community level} where I volunteer in initiatives to improve campus diversity and inclusion, and the \textbf{global level} where I encourage students to pursue equitable applications of CS through their future work and careers.
 
-\section{Diversity, Equity, and Inclusion in the Classroom}
-At the most direct level, accounting for diverse student backgrounds in my teaching implies taking steps to design a course environment that is accessible and welcoming to all.
-In pursuit of this goal, there are a few concrete strategies I have tried out in my teaching career thus far, both as co-instructor of record for CS4300 ``Information and Language'' and as a designer and instructor of workshops for the Cornell Center for Social Sciences (CCSS).
+\section{Inclusive Course Design}
+My approach for designing courses to be more inclusive and equitable starts from interrogating the unconscious assumptions underlying existing teaching paradigms, and how these assumptions may systematically exclude certain groups.
+This can then inform the changes that need to be made to foster a more inclusive environment.
+In my teaching statement, I describe the steps I took as co-instructor of record for CS4300 at Cornell to implement this strategy, which I elaborate on below.
 
-In my teaching statement, I detailed a number of steps I took in my CS4300 teaching to make existing course structures more inclusive.
-One of these was introducing alternative modes of in-class participation, such as online polls and forum-style discussions, so that students who are uncomfortable with speaking in front of the whole class, or unable to do so, nevertheless have ways to contribute their thoughts.
-Another step was overseeing the development of a brand new project server and template for the course final project, which abstracted away a lot of the boilerplate parts of app development.
-This system helped ensure that students who have not had prior opportunities to practice app development skills were on a more level playing field with those who have had such opportunities (e.g., through internships), and made evaluation more fair by allowing the course staff to focus on the information retrieval aspect (the main purpose of the project) rather than details of the app design.
-Students seem to have recognized these efforts to create a more inclusive learning environment, with end-of-semester evaluations rating the course an average 4.44 out of 5 on diversity and inclusion, alongside comments acknowledging how steps like the project server contributed to a more level playing field.\footnote{%
+\subsection{Past Efforts}
+As one example, consider in-class participation: while it is quite common to see participation measured in terms of asking or answering questions in class, this approach fails to account for students who---for reasons ranging from cultural differences to disability---are either uncomfortable with speaking in front of the whole class or unable to do so at all.
+To address this, I introduced a number of alternative avenues for participation, such as in-class polls and quizzes and online forum-style discussion threads, so that such students have a chance to make their thoughts known.
+
+Perhaps a more subtle example is course projects: while these are not inherently inequitable, more privileged students may have prior experience with creating big software projects (e.g., through coding camps or internships) that less privileged students do not.
+Students with prior project experience may therefore get an unintentional advantage in that they can spend less time struggling with setup and boilerplate coding, and more time debugging and refining.
+To help address this, I oversaw the development of a brand-new project server and template for the CS4300 final project, which abstracted away common boilerplate coding tasks and offered all students a common starting point to build upon.
+Overall, CS4300 students seemed to recognize my efforts at creating a more inclusive learning environment, with end-of-semester evaluations rating the course an average 4.44 out of 5 on diversity and inclusion, alongside comments acknowledging how steps like the project server contributed to a more level playing field.\footnote{%
 Selected quotes can be found in the teaching statement, with full quotes available
 \ifsupplementals
 in the supplemental materials.
@@ -62,48 +69,63 @@ upon request.
 \fi
 }
 
-More recently, I have come to focus on another diversity-related goal: ensuring that students both know how to ask for help and are comfortable doing so.
-I firmly believe knowing how to ask for help---that is, knowing what resources are best for a given problem and how to best word your question---is a learned skill, just like knowing how to code.
-But in my conversations with students I have found that they sometimes instead view asking for help as a weakness, an effect that may be exacerbated among underrepresented groups due to impostor syndrome.
-Accordingly, I have started incorporating segments about asking for help into my CCSS workshops, especially those targeted at audiences who are new to programming.
-These segments involve not only explaining that I have to seek help myself all the time in my work, but also demonstrating this process as part of the workshop---for instance by showing how to find and interpret documentation online, going over effective strategies for doing targeted web searches about coding errors, and directly asking my co-instructors to offer their ideas.
+\subsection{Future Plans}
+In-class participation and course projects are, of course, only two out of many components of course design that can be reimagined to improve inclusion and equity.
+Inspired in part by student feedback from CS4300, another component I would like to focus on in my future teaching is assignments and exams.
+Inspired by steps I have seen taken by some of my instructors and peers, I would like to explore ways to move away from the traditional paradigm of infrequent, topic-comprehensive exams, and towards a system of more frequent evaluations that are individually smaller and more topically focused.
+This approach can advance inclusion not only by enabling greater flexibility (which accomodates students who may require the flexibility due to health or personal circumstance), but also serving as a way to identify students in need of support early on, so I can make sure they get the help they need.
 
-\section{Diversity, Equity, and Inclusion in the Community}
-The work needed to build inclusive learning environments does not stop at the level of individual course design: students' sense of belonging is affected not only by the design of lectures and assignments, but also by whether they feel welcomed by the broader community.
-Therefore, another major part of my efforts in diversity, equity, and inclusion is ensuring that the communities in which I work and study are welcoming to students of all backgrounds.
+%More recently, I have come to focus on another diversity-related goal: ensuring that students both know how to ask for help and are comfortable doing so.
+%I firmly believe knowing how to ask for help---that is, knowing what resources are best for a given problem and how to best word your question---is a learned skill, just like knowing how to code.
+%But in my conversations with students I have found that they sometimes instead view asking for help as a weakness, an effect that may be exacerbated among underrepresented groups due to impostor syndrome.
+%Accordingly, I have started incorporating segments about asking for help into my CCSS workshops, especially those targeted at audiences who are new to programming.
+%These segments involve not only explaining that I have to seek help myself all the time in my work, but also demonstrating this process as part of the workshop---for instance by showing how to find and interpret documentation online, going over effective strategies for doing targeted web searches about coding errors, and directly asking my co-instructors to offer their ideas.
 
+\section{Promoting Diversity, Equity, and Inclusion in my Community}
+The work needed to build inclusive learning environments does not stop at the level of individual course design: students' sense of belonging also depends on feeling welcomed by the broader community.
+Therefore, another major part of my efforts is volunteering in intiatives to promote diversity, equity, and inclusion within the communities where I work and study. 
+
+\subsection{Past Efforts}
 This aspect of my work has extended through both my undergraduate and graduate careers.
 As an undergraduate at Harvey Mudd College, I served for two years as a Peer Academic Liaison, a then-new program designed to ensure that first-year students would have a designated upper-year peer to be a point of contact for academic questions or concerns.
-My conversations with students as part of this role challenged me to think carefully about how best to help students whose lived experience, and subsequent needs, might be very different from my own.
+Through the conversations I had with students as part of this role, I saw firsthand the ways in which their backgrounds and past opportunities continued to affect their trajectories in college, and to this day that experience informs my thinking about the different needs that students in my classroom may face.
 I went on to follow up on this thread in my Ph.D. studies by volunteering as a mentor in the Cornell CS Student-Applicant Support Program.
-This ongoing program, targeted towards underrepresented groups, connects prospective students to a Ph.D. mentor who can help them decide what they want out of graduate school and advise them on how to approach the application process.
+This program, targeted towards underrepresented groups, connects prospective students to a Ph.D. mentor who can help them decide what they want out of graduate school and advise them on how to approach the application process.
 
+\subsection{Future Plans}
 The running theme through both of these experiences is \emph{mentorship}.
-Looking back on my education, I recognize that a major part of my success has been that my background afforded me a lot of opportunities to receive support along my educational journey, be that from family, teachers, tutors, or peers.
-Not all students have such opportunities, especially when it comes to underrepresented groups.
-I therefore hope that my participations in programs like the above can help bridge this opportunity gap for at least some students.
-While I recognize that such work alone can never fully address the wider systemic issues that are faced in both education and the tech sector, I nevertheless believe that they can still contribute to building diverse communities that are more aware of and sensitive to those issues.
+Lack of role models and mentors is one type of systemic barrier that faces underrepresented groups in CS, and while programs like the above are not a complete solution, they do go some way towards bridging this gap and providing students from these groups the support they deserve.
+As faculty, I will be in a position to not only continue serving such mentorship roles, but also to direct students to mentoring and outreach opportunities, and even to create new opportunities.
+\deioutreach
 
-\section{Fostering Student Commitment to Diversity, Equity and Inclusion}
-Computer Science continues to reshape our world, and I know that the students I teach can go on to have a great impact on society through the work they do.
-Therefore, my responsibility as a socially responsible instructor is to ensure that this impact is positive.
-To this end, throughout my teaching I aim to make students aware of the broader impacts of the skills they are learning, and the ways in which technology can both help and hinder the cause of justice and equity. 
-I do this both explicitly and implicitly.
+\section{Fostering Student Commitment to Equitable Applications of CS}
+Computer Science continues to reshape our world, but there is no guarantee that this impact will always be positive.
+As an educator, it is my responsibility to ensure that my students are aware of the ways CS can help or hinder the cause of diversity, equity, and inclusion, so that they are equipped to leave a positive impact on the world by working on equitable and responsible applications of CS.
 
-At an explicit level, my lectures incorporate discussions of social implications of the material being taught.
-For example, my CS4300 lecture on unsupervised machine learning techniques for natural language included a discussion of the social biases that these techniques can pick up and propagate.
+\subsection{Past Efforts}
+As an example of how I have promoted socially responsible use of CS in my teaching, my CS4300 lecture on unsupervised machine learning techniques for natural language included a discussion of how these techniques can reproduce and amplify existing racial and gender biases.
 Importantly, this meant more than simply asserting ``language models are biased''; rather, I connected this finding back to the fundamentals that the lecture had covered, in order to communicate at a technical level \emph{why} this bias occurs.
 I then concluded this discussion by connecting it to best practices for data use, explaining to students that thinking about biases is a key step that they should always take when working with a new dataset, alongside more technical steps like visualization and cleaning.
 
-At an implicit level, I ensure that the values of diversity, equity, and inclusion are reflected in the examples I use in my teaching.
-For instance, at a recent CCSS workshop covering how to do statistical tests in Python, the example I used for running correlational analyses was reproducing an analysis in education research showing that standardized test scores are strongly correlated with economic variables such as income bracket.
-Examples like this are a way to show students firsthand how they can use the skills they are learning to reveal and understand social inequities.
-This strategy can also connect back to my more explicit techniques, such as by holding a follow-up discussion for students to reflect on the findings and think about what they would do if they came across similar findings in their own research.
+\subsection{Future Plans}
+While I am most familiar with issues of bias in NLP since that is my research area, I am aware that similar issues are faced by other subfields such as computer vision and health technology.
+In my future teaching, I would want to draw from examples across all these domains, which is especially important at the intro level since students in intro courses will come in with a variety of interests.
+\ifliberalarts
+In the interdisciplinary spirit of the Liberal Arts, I plan to consult with faculty in other departments to gather ideas for examples, and will also work to arrange guest lectures so students can hear firsthand perspectives on the societal implications of CS applications in various fields.
+\else
+In doing so, I will take full advantage of the resources of a top-tier institution like \schoolname, reaching out to faculty in other departments to both gather ideas and arrange guest lectures so students can hear firsthand perspectives on the societal implications of CS applications in various fields.
+\fi
 
-\section{Future Development}
-I recognize that the work of advancing diversity, equity, and inclusion, both in and out of the classroom, is never truly done, and I view my efforts thus far as first steps that I must now build upon.
-This means both refining the methods I have developed already, and coming up with new strategies and activities.
-In pursuit of this goal, I look forward to working with the diverse faculty and student body at \schoolname to share ideas.
-In my career thus far, a lot of my thinking has been shaped by interactions with colleagues, especially those from very different backgrounds, and I believe this will continue to be the case as I look ahead to my future career.
+%At an implicit level, I ensure that the values of diversity, equity, and inclusion are reflected in the examples I use in my teaching.
+%For instance, at a recent CCSS workshop covering how to do statistical tests in Python, the example I used for running correlational analyses was reproducing an analysis in education research showing that standardized test scores are strongly correlated with economic variables such as income bracket.
+%Examples like this are a way to show students firsthand how they can use the skills they are learning to reveal and understand social inequities.
+%This strategy can also connect back to my more explicit techniques, such as by holding a follow-up discussion for students to reflect on the findings and think about what they would do if they came across similar findings in their own research.
+
+
+%\section{Future Development}
+%I recognize that the work of advancing diversity, equity, and inclusion, both in and out of the classroom, is never truly done, and I view my efforts thus far as first steps that I must now build upon.
+%This means both refining the methods I have developed already, and coming up with new strategies and activities.
+%In pursuit of this goal, I look forward to working with the diverse faculty and student body at \schoolname to share ideas.
+%In my career thus far, a lot of my thinking has been shaped by interactions with colleagues, especially those from very different backgrounds, and I believe this will continue to be the case as I look ahead to my future career.
 
 \end{document}
