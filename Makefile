@@ -45,10 +45,11 @@ princeton: school := princeton
 lafayette: school := lafayette
 ucriverside: school := ucriverside
 union: school := union
+ucsd: school := ucsd
 reed: school := reed
 bard: school := bard
 vassar: school := vassar
-generic hmc skidmore rosehulman haverford princeton lafayette ucriverside union reed bard: setup teaching research dei coverlettergeneric
+generic hmc skidmore rosehulman haverford princeton lafayette ucriverside union ucsd reed bard: setup teaching research dei coverlettergeneric
 	echo ${school} > build/SCHOOL
 pomona vassar: setup teaching research dei coverlettercustom
 	echo ${school} > build/SCHOOL
