@@ -1,0 +1,69 @@
+\documentclass[12pt]{letter}
+
+% Change bracketd option in brackets for alternate letterhead
+\usepackage[cis]{bowersletterhead}
+\usepackage{xcolor}
+\usepackage{xspace}
+\usepackage{etoolbox}
+\usepackage{hyperref}
+%\usepackage[cs]{bowersletterhead}
+%\usepackage[cornell]{bowersletterhead}
+%\usepackage[is]{bowersletterhead}
+%\usepackage[sds]{bowersletterhead}
+
+%% LOGIC FOR CUSTOMIZING THE STATEMENT FOR INDIVIDUAL SCHOOLS
+% set up common defines (commands and boolean flags)
+\input{../defines.tex}
+% import the school-specific header to make the magic happen!
+\input{schoolheader.tex}
+%% END CUSTOMIZATION LOGIC
+
+\myname{Jonathan P. Chang}
+\mytitle{Ph.D. Candidate}
+\myemail{jpc362@cornell.edu}
+\mywebsite{\href{https://cs.cornell.edu/~jpchang}{cs.cornell.edu/\char`~jpchang}}
+\myroomnumber{214 Gates Hall}
+\myphonenumber{+1 (408) 717-1539}
+
+\begin{document}
+
+\signature{Jonathan P. Chang}
+\begin{letter}{
+\ifundef{\chairname}{Faculty Search Committee\\}{\chairname\\\chairtitle\\}
+\department \\
+\schoolnamelong \\
+\schooladdress
+}
+
+\opening{
+    Dear \ifundef{\chairlastname}{Members of the Search Committee}{\chairlastname and Members of the Search Committee},
+}
+
+I am writing to apply for the position of \position.
+I am currently a Ph.D. candidate in Computer Science at Cornell University, with an expected graduation date of May 2024.
+Advised by Prof. Cristian Danescu-Niculescu-Mizil, I work at the intersection of Natural Language Processing and Computational Social Science.
+Harvey Mudd plays a special role in my journey as an educator: I am a Mudd alumnus (CS '17), and my interest in teaching was first sparked by my experiences as a Mudd CS grutor.
+Now, I look forward to the opportunity to help shape the next generation of Mudders through my passion for teaching and my interdisciplinary, socially impactful research agenda.
+
+% teaching paragraph
+Since graduating from Mudd, I have continued to seek opportunities to develop my teaching skills.
+These have ranged from designing and teaching data science workshops for the Cornell Center for Social Sciences, to becoming co-instructor of record for a Cornell undergraduate CS course (detailed in my Teaching Statement).
+Throughout these experiences, I have found that I am most passionate about teaching foundational CS concepts; therefore, at Mudd, I would be especially excited to teach CS 5, CS 42, CS 60 (the first course I grutored), and CS 70 (the course I grutored the most, having done so for three semesters).
+Of course, I would also be enthusiastic about teaching higher-level courses connected to my research interests, such as CS 151: Artificial Intelligence, CS 158: Machine Learning, and CS 159: Natural Language Processing---all of which are courses I took as an undergraduate at Mudd, from which I learned key skills that continue to serve me today in my research.
+Finally, I am interested in expanding Mudd's CS course offerings by developing a new course in Computational Social Science, a growing interdisciplinary field of research that is an excellent fit for a Liberal Arts institution like Mudd.
+
+% research paragraph
+My research agenda embodies the Harvey Mudd mission statement by combining cutting-edge technical work with systematic evaluation of that work's impact on real communities and society at large.
+On the technical side, I develop novel computational models of online interaction that can help identify situations at risk of escalating into toxic or offensive behavior.
+On the social side, I collaborate with real online communities to evaluate how this technology could help their users have healthier online interactions.
+This focus on real-world applications also opens up opportunities for undergraduate students to contribute in both software development and research design, as shown by the experiences of the six undergraduate and three masters students I have mentored---including one undergraduate who led a major user study and was first author on the resulting peer-reviewed academic conference paper.
+At Harvey Mudd, I would seek to advance this research agenda through collaborations with students and faculty in both CS and the humanities and social sciences, not only from Mudd but from across the Claremont Colleges.
+
+Included in my application are the following materials: \materials
+For references, you may contact Profs. Cristian Danescu-Niculescu-Mizil, Karen Levy, and Peter Enns from Cornell University.
+Thank you for your consideration, and I look forward to hearing back from you.
+
+\closing{Sincerely,}
+
+\end{letter}
+\end{document}
