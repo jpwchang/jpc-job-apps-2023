@@ -57,22 +57,15 @@
 
 \vspace{0.5\baselineskip}
 \intropar
-%I quickly fell in love with the rewarding experience of working with students to help them understand challenging concepts, which eventually led my interest in a teaching career.
-%
-%Through my subsequent teaching experiences, I have developed a guiding philosophy for my teaching: I aim for learning environments where students can feel a sense of \emph{ownership} and \emph{accomplishment} over their learning.
-%Students in my classroom should not feel like mere receivers of knowledge, but instead should feel like active participants working together with me and each other to arrive at a shared understanding of the material.
-%During my PhD, I have had the chance to implement this philosophy in two disparate settings: a more traditional classroom setting as co-instructor of record for CS4300 ``Information and Language'',\footnote{\url{https://classes.cornell.edu/browse/roster/SP23/class/CS/4300}} and a more ad-hoc setting as a designer and instructor of data science workshops for the Cornell Center for Social Sciences (CCSS).\footnote{\url{https://socialsciences.cornell.edu/computing-and-data/workshops-and-training}}
-%These experiences serve to illustrate three concrete strategies that emerge from my teaching philosophy: \textbf{teaching with narratives}, \textbf{leveraging technology for interactivity}, and \textbf{building inclusive learning environments}.
-
 
 \section{Teaching With Narratives}
 One fundamental challenge in CS education that I became aware of early on, which is particularly relevant in intro CS settings, is that key CS concepts can often feel abstract and ungrounded to a newcomer.
-I have found through experience that one effective way to address this challenge is by grounding those abstract concepts in \emph{narratives} that students can relate to.
+I have found through experience that one effective way to address this challenge is by grounding those abstract concepts in \emph{narratives} about concrete real-world applications of CS that students might more easily relate to.
 
 One of the clearest examples of this strategy is an Introduction to Python workshop that I developed for the Cornell Center for Social Sciences (CCSS)\footnote{\url{https://socialsciences.cornell.edu/computing-and-data/workshops-and-training}} as one of their Data Science Fellows.
 This workshop was meant for a target audience of social science students who may have never programmed before.
-I therefore centered the workshop on a narrative about analyzing a real social science dataset from CCSS, grounding core programming concepts in concrete steps a researcher would need to take in preparing and analyzing the data for social science research.
-For example, the concept of variables is motivated by the need to store and represent datapoints, while loops and functions are motivated by the need to repeatedly perform common operations across all the data.
+I therefore centered the workshop on a narrative about analyzing a real CCSS dataset of survey responses, grounding core programming concepts in concrete steps a social science researcher would need to take in preparing and analyzing the data.
+For example, social scientists may often want to run different analyses based on what age group a participant belongs to, and this concrete task motivates the concepts of looping (checking each participant's age) and conditionals (running different analyses based on the age).
 Student feedback indicates that this was an effective and approachable way to communicate key concepts in programming, as best illustrated by this comment from a student who had previously found little success trying to learn Python until they came to this workshop:
 %\footnote{``Sam'' in the quote refers to my fantastic co-instructor for the workshop, Samantha De Leon Sautu!}
 \begin{quote}
@@ -81,9 +74,8 @@ Student feedback indicates that this was an effective and approachable way to co
     {\dots}I finally understood how to use Python.
 \end{quote}
 
-Of course, what counts as a relatable narrative will depend greatly on context.
-For instance, a upper-level CS course will require a very different kind of narrative compared to intro-level courses like my Python workshop.
-As an example of how I approach this strategy for more advanced courses, during my role as co-instructor of record for CS4300 ``Information and Language'',\footnote{\url{https://classes.cornell.edu/browse/roster/SP23/class/CS/4300}} I grounded some key machine learning concepts by drawing connections to recent advances in language technology that students may have heard about in the news.
+Of course, what counts as a relatable narrative will depend greatly on context---an upper-level CS course will require a very different kind of narrative compared to intro-level courses like my Python workshop.
+As an example of how I approach this strategy for more advanced courses, during my role as co-instructor of record for CS4300 ``Information and Language'' (an undergraduate course on Information Retrieval),\footnote{\url{https://classes.cornell.edu/browse/roster/SP23/class/CS/4300}} I grounded some key machine learning concepts by drawing connections to specific features found in popular search engines.
 Students seemed to recognize my efforts: on the course evaluation question ``Did the lecturer motivate the course content
 and place it in the context of your major or your overall engineering
 education?'' students rated me an average 4.12 out of 5.
@@ -94,9 +86,8 @@ These examples show the flexibility of this strategy for helping students at all
 \section{Leveraging Technology for Interactivity}
 Hands-on experience is another effective method to help students wrap their heads around material that might be challenging or confusing.
 I believe that recent advances in collaboration technology, despite being often associated with remote learning and flipped classrooms, are powerful tools for providing such hands-on experience in traditional classroom environments as well.
-For example, with input from Cornell's Active Learning Institute (ALI), my teaching in CS4300 made heavy use of Google Colaboratory as a shared interactive coding environment.
-This allowed students to engage with lecture material in real time, both by following along with code I demonstrated in front of the room, and also by partaking in open-ended coding activities where they were given the chance to try out various ideas and then share what they came up with in a class discussion.
-I also leveraged online forms and polling alongside old-fashioned pen-and-paper handouts to implement similar collaborative activites in non-coding parts of the lectures as well.
+For example, with input from Cornell's Active Learning Institute (ALI), my teaching in CS4300 made frequent use of interactive, collaborative activites powered by polls, online forms, and live coding via Google Colaboratory.
+These activities result in a richer classroom feedback loop that goes beyond the traditional question-and-answer paradigm: students had the chance to try out ideas in an open-ended setting, get feedback from both their peers and their instructors and TAs through freeform discussion, and use this feedback to refine their ideas and/or come up with follow-up questions.
 Comments from an ALI-administered survey show how students perceived the benefits of these activities:
 
 \begin{quote}
@@ -128,14 +119,14 @@ These include the aforementioned polls and quizzes, as well as online discussion
 
 Outside the classroom, accounting for differences in background can improve fairness in the design of course assignments.
 For example, the CS4300 final project has historically involved creating an app that incorporates information retrieval techniques from the class, but consequently students who have had prior opportunities to practice app development skills (e.g., through an internship) may find themselves having a smoother experience than students who haven't had access to such opportunities.
-To address this, I oversaw the development of a brand-new project server and template designed to abstract away the boilerplate app development details, allowing students to focus on the part we as instructors ultimately wanted to evaluate on: the information retrieval aspect.
+To address this, I oversaw the development of a brand-new project server and template designed to abstract away the boilerplate app development details, allowing students to focus on the part we as instructors ultimately wanted to evaluate on: implementing information retrieval methods.
 Student feedback from course evaluations provide evidence that this indeed made for a more equitable environment:
 \begin{quote}
 I think this [project server] was really nice as it really leveled the playing field with regards to prior experience.
 \end{quote}
 
 These efforts appear to have made a noticeable difference in the classroom, with students rating me 4.44 out of 5 on diversity and inclusion in course evaluations, where 5 corresponds to ``Actively inclusive''.
-That said, I also recognize that there is always more I can do to further improve in this direction, and I look forward to working with the diverse and talented faculty at \schoolname to share and develop techniques for designing a classroom that is welcoming to all.
+That said, I also recognize that there is always more I can do to further improve in this direction, and I look forward to working with faculty and student groups at \schoolname to share and develop techniques for designing a classroom that is welcoming to all.
 \iflongdei
 More details about these efforts, as well as my other current and future plans for building more inclusive learning environments, can be found in the statement on diversity, equity, and inclusion that was submitted as part of my application.
 \else
