@@ -14,4 +14,4 @@ This document contains a compilation of teaching evaluations I have received as 
 
 * **CS4300 ALI Survey (Pg. 44)**: Free-text responses from a supplementary survey distributed by the Cornell Active Learning Institute, which specifically asks for student feedback on the various interactive strategies we implemented in the course, as well as the project server and template (discussed in my Teaching Statement).
 
-* **CCSS Python Workshop Feedback (Pg. 63)**: Student feedback from the CCSS Python Workshop Series that I designed and co-instructed in Summer 2022.
+* **CCSS Python Workshop Feedback (Pg. 51)**: Student feedback from the CCSS Python Workshop Series that I designed and co-instructed in Summer 2022.
