@@ -201,6 +201,10 @@ strong {
 	visibility: hidden;
 }
 
+#industry-experience {
+	page-break-before: always;
+}
+
 div.manualpagebreak {
 	page-break-before: always;
 }

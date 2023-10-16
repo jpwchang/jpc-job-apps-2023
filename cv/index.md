@@ -15,9 +15,9 @@ title: Jonathan P. Chang's CV
 
 I am passionate about teaching and mentorship at the undergraduate level.
 I have taught one undergraduate CS course as co-instructor of record, additionally TA'd six CS courses across nine semesters of my undergraduate and graduate careers, and designed and taught various data science workshops.
-I have also been a research mentor for six undergraduate students.
+I have also been a research mentor for six undergraduate and three masters students.
 
-My research involves working with real online communities to design and evaluate computational tools for content moderation and community governance.
+My research involves working with real online communities to design and evaluate computational tools for supporting healthier, less toxic online interactions.
 It has been published in top venues for both natural language processing (ACL, EMNLP) and computational social science (WWW, CSCW).
 
 
@@ -49,10 +49,15 @@ __Harvey Mudd College__
 `Spring 2023`
 **CS4300 - Information and Language**
 - *Cornell University*
-- This was a 200-person course open to both computer science and information science undergraduates, covering selected topics in information retrieval, machine learning, and natural language processing. As co-instructor of record, I updated and taught lectures on the machine learning topics, reorganized some assignments to better spread out the workload, designed exam questions, and oversaw the development of new infrastructure for the course project to make it more approachable for students with less technical background.
+- I was co-instructor of record for this 200-person course open to both computer science and information science undergraduates, which covers selected topics in information retrieval (IR), machine learning (ML), and natural language processing (NLP). I updated and taught lectures on the ML and NLP topics, developed new interactive in-class activities, designed exam questions, and oversaw the development of new infrastructure for the course project to make it more approachable for students with less technical background.
 
 
 ### Workshops Taught
+
+`Fall 2023`
+**Machine Learning Workshop Series**
+- *Cornell Center for Social Sciences*
+- This 4-part workshop series introduces social science researchers to the fundamentals of ML, and shows them how to use popular Python ML toolkts. I updated it with new examples drawn from social science papers and improved the documentation of the coding demos.
 
 `Summer 2022`
 **Introduction to Python Bootcamp**
@@ -63,6 +68,8 @@ __Harvey Mudd College__
 **Using APIs for Social Science Research**
 - *Cornell Center for Social Sciences*
 - I co-developed this brand-new workshop that explains what APIs are and demos how to use an API to fetch different kinds of social media data.
+
+<div class="manualpagebreak"></div>
 
 `Fall 2021`
 **Introduction to Git and GitHub**
@@ -146,6 +153,8 @@ __"Class of '94" Computer Science Department Award__
 - *Harvey Mudd College*
 - Awarded to top 3 graduating computer science undergraduates on the basis of coursework, research, and service.
 
+<div class="manualpagebreak"></div>
+
 `2017`
 __Clinic Award__
 - *Harvey Mudd College*
@@ -154,7 +163,7 @@ __Clinic Award__
 `2017`
 __Departmental Honors in Humanities, Social Sciences, and the Arts__
 - *Harvey Mudd College*
-- Awarded for academic performance in courses in humanities, social sciences, and the arts.
+- Awarded for outstanding academic performance in courses in humanities, social sciences, and the arts.
 
 
 ## Leadership
@@ -168,7 +177,6 @@ __Data Science Fellow__
 - *Cornell Center for Social Sciences*
 - In addition to designing and teaching workshops (listed above), I also provided one-on-one consultations to researchers to help them with data science related tasks.
 
-<div class="manualpagebreak"></div>
 
 `2015-2017`
 __Peer Academic Liaison__
@@ -250,7 +258,6 @@ __Intern Software Analyst and Developer__
 - Leveraged Intentional’s application platform to create a unique color editor tool allowing users to manipulate 3d
 representations of color space.
 
-<div class="manualpagebreak"></div>
 
 `Summer 2014`
 __Software Engineering Intern__
