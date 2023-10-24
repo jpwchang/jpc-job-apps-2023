@@ -1,0 +1,69 @@
+\documentclass[12pt]{letter}
+
+% Change bracketd option in brackets for alternate letterhead
+\usepackage[cis]{bowersletterhead}
+\usepackage{xcolor}
+\usepackage{xspace}
+\usepackage{etoolbox}
+\usepackage{hyperref}
+%\usepackage[cs]{bowersletterhead}
+%\usepackage[cornell]{bowersletterhead}
+%\usepackage[is]{bowersletterhead}
+%\usepackage[sds]{bowersletterhead}
+
+%% LOGIC FOR CUSTOMIZING THE STATEMENT FOR INDIVIDUAL SCHOOLS
+% set up common defines (commands and boolean flags)
+\input{../defines.tex}
+% import the school-specific header to make the magic happen!
+\input{schoolheader.tex}
+%% END CUSTOMIZATION LOGIC
+
+\myname{Jonathan P. Chang}
+\mytitle{Ph.D. Candidate}
+\myemail{jpc362@cornell.edu}
+\mywebsite{\href{https://cs.cornell.edu/~jpchang}{cs.cornell.edu/\char`~jpchang}}
+\myroomnumber{214 Gates Hall}
+\myphonenumber{+1 (408) 717-1539}
+
+\begin{document}
+
+\signature{Jonathan P. Chang}
+\begin{letter}{
+\ifundef{\chairname}{Faculty Search Committee\\}{\chairname\\\chairtitle\\}
+\department \\
+\schoolnamelong \\
+\schooladdress
+}
+
+\opening{
+    Dear \ifundef{\chairlastname}{Members of the Search Committee}{\chairlastname and Members of the Search Committee},
+}
+
+
+I am writing to apply for the position of \position.
+I am currently a Ph.D. candidate in Computer Science at Cornell University, with an expected graduation date of May 2024.
+Advised by Prof. Cristian Danescu-Niculescu-Mizil, I work at the intersection of Natural Language Processing and Computational Social Science.
+I am passionate about teaching and mentorship, and I believe that this passion plus my experience as an instructor and research mentor (detailed in my CV and statements) make me an excellent fit for \schoolname.
+
+% teaching paragraph
+My own Jesuit educational background (having attended Bellarmine College Prep in San Jose, CA) instilled in me a commitment to social justice and positive impact in my work, which has subsequently informed my approach to both teaching and research.
+I am especially passionate about teaching CS at the intro level, a domain where it is especially vital to make courses accessible and equitable for students from diverse backgrounds.
+Consequently, I have actively engaged in steps to advance equity and inclusion in my own teaching (detailed in my Diversity Statement) and would bring these approaches to the table when teaching intro-level courses at \schoolname (such as \schoolintrocourses).
+Of course, I would also be excited to teach more advanced courses connected to my research interests, such as \schooladvcourses.
+Finally, I would love the chance to expand \schoolname's course offerings by developing a new course on Computational Social Science, a growing interdisciplinary field of research.
+
+% research paragraph
+My research agenda is also informed by my Jesuit educational background: I study the role technology can play in making online communities healthier and less toxic, taking combined technical and social perspective.
+On the technical side, I develop novel computational models of online interaction that can help identify situations at risk of escalating into toxic or offensive behavior.
+On the social side, I collaborate with real online communities to evaluate how this technology could help their users have healthier online interactions.
+This focus on real-world applications opens up opportunities for students to contribute in both software development and research design, as shown by the experiences of the six undergraduate and three masters students I have mentored---including one undergraduate who led a major user study and was first author on the resulting peer-reviewed academic conference paper.
+With its special focus on real-world impact, I believe this research agenda is a perfect fit for \schoolname's Jesuit mission.%
+
+Included in my application are the following materials: \materials
+For references, you may contact Profs. Cristian Danescu-Niculescu-Mizil, Karen Levy, and Peter Enns from Cornell University.
+Thank you for your consideration, and I look forward to hearing back from you.
+
+\closing{Sincerely,}
+
+\end{letter}
+\end{document}
