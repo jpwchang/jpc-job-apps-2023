@@ -1,0 +1,67 @@
+\documentclass[12pt]{letter}
+
+% Change bracketd option in brackets for alternate letterhead
+\usepackage[cis]{bowersletterhead}
+\usepackage{xcolor}
+\usepackage{xspace}
+\usepackage{etoolbox}
+\usepackage{hyperref}
+%\usepackage[cs]{bowersletterhead}
+%\usepackage[cornell]{bowersletterhead}
+%\usepackage[is]{bowersletterhead}
+%\usepackage[sds]{bowersletterhead}
+
+%% LOGIC FOR CUSTOMIZING THE STATEMENT FOR INDIVIDUAL SCHOOLS
+% set up common defines (commands and boolean flags)
+\input{../defines.tex}
+% import the school-specific header to make the magic happen!
+\input{schoolheader.tex}
+%% END CUSTOMIZATION LOGIC
+
+\myname{Jonathan P. Chang}
+\mytitle{Ph.D. Candidate}
+\myemail{jpc362@cornell.edu}
+\mywebsite{\href{https://cs.cornell.edu/~jpchang}{cs.cornell.edu/\char`~jpchang}}
+\myroomnumber{214 Gates Hall}
+\myphonenumber{+1 (408) 717-1539}
+
+\begin{document}
+
+\signature{Jonathan P. Chang}
+\begin{letter}{
+\ifundef{\chairname}{Faculty Search Committee\\}{\chairname\\\chairtitle\\}
+\department \\
+\schoolnamelong \\
+\schooladdress
+}
+
+\opening{
+    Dear \ifundef{\chairlastname}{Members of the Search Committee}{\chairlastname and Members of the Search Committee},
+}
+
+I am writing to apply for the position of \position.
+I am currently a Ph.D. candidate in Computer Science at Cornell University, with an expected graduation date of May 2024.
+Advised by Prof. Cristian Danescu-Niculescu-Mizil, I work at the intersection of Natural Language Processing and Computational Social Science.
+The Claremont Colleges play a special role in my academic journey, as an alumnus of Harvey Mudd College, and I feel uniquely positioned to contribute back to Claremont by bringing to Claremont McKenna my interdisciplinary, socially impactful research agenda and my passion for teaching.
+
+% teaching paragraph
+For me to teach at Claremont McKenna would be to bring my journey as an educator full circle: my overall teaching philosophy is directly inspired by my Claremont education, which included courses at Claremont McKenna.
+Furthermore, I believe my experience as an instructor of data science workshops at the Cornell Center for Social Sciences makes me uniquely suited to a Data Science teaching position at an interdisciplinary, Liberal Arts institution like Claremont McKenna.
+In particular, inspired by my data science workshop teaching, I would be excited to teach Claremont McKenna's Foundations of Data Science (CSCI 036) and Data Mining (CSCI 145) courses.
+I am also passionate about teaching foundational Computer Science courses, such as CSCI 046, CSCI 051, CSCI 052, and CSCI 062.
+
+% research paragraph
+My research also embodies the interdisciplinary spirit of the Claremont Colleges and Liberal Arts more broadly: I study online community governance and content moderation from a combined technical and social perspective.
+On the technical side, I develop novel computational models of online interaction that can help identify situations at risk of escalating into toxic or offensive behavior.
+On the social side, I collaborate with real online communities to evaluate how this technology could help their users have healthier online interactions.
+This focus on real-world applications opens up opportunities for undergraduate students to contribute in both software development and research design, as shown by the experiences of the six undergraduate and three masters students I have mentored---including one undergraduate who led a major user study and was first author on the resulting peer-reviewed academic conference paper.
+This cutting-edge research agenda, which has led not only to various peer-reviewed publications in top-tier venues but also spawned a completely new NLP task (detailed in my Research Statement), is a strong fit for an institution like Claremont McKenna that prides itself on high-quality research.
+
+Included in my application are the following materials: \materials
+For references, you may contact Profs. Cristian Danescu-Niculescu-Mizil, Karen Levy, and Peter Enns from Cornell University.
+Thank you for your consideration, and I look forward to hearing back from you.
+
+\closing{Sincerely,}
+
+\end{letter}
+\end{document}

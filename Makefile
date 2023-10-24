@@ -51,7 +51,8 @@ holycross: school := holycross
 ubc: school := ubc
 bard: school := bard
 vassar: school := vassar
+cmc: school := cmc
 generic skidmore rosehulman haverford princeton lafayette ucriverside union ucsd reed holycross ubc bard: setup teaching research dei coverlettergeneric
 	echo ${school} > build/SCHOOL
-pomona hmc vassar: setup teaching research dei coverlettercustom
+pomona hmc vassar cmc: setup teaching research dei coverlettercustom
 	echo ${school} > build/SCHOOL
