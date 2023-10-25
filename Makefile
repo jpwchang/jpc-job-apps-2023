@@ -53,7 +53,8 @@ bard: school := bard
 vassar: school := vassar
 lmu: school := lmu
 cmc: school := cmc
-generic skidmore rosehulman haverford princeton lafayette ucriverside union ucsd reed holycross ubc bard: setup teaching research dei coverlettergeneric
+bostoncollege: school := bostoncollege
+generic skidmore rosehulman haverford princeton lafayette ucriverside union ucsd reed holycross ubc bard bostoncollege: setup teaching research dei coverlettergeneric
 	echo ${school} > build/SCHOOL
 pomona hmc vassar lmu cmc: setup teaching research dei coverlettercustom
 	echo ${school} > build/SCHOOL
