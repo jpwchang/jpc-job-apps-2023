@@ -55,7 +55,8 @@ lmu: school := lmu
 cmc: school := cmc
 bostoncollege: school := bostoncollege
 berkeley: school := berkeley
-generic skidmore rosehulman haverford princeton lafayette ucriverside union ucsd reed holycross ubc bard bostoncollege berkeley: setup teaching research dei coverlettergeneric
+uiuc: school := uiuc
+generic skidmore rosehulman haverford princeton lafayette ucriverside union ucsd reed holycross ubc bard bostoncollege berkeley uiuc: setup teaching research dei coverlettergeneric
 	echo ${school} > build/SCHOOL
 pomona hmc vassar lmu cmc: setup teaching research dei coverlettercustom
 	echo ${school} > build/SCHOOL
